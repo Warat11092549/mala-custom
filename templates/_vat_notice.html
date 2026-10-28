@@ -1,0 +1,2 @@
+{# ข้อความโหมดจำลอง VAT — ใช้ {% include '_vat_notice.html' %} (ตั้ง show_vat_notice=true ก่อน include ถ้าต้องการบังคับแสดงในหน้าออเดอร์เก่า) #}
+{% if show_vat_notice or vat_cfg.notice %}<p class="vat-demo-note">{{ ic('shield') }} {{ vat_cfg.notice_text }}</p>{% endif %}

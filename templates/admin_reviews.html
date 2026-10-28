@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>รีวิวลูกค้า - Admin MALA CUSTOM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  {% include '_nav.html' %}
+
+  <header>
+    <h1>{{ ic('star') }} รีวิวจากลูกค้า</h1>
+    <p>เห็นเฉพาะแอดมิน — ยังไม่แสดงให้ลูกค้าคนอื่น</p>
+  </header>
+
+  <main style="max-width: 760px;">
+    <div class="card">
+      {% if count %}
+        <div class="review-summary">
+          <div class="review-avg">
+            <div class="review-avg-num">{{ '%.2f'|format(average) }}</div>
+            <div class="stars-static">{% for i in range(1, 6) %}<span class="{{ 'on' if i <= (average + 0.5)|int else '' }}">★</span>{% endfor %}</div>
+            <small style="color: var(--muted);">{{ count }} รีวิว · ตอบ {{ response_rate }}% ของออเดอร์ที่ส่งสำเร็จ ({{ delivered }})</small>
+          </div>
+          <div class="review-bars">
+            {% for s in (5, 4, 3, 2, 1) %}
+              <div class="review-bar-row">
+                <span>{{ s }} ★</span>
+                <div class="member-progress"><span style="width: {{ (distribution[s] * 100 // count) }}%;"></span></div>
+                <span>{{ distribution[s] }}</span>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% else %}
+        <p style="color: var(--muted); text-align:center; margin: 10px 0;">ยังไม่มีรีวิว (ส่งสำเร็จแล้ว {{ delivered }} ออเดอร์)</p>
+      {% endif %}
+    </div>
+
+    <div class="admin-filter-bar" style="margin-top: 16px;">
+      <a href="{{ url_for('admin_reviews') }}" class="chip {% if view != 'low' %}active{% endif %}">รีวิวทั้งหมด ({{ count }})</a>
+      <a href="{{ url_for('admin_reviews', view='low') }}" class="chip {% if view == 'low' %}active{% endif %}">{{ ic('shield') }} ดาวต่ำ ≤ {{ low_threshold }} ★ ({{ low|length }})</a>
+    </div>
+
+    {% if rows %}
+      {% for r in rows %}
+        <div class="card" style="margin-bottom: 12px; {% if r.stars <= low_threshold %}border-color: #f5c6cb;{% endif %}">
+          <div class="item">
+            <div>
+              <div class="stars-static">{% for i in range(1, 6) %}<span class="{{ 'on' if i <= r.stars else '' }}">★</span>{% endfor %}</div>
+              <small style="color: var(--muted);">{{ r.at }}</small>
+            </div>
+            <a href="{{ url_for('admin_order_detail', order_id=r.order_id) }}" class="btn-link" style="font-size: 13px; padding: 6px 12px;">ออเดอร์ #{{ r.order_id }}</a>
+          </div>
+          <p style="margin: 8px 0 0;">{{ r.comment or '(ไม่ได้เขียนคอมเมนต์)' }}</p>
+          <small style="color: var(--muted);">{{ ic('user') }} {{ r.customer_name }}{% if r.phone %} · {{ ic('message') }} {{ r.phone }}{% endif %} · {{ '%.2f'|format(r.total|float) }} บาท</small>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="card center" style="padding: 30px 16px; color: var(--muted);">
+        {% if view == 'low' %}ยังไม่มีออเดอร์ที่ได้ดาวต่ำ {{ ic('like') }}{% else %}ยังไม่มีรีวิว{% endif %}
+      </div>
+    {% endif %}
+  </main>
+</body>
+</html>

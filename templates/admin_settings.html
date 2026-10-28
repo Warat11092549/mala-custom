@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ตั้งค่าร้าน - Admin MALA CUSTOM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  {% include '_nav.html' %}
+
+  <header>
+    <h1>{{ ic('settings') }} ตั้งค่าร้าน</h1>
+    <p>เปิด-ปิดร้าน · ประกาศโปรโมชัน · สิทธิ์สมาชิก</p>
+  </header>
+
+  <main style="max-width: 760px;">
+    {% for message in get_flashed_messages() %}
+      <p class="msg">{{ message }}</p>
+    {% endfor %}
+
+    <!-- 1) สถานะร้าน -->
+    <div class="card">
+      <h3>{{ ic('store') }} สถานะร้านตอนนี้</h3>
+      <div class="shop-switch {{ 'is-open' if shop_state.open else 'is-closed' }}" style="margin-bottom: 12px;">
+        <span>{{ ic('check') if shop_state.open else ic('cancel') }} <strong>{{ shop_state.headline }}</strong>
+          {% if shop_state.detail %}<small>· {{ shop_state.detail }}</small>{% endif %}</span>
+      </div>
+      <p style="margin: 4px 0; font-size: 14px;">เวลาทำการ (แก้ที่ <code>config.py</code> → <code>OPEN_TIME / CLOSE_TIME / CLOSED_WEEKDAYS</code>): <strong>{{ shop_state.hours_text }}</strong></p>
+      {% if hours_error %}<div class="alert alert-danger">{{ ic('shield') }} {{ hours_error }}</div>{% endif %}
+
+      <form action="{{ url_for('admin_settings_shop') }}" method="post" style="margin-top: 12px;">
+        <label class="setting-row"><input type="radio" name="mode" value="auto" {% if mode == 'auto' %}checked{% endif %}>
+          <span><strong>เปิด-ปิดตามเวลาทำการ</strong> <small>(ปกติ)</small></span></label>
+        <label class="setting-row"><input type="radio" name="mode" value="closed" {% if mode == 'closed' %}checked{% endif %}>
+          <span><strong>ปิดร้านชั่วคราว</strong> <small>ลูกค้าดูเมนูได้แต่สั่งซื้อไม่ได้ (ออเดอร์ที่สั่งไปแล้วยังชำระเงินต่อได้)</small></span></label>
+        <label class="setting-row"><input type="radio" name="mode" value="open" {% if mode == 'open' %}checked{% endif %}>
+          <span><strong>บังคับเปิดนอกเวลา</strong> <small>รับออเดอร์ต่อแม้เลยเวลาปิด</small></span></label>
+        <input type="text" name="closed_note" maxlength="100" value="{{ closed_note }}"
+               placeholder="ข้อความถึงลูกค้าตอนปิดชั่วคราว เช่น กลับมา 18:00 น. (ไม่บังคับ)" style="width:100%; margin-top: 8px;">
+        <button type="submit" class="btn" style="margin-top: 10px;">บันทึกสถานะร้าน</button>
+      </form>
+    </div>
+
+    <!-- 2) แถบประกาศโปรโมชัน -->
+    <div class="card" style="margin-top: 16px;">
+      <h3>{{ ic('tag') }} แถบประกาศหน้าแรก</h3>
+      <form action="{{ url_for('admin_settings_promo') }}" method="post">
+        <input type="text" name="text" maxlength="{{ promo_max }}" value="{{ promo.text }}"
+               placeholder="เช่น ซื้อครบ 500 ลดเพิ่ม 10 บาท" style="width:100%;">
+        <label style="display:block; margin-top: 8px;"><input type="checkbox" name="enabled" {% if promo.enabled %}checked{% endif %}> แสดงแถบนี้ที่หน้าแรก</label>
+        <p style="font-size: 13px; color: var(--muted); margin: 8px 0;">
+          {{ ic('shield') }} แถบนี้เป็น<strong>ข้อความเฉย ๆ</strong> ไม่ได้ลดราคาให้อัตโนมัติ — อย่าประกาศส่วนลดที่ระบบไม่ได้คิดให้จริง
+          (ส่วนลดตามยอดอยู่ใน <code>promo.py</code> ตัวแปร <code>TIERS</code>, คูปองอยู่ที่ <code>COUPONS</code>) · ยาวสุด {{ promo_max }} ตัวอักษร
+        </p>
+        <button type="submit" class="btn" style="margin: 0;">บันทึกประกาศ</button>
+      </form>
+    </div>
+
+    <!-- VAT จำลอง (อ่านอย่างเดียว แก้ที่ config.py) -->
+    <div class="card" style="margin-top: 16px;">
+      <h3>{{ ic('percent') }} VAT จำลอง (โหมดสาธิต · ราคารวม VAT แล้ว)</h3>
+      <p style="margin: 6px 0;">สถานะ: <strong>{% if vat_cfg.enabled %}เปิด · {{ '%g'|format(vat_cfg.rate) }}%{% else %}ปิด{% endif %}</strong>
+        · เปิด/ปิดและเปลี่ยนอัตราที่ไฟล์ <code>config.py</code> (<code>VAT_ENABLED</code>, <code>VAT_RATE</code>)</p>
+      <p class="vat-demo-note">{{ vat_cfg.notice_text }}</p>
+    </div>
+
+    <!-- ข้อมูลบนใบเสร็จ / VAT -->
+    <div class="card" style="margin-top: 16px;">
+      <h3>{{ ic('receipt') }} ข้อมูลบนใบเสร็จ / VAT</h3>
+      <form action="{{ url_for('admin_settings_receipt') }}" method="post">
+        <label>ชื่อผู้ขาย / ชื่อนิติบุคคล <input type="text" name="legal_name" maxlength="100" value="{{ receipt.legal_name }}" placeholder="เว้นว่าง = ใช้ชื่อร้านใน config.py" style="width:100%;"></label>
+        <label style="display:block; margin-top: 8px;">ที่อยู่ <input type="text" name="address" maxlength="200" value="{{ receipt.address }}" placeholder="เว้นว่าง = ใช้ที่อยู่ร้านใน config.py" style="width:100%;"></label>
+        <label style="display:block; margin-top: 8px;">เลขประจำตัวผู้เสียภาษี (13 หลัก) <input type="text" name="tax_id" inputmode="numeric" maxlength="17" value="{{ receipt.tax_id }}" style="width:100%;"></label>
+        <label style="display:block; margin-top: 8px;">สาขา <input type="text" name="branch" maxlength="60" value="{{ receipt.branch }}" placeholder="เช่น สำนักงานใหญ่" style="width:100%;"></label>
+        <label style="display:block; margin-top: 10px;"><input type="checkbox" name="vat_registered" {% if receipt.vat_registered %}checked{% endif %}> ร้านจดทะเบียน VAT (ออกเป็นใบกำกับภาษีอย่างย่อ)</label>
+        <label style="display:block; margin-top: 8px;">อัตรา VAT (%) <input type="number" name="vat_rate" step="0.01" min="0" max="30" value="{{ '%g'|format(receipt.vat_rate) }}" style="width: 100px;"></label>
+        <p style="font-size: 13px; color: var(--muted); margin: 8px 0;">
+          {{ ic('shield') }} ถ้าจด VAT ระบบถือว่าราคาที่ลูกค้าจ่ายเป็นราคา<strong>รวม VAT แล้ว</strong> และแยกยอดก่อนภาษี/VAT ให้บนใบเสร็จ · ถ้าไม่ได้จด VAT จะออกเป็นใบเสร็จรับเงินธรรมดา
+        </p>
+        <button type="submit" class="btn" style="margin: 0;">บันทึกข้อมูลใบเสร็จ</button>
+      </form>
+    </div>
+
+    <!-- 3) สิทธิ์สมาชิก -->
+    <div class="card" style="margin-top: 16px;">
+      <h3>{{ ic('tag') }} สิทธิ์สมาชิก (โค้ดเฉพาะ id)</h3>
+      {% if rules.enabled %}
+        <ul style="font-size: 14px; line-height: 1.7; padding-left: 20px; margin: 4px 0;">
+          <li>ทุกยอดสะสม <strong>{{ rules.every }}</strong> บาท (นับเฉพาะออเดอร์ที่จัดส่งสำเร็จ) → ได้โค้ด 1 ใบ ลด <strong>{{ rules.baht }}</strong> บาท</li>
+          <li>สั่งขั้นต่ำ {{ rules.min }} บาท · ใช้ได้ครั้งเดียว · หมดอายุใน {{ rules.days }} วัน · ผูกกับ id ผู้ได้รับเท่านั้น</li>
+          <li>ซ้อนกับส่วนลดตามยอด: <strong>ได้</strong> · ซ้อนกับคูปอง: <strong>{{ 'ได้' if rules.stack_coupon else 'ไม่ได้ (เลือกอย่างใดอย่างหนึ่ง)' }}</strong></li>
+          <li>ออเดอร์ที่ใช้โค้ดถูกยกเลิก → คืนโค้ดให้ (ถ้ายังไม่หมดอายุ)</li>
+        </ul>
+        <small style="color: var(--muted);">แก้ตัวเลขที่ <code>config.py</code> (ชุด <code>MEMBER_REWARD_*</code>) — มีผลกับโค้ดที่ออกใหม่เท่านั้น</small>
+      {% else %}
+        <p style="color: var(--muted);">ปิดระบบอยู่ (<code>MEMBER_REWARD_ENABLED = False</code>)</p>
+      {% endif %}
+
+      {% if codes %}
+        <div style="overflow-x: auto; margin-top: 12px;">
+          <table class="plain-table">
+            <thead><tr><th>โค้ด</th><th>ผู้ใช้</th><th>ลด</th><th>หมดอายุ</th><th>สถานะ</th><th>ใช้กับ</th></tr></thead>
+            <tbody>
+              {% for c in codes %}
+                <tr>
+                  <td><code>{{ c.code }}</code></td>
+                  <td>{{ c.username }}</td>
+                  <td>{{ '%g'|format(c.value) }}</td>
+                  <td>{{ c.expires_text }}</td>
+                  <td>{{ {'active': 'ใช้ได้', 'used': 'ใช้แล้ว', 'expired': 'หมดอายุ'}[c.state] }}</td>
+                  <td>{{ c.used_order_id if c.used_order_id != 'PENDING' else '…' }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p style="color: var(--muted); font-size: 14px;">ยังไม่มีการออกโค้ด</p>
+      {% endif %}
+    </div>
+  </main>
+</body>
+</html>

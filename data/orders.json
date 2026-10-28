@@ -1,0 +1,6191 @@
+[
+  {
+    "order_id": "MZ0001",
+    "username": "Warat",
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "249 ewsrdtfy rdtfyguh",
+    "note": "",
+    "lat": 16.489043,
+    "lng": 102.816811,
+    "km": 2.0,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 45
+    },
+    "spicy_level": 3,
+    "spicy_name": "เผ็ดกลาง",
+    "lines": [
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 6,
+        "qty": 1,
+        "line_total": 6
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P014",
+        "name": "เห็ดออรินจิ",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P015",
+        "name": "ข้าวโพด",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P018",
+        "name": "วุ้นเส้น",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P022",
+        "name": "หมึก",
+        "price": 12,
+        "qty": 1,
+        "line_total": 12
+      },
+      {
+        "id": "P032",
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      }
+    ],
+    "subtotal": 109,
+    "tier_percent": 5,
+    "tier_discount": 5.45,
+    "coupon_code": "MALA10",
+    "coupon_discount": 10,
+    "food_total": 93.55,
+    "total": 93.55,
+    "status": 5,
+    "slip": "MZ0001_20261012151603.png",
+    "slip_note": "",
+    "points_earned": 9,
+    "points_given": true,
+    "date": "2026-10-12 15:15"
+  },
+  {
+    "order_id": "MZ0002",
+    "username": "Warat",
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "249 awdygau awdawdydawd",
+    "note": "",
+    "lat": 16.469261,
+    "lng": 102.825857,
+    "km": 0.4,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 45
+    },
+    "spicy_level": 3,
+    "spicy_name": "เผ็ดกลาง",
+    "lines": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P005",
+        "name": "ไส้หมู",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P008",
+        "name": "เต้าหู้ปลา",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 6,
+        "qty": 2,
+        "line_total": 12
+      },
+      {
+        "id": "P011",
+        "name": "ผักกาดขาว",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P014",
+        "name": "เห็ดออรินจิ",
+        "price": 8,
+        "qty": 3,
+        "line_total": 24
+      },
+      {
+        "id": "P015",
+        "name": "ข้าวโพด",
+        "price": 5,
+        "qty": 3,
+        "line_total": 15
+      },
+      {
+        "id": "P017",
+        "name": "มาม่า",
+        "price": 10,
+        "qty": 2,
+        "line_total": 20
+      },
+      {
+        "id": "P018",
+        "name": "วุ้นเส้น",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P023",
+        "name": "ข้าวโพดอ่อน",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P031",
+        "name": "น้ำจิ้มสูตรทางร้าน",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      }
+    ],
+    "subtotal": 208,
+    "tier_percent": 10,
+    "tier_discount": 20.8,
+    "coupon_code": null,
+    "coupon_discount": 0,
+    "food_total": 187.2,
+    "total": 187.2,
+    "status": 5,
+    "slip": "MZ0002_20261013160432.png",
+    "slip_note": "",
+    "points_earned": 18,
+    "points_given": true,
+    "date": "2026-10-13 16:04"
+  },
+  {
+    "order_id": "MZ0003",
+    "username": "Warat",
+    "customer_name": "beauty",
+    "phone": "0841708619",
+    "address": "siriwan",
+    "note": "",
+    "lat": 16.480208,
+    "lng": 102.813333,
+    "km": 1.4,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 45
+    },
+    "spicy_level": 4,
+    "spicy_name": "เผ็ดมาก",
+    "lines": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 15,
+        "qty": 1,
+        "line_total": 15
+      },
+      {
+        "id": "P005",
+        "name": "ไส้หมู",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P008",
+        "name": "เต้าหู้ปลา",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P009",
+        "name": "ปูอัด",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 6,
+        "qty": 1,
+        "line_total": 6
+      },
+      {
+        "id": "P011",
+        "name": "ผักกาดขาว",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P013",
+        "name": "เห็ดเข็มทอง",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P014",
+        "name": "เห็ดออรินจิ",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P015",
+        "name": "ข้าวโพด",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P016",
+        "name": "บรอกโคลี",
+        "price": 6,
+        "qty": 1,
+        "line_total": 6
+      },
+      {
+        "id": "P017",
+        "name": "มาม่า",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P018",
+        "name": "วุ้นเส้น",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P021",
+        "name": "กุ้ง",
+        "price": 15,
+        "qty": 1,
+        "line_total": 15
+      },
+      {
+        "id": "P022",
+        "name": "หมึก",
+        "price": 12,
+        "qty": 1,
+        "line_total": 12
+      },
+      {
+        "id": "P023",
+        "name": "ข้าวโพดอ่อน",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P024",
+        "name": "แครอท",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P031",
+        "name": "น้ำจิ้มสูตรทางร้าน",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P032",
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P033",
+        "name": "น้ำจิ้มงา",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P034",
+        "name": "น้ำจิ้มสูตรหม่าล่า",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      }
+    ],
+    "subtotal": 252,
+    "tier_percent": 10,
+    "tier_discount": 25.2,
+    "coupon_code": "MALA10",
+    "coupon_discount": 10,
+    "food_total": 216.8,
+    "total": 216.8,
+    "status": 5,
+    "slip": "MZ0003_20261013202913.png",
+    "slip_note": "",
+    "points_earned": 21,
+    "points_given": true,
+    "date": "2026-10-13 20:27"
+  },
+  {
+    "order_id": "MZ0004",
+    "username": "Warat",
+    "customer_name": "Warat",
+    "phone": "0841708619",
+    "address": "ฟไหฟก",
+    "note": "",
+    "lat": 16.480332,
+    "lng": 102.816548,
+    "km": 1.1,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S02",
+      "name": "ซุปน้ำดำ",
+      "price": 39
+    },
+    "spicy_level": 3,
+    "spicy_name": "เผ็ดกลาง",
+    "lines": [
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 6,
+        "qty": 1,
+        "line_total": 6
+      },
+      {
+        "id": "P013",
+        "name": "เห็ดเข็มทอง",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P016",
+        "name": "บรอกโคลี",
+        "price": 6,
+        "qty": 1,
+        "line_total": 6
+      },
+      {
+        "id": "P017",
+        "name": "มาม่า",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P021",
+        "name": "กุ้ง",
+        "price": 15,
+        "qty": 1,
+        "line_total": 15
+      },
+      {
+        "id": "P023",
+        "name": "ข้าวโพดอ่อน",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      }
+    ],
+    "subtotal": 96,
+    "tier_percent": 0,
+    "tier_discount": 0.0,
+    "coupon_code": null,
+    "coupon_discount": 0,
+    "food_total": 96.0,
+    "total": 96.0,
+    "status": 9,
+    "slip": "MZ0004_20261013204154.png",
+    "slip_note": "",
+    "points_earned": 9,
+    "points_given": false,
+    "date": "2026-10-13 20:40"
+  },
+  {
+    "order_id": "MZ0005",
+    "username": "Warat",
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "fawydgiuhad",
+    "note": "",
+    "lat": 16.482417,
+    "lng": 102.818358,
+    "km": 1.2,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 10
+    },
+    "spicy_level": 5,
+    "spicy_name": "เผ็ดมากพิเศษ",
+    "lines": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 5,
+        "qty": 3,
+        "line_total": 15
+      },
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7,
+        "qty": 1,
+        "line_total": 7
+      },
+      {
+        "id": "P005",
+        "name": "ไส้หมู",
+        "price": 7,
+        "qty": 1,
+        "line_total": 7
+      },
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P008",
+        "name": "เต้าหู้ปลา",
+        "price": 7,
+        "qty": 1,
+        "line_total": 7
+      },
+      {
+        "id": "P009",
+        "name": "ปูอัด",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P011",
+        "name": "ผักกาดขาว",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P013",
+        "name": "เห็ดเข็มทอง",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P014",
+        "name": "เห็ดออรินจิ",
+        "price": 6,
+        "qty": 1,
+        "line_total": 6
+      },
+      {
+        "id": "P017",
+        "name": "มาม่า",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P031",
+        "name": "น้ำจิ้มสูตรทางร้าน",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      }
+    ],
+    "subtotal": 107,
+    "tier_percent": 5,
+    "tier_discount": 5.35,
+    "coupon_code": null,
+    "coupon_discount": 0,
+    "food_total": 101.65,
+    "total": 101.65,
+    "status": 9,
+    "slip": "",
+    "slip_note": "",
+    "points_earned": 10,
+    "points_given": false,
+    "date": "2026-10-14 12:43",
+    "cancel_note": "หมดเวลาชำระเงิน ระบบยกเลิกอัตโนมัติ"
+  },
+  {
+    "order_id": "MZ0006",
+    "username": "Warat",
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "wadffhawghd",
+    "note": "",
+    "lat": 16.478247,
+    "lng": 102.815269,
+    "km": 1.1,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 10
+    },
+    "spicy_level": 3,
+    "spicy_name": "เผ็ดกลาง",
+    "lines": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7,
+        "qty": 1,
+        "line_total": 7
+      },
+      {
+        "id": "P005",
+        "name": "ไส้หมู",
+        "price": 7,
+        "qty": 2,
+        "line_total": 14
+      },
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P011",
+        "name": "ผักกาดขาว",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P013",
+        "name": "เห็ดเข็มทอง",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P017",
+        "name": "มาม่า",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P018",
+        "name": "วุ้นเส้น",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P021",
+        "name": "กุ้ง",
+        "price": 10,
+        "qty": 3,
+        "line_total": 30
+      },
+      {
+        "id": "P022",
+        "name": "หมึก",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P023",
+        "name": "ข้าวโพดอ่อน",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P024",
+        "name": "แครอท",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P031",
+        "name": "น้ำจิ้มสูตรทางร้าน",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      }
+    ],
+    "subtotal": 159,
+    "tier_percent": 5,
+    "tier_discount": 7.95,
+    "coupon_code": null,
+    "coupon_discount": 0,
+    "food_total": 151.05,
+    "total": 151.05,
+    "status": 9,
+    "slip": "",
+    "slip_note": "",
+    "points_earned": 15,
+    "points_given": false,
+    "date": "2026-10-14 13:09"
+  },
+  {
+    "order_id": "MZ0007",
+    "username": "Warat",
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "wytauddawdwawad",
+    "note": "",
+    "lat": 16.535246,
+    "lng": 102.828827,
+    "km": 7.0,
+    "delivery_fee": 10,
+    "soup": {
+      "id": "S03",
+      "name": "ซุปกระดูกหมู",
+      "price": 10
+    },
+    "spicy_level": 3,
+    "spicy_name": "เผ็ดกลาง",
+    "lines": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 5,
+        "qty": 3,
+        "line_total": 15
+      },
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7,
+        "qty": 1,
+        "line_total": 7
+      },
+      {
+        "id": "P005",
+        "name": "ไส้หมู",
+        "price": 7,
+        "qty": 1,
+        "line_total": 7
+      },
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P008",
+        "name": "เต้าหู้ปลา",
+        "price": 7,
+        "qty": 1,
+        "line_total": 7
+      },
+      {
+        "id": "P009",
+        "name": "ปูอัด",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P011",
+        "name": "ผักกาดขาว",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P013",
+        "name": "เห็ดเข็มทอง",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P014",
+        "name": "เห็ดออรินจิ",
+        "price": 6,
+        "qty": 1,
+        "line_total": 6
+      },
+      {
+        "id": "P015",
+        "name": "ข้าวโพด",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P016",
+        "name": "บรอกโคลี",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P017",
+        "name": "มาม่า",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P018",
+        "name": "วุ้นเส้น",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P021",
+        "name": "กุ้ง",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P022",
+        "name": "หมึก",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P032",
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      }
+    ],
+    "subtotal": 160,
+    "tier_percent": 5,
+    "tier_discount": 8.0,
+    "coupon_code": null,
+    "coupon_discount": 0,
+    "food_total": 152.0,
+    "total": 162.0,
+    "status": 9,
+    "slip": "",
+    "slip_note": "",
+    "points_earned": 15,
+    "points_given": false,
+    "date": "2026-10-14 15:13",
+    "cancel_note": "หมดเวลาชำระเงิน ระบบยกเลิกอัตโนมัติ"
+  },
+  {
+    "order_id": "MZ0008",
+    "username": "Warat",
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "ดัอเิ้ร่นาฟไกไฟก",
+    "note": "",
+    "lat": 16.480552,
+    "lng": 102.815269,
+    "km": 1.2,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 10
+    },
+    "spicy_level": 3,
+    "spicy_name": "เผ็ดกลาง",
+    "lines": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 5,
+        "qty": 20,
+        "line_total": 100
+      },
+      {
+        "id": "P032",
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      }
+    ],
+    "subtotal": 120,
+    "tier_percent": 5,
+    "tier_discount": 6.0,
+    "coupon_code": null,
+    "coupon_discount": 0,
+    "food_total": 114.0,
+    "total": 114.0,
+    "status": 9,
+    "slip": "MZ0008_20261014161959.png",
+    "slip_note": "",
+    "points_earned": 11,
+    "points_given": false,
+    "date": "2026-10-14 16:19"
+  },
+  {
+    "order_id": "MZ0009",
+    "username": "Warat",
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "หพปกแดอเิ้ื",
+    "note": "",
+    "lat": 16.485811,
+    "lng": 102.816949,
+    "km": 1.6,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S02",
+      "name": "ซุปน้ำดำ",
+      "price": 10
+    },
+    "spicy_level": 4,
+    "spicy_name": "เผ็ดมาก",
+    "lines": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 5,
+        "qty": 4,
+        "line_total": 20
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7,
+        "qty": 1,
+        "line_total": 7
+      },
+      {
+        "id": "P005",
+        "name": "ไส้หมู",
+        "price": 7,
+        "qty": 3,
+        "line_total": 21
+      },
+      {
+        "id": "P008",
+        "name": "เต้าหู้ปลา",
+        "price": 7,
+        "qty": 1,
+        "line_total": 7
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P011",
+        "name": "ผักกาดขาว",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P013",
+        "name": "เห็ดเข็มทอง",
+        "price": 5,
+        "qty": 3,
+        "line_total": 15
+      },
+      {
+        "id": "P014",
+        "name": "เห็ดออรินจิ",
+        "price": 6,
+        "qty": 1,
+        "line_total": 6
+      },
+      {
+        "id": "P015",
+        "name": "ข้าวโพด",
+        "price": 5,
+        "qty": 3,
+        "line_total": 15
+      },
+      {
+        "id": "P017",
+        "name": "มาม่า",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P018",
+        "name": "วุ้นเส้น",
+        "price": 8,
+        "qty": 3,
+        "line_total": 24
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8,
+        "qty": 2,
+        "line_total": 16
+      },
+      {
+        "id": "P021",
+        "name": "กุ้ง",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P023",
+        "name": "ข้าวโพดอ่อน",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P024",
+        "name": "แครอท",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P033",
+        "name": "น้ำจิ้มงา",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      }
+    ],
+    "subtotal": 206,
+    "tier_percent": 10,
+    "tier_discount": 20.6,
+    "coupon_code": null,
+    "coupon_discount": 0,
+    "food_total": 185.4,
+    "total": 185.4,
+    "status": 9,
+    "slip": "",
+    "slip_note": "",
+    "points_earned": 18,
+    "points_given": false,
+    "date": "2026-10-14 17:00",
+    "cancel_note": "หมดเวลาชำระเงิน ระบบยกเลิกอัตโนมัติ"
+  },
+  {
+    "order_id": "MZ0010",
+    "username": "Warat",
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "awdawdawd",
+    "note": "",
+    "lat": 16.474297,
+    "lng": 102.81424,
+    "km": 1.0,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S03",
+      "name": "ซุปกระดูกหมู",
+      "price": 10
+    },
+    "spicy_level": 3,
+    "spicy_name": "เผ็ดน้อย",
+    "lines": [
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7,
+        "qty": 4,
+        "line_total": 28
+      },
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P008",
+        "name": "เต้าหู้ปลา",
+        "price": 7,
+        "qty": 3,
+        "line_total": 21
+      },
+      {
+        "id": "P009",
+        "name": "ปูอัด",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P015",
+        "name": "ข้าวโพด",
+        "price": 5,
+        "qty": 3,
+        "line_total": 15
+      },
+      {
+        "id": "P017",
+        "name": "มาม่า",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P022",
+        "name": "หมึก",
+        "price": 10,
+        "qty": 2,
+        "line_total": 20
+      },
+      {
+        "id": "P023",
+        "name": "ข้าวโพดอ่อน",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P032",
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      }
+    ],
+    "subtotal": 157,
+    "tier_percent": 5,
+    "tier_discount": 7.85,
+    "coupon_code": null,
+    "coupon_discount": 0,
+    "food_total": 149.15,
+    "total": 149.15,
+    "status": 9,
+    "slip": "",
+    "slip_note": "",
+    "points_earned": 14,
+    "points_given": false,
+    "date": "2026-10-14 21:43",
+    "cancel_note": "หมดเวลาชำระเงิน ระบบยกเลิกอัตโนมัติ"
+  },
+  {
+    "order_id": "MZ0011",
+    "username": "Warat",
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "awyfdgyhuwd",
+    "note": "",
+    "lat": 16.471992,
+    "lng": 102.810808,
+    "km": 1.3,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 10
+    },
+    "spicy_level": 3,
+    "spicy_name": "เผ็ดน้อย",
+    "lines": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7,
+        "qty": 1,
+        "line_total": 7
+      },
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P009",
+        "name": "ปูอัด",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 5,
+        "qty": 4,
+        "line_total": 20
+      },
+      {
+        "id": "P011",
+        "name": "ผักกาดขาว",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P014",
+        "name": "เห็ดออรินจิ",
+        "price": 6,
+        "qty": 1,
+        "line_total": 6
+      },
+      {
+        "id": "P015",
+        "name": "ข้าวโพด",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P016",
+        "name": "บรอกโคลี",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P018",
+        "name": "วุ้นเส้น",
+        "price": 8,
+        "qty": 4,
+        "line_total": 32
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P022",
+        "name": "หมึก",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P031",
+        "name": "น้ำจิ้มสูตรทางร้าน",
+        "price": 10,
+        "qty": 2,
+        "line_total": 20
+      },
+      {
+        "id": "P032",
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      }
+    ],
+    "subtotal": 178,
+    "tier_percent": 5,
+    "tier_discount": 8.9,
+    "coupon_code": null,
+    "coupon_discount": 0,
+    "food_total": 169.1,
+    "total": 169.1,
+    "status": 5,
+    "slip": "MZ0011_20261014215809.jpg",
+    "slip_note": "",
+    "points_earned": 16,
+    "points_given": true,
+    "date": "2026-10-14 21:57"
+  },
+  {
+    "order_id": "MZ0012",
+    "username": "hiwmalaaaa",
+    "customer_name": "hiwmalaaaa",
+    "phone": "0933189044",
+    "address": "2131 wad awdw adwada",
+    "note": "",
+    "lat": 16.471512,
+    "lng": 102.798798,
+    "km": 2.6,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 10
+    },
+    "spicy_level": 4,
+    "spicy_name": "เผ็ดมาก",
+    "lines": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 5,
+        "qty": 3,
+        "line_total": 15
+      },
+      {
+        "id": "P005",
+        "name": "ไส้หมู",
+        "price": 7,
+        "qty": 1,
+        "line_total": 7
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P008",
+        "name": "เต้าหู้ปลา",
+        "price": 7,
+        "qty": 2,
+        "line_total": 14
+      },
+      {
+        "id": "P009",
+        "name": "ปูอัด",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P011",
+        "name": "ผักกาดขาว",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P013",
+        "name": "เห็ดเข็มทอง",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P014",
+        "name": "เห็ดออรินจิ",
+        "price": 6,
+        "qty": 1,
+        "line_total": 6
+      },
+      {
+        "id": "P015",
+        "name": "ข้าวโพด",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P016",
+        "name": "บรอกโคลี",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P017",
+        "name": "มาม่า",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P021",
+        "name": "กุ้ง",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P022",
+        "name": "หมึก",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      },
+      {
+        "id": "P024",
+        "name": "แครอท",
+        "price": 5,
+        "qty": 3,
+        "line_total": 15
+      },
+      {
+        "id": "P031",
+        "name": "น้ำจิ้มสูตรทางร้าน",
+        "price": 10,
+        "qty": 2,
+        "line_total": 20
+      },
+      {
+        "id": "P032",
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      }
+    ],
+    "subtotal": 180,
+    "tier_percent": 5,
+    "tier_discount": 9.0,
+    "coupon_code": "MALA10",
+    "coupon_discount": 10,
+    "food_total": 161.0,
+    "total": 161.0,
+    "status": 2,
+    "slip": "MZ0012_20261014224943.jpg",
+    "slip_note": "",
+    "points_earned": 16,
+    "points_given": false,
+    "date": "2026-10-14 22:49"
+  },
+  {
+    "order_id": "MZ0013",
+    "username": "hiwmalaaaa",
+    "customer_name": "hiwmalaaaa",
+    "phone": "0933189044",
+    "address": "241523 awduyagwduh awdawgdha awda",
+    "note": "",
+    "lat": 16.481498,
+    "lng": 102.808406,
+    "km": 1.9,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 10
+    },
+    "spicy_level": 3,
+    "spicy_name": "เผ็ดปานกลาง",
+    "lines": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P005",
+        "name": "ไส้หมู",
+        "price": 7,
+        "qty": 1,
+        "line_total": 7
+      },
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5,
+        "qty": 3,
+        "line_total": 15
+      },
+      {
+        "id": "P008",
+        "name": "เต้าหู้ปลา",
+        "price": 7,
+        "qty": 1,
+        "line_total": 7
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P013",
+        "name": "เห็ดเข็มทอง",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P014",
+        "name": "เห็ดออรินจิ",
+        "price": 6,
+        "qty": 1,
+        "line_total": 6
+      },
+      {
+        "id": "P016",
+        "name": "บรอกโคลี",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P018",
+        "name": "วุ้นเส้น",
+        "price": 8,
+        "qty": 2,
+        "line_total": 16
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P021",
+        "name": "กุ้ง",
+        "price": 10,
+        "qty": 2,
+        "line_total": 20
+      },
+      {
+        "id": "P023",
+        "name": "ข้าวโพดอ่อน",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P024",
+        "name": "แครอท",
+        "price": 5,
+        "qty": 2,
+        "line_total": 10
+      },
+      {
+        "id": "P032",
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      }
+    ],
+    "subtotal": 159,
+    "tier_percent": 5,
+    "tier_discount": 7.95,
+    "coupon_code": "MALA10",
+    "coupon_discount": 10,
+    "food_total": 141.05,
+    "total": 141.05,
+    "status": 2,
+    "slip": "MZ0013_20261014230026.jpg",
+    "slip_note": "",
+    "points_earned": 14,
+    "points_given": false,
+    "date": "2026-10-14 23:00",
+    "created_at": "2026-10-14 23:00",
+    "item_list": [],
+    "item_count": 0
+  },
+  {
+    "order_id": "MZ0014",
+    "username": "hiwmalaaaa",
+    "customer_name": "hiwmalaaaa",
+    "phone": "0933189044",
+    "address": "213 DAAWa adwada  wdawd",
+    "note": "",
+    "lat": 16.473597,
+    "lng": 102.844438,
+    "km": 2.3,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S05",
+      "name": "หม่าล่าดั้งเดิม",
+      "price": 5
+    },
+    "spicy_level": 5,
+    "spicy_name": "เผ็ดพ่นไฟ",
+    "lines": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P005",
+        "name": "ไส้หมู",
+        "price": 7,
+        "qty": 1,
+        "line_total": 7
+      },
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P009",
+        "name": "ปูอัด",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P015",
+        "name": "ข้าวโพด",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8,
+        "qty": 1,
+        "line_total": 8
+      },
+      {
+        "id": "P024",
+        "name": "แครอท",
+        "price": 5,
+        "qty": 1,
+        "line_total": 5
+      },
+      {
+        "id": "P032",
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10,
+        "qty": 1,
+        "line_total": 10
+      }
+    ],
+    "subtotal": 60,
+    "tier_percent": 0,
+    "tier_discount": 0.0,
+    "coupon_code": "MALA10",
+    "coupon_discount": 10,
+    "food_total": 50.0,
+    "total": 50.0,
+    "status": 2,
+    "slip": "MZ0014_20261014230547.jpg",
+    "slip_note": "",
+    "points_earned": 5,
+    "points_given": false,
+    "date": "2026-10-14 23:05",
+    "created_at": "2026-10-14 23:05",
+    "item_list": [],
+    "item_count": 0
+  },
+  {
+    "order_id": "MZ0015",
+    "username": "hiwmalaaaa",
+    "customer_name": "hiwmalaaaa",
+    "phone": "0933189044",
+    "address": "2q3 awsad awd d",
+    "note": "",
+    "lat": 16.463391,
+    "lng": 102.834486,
+    "km": 1.6,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 10
+    },
+    "spicy_level": 3,
+    "spicy_name": "เผ็ดปานกลาง",
+    "lines": [
+      {
+        "id": "P001",
+        "product": {
+          "id": "P001",
+          "name": "หมูสามชั้น",
+          "price": 5,
+          "category": "เนื้อสัตว์",
+          "tag": "pork",
+          "stock": 81,
+          "available": true,
+          "image": "meat/P001.jpg"
+        },
+        "name": "หมูสามชั้น",
+        "price": 5.0,
+        "qty": 4,
+        "subtotal": 20.0,
+        "image": "meat/P001.jpg"
+      },
+      {
+        "id": "P002",
+        "product": {
+          "id": "P002",
+          "name": "หมูสไลซ์",
+          "price": 5,
+          "category": "เนื้อสัตว์",
+          "tag": "pork",
+          "stock": 90,
+          "available": true,
+          "image": "meat/P002.jpg"
+        },
+        "name": "หมูสไลซ์",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "meat/P002.jpg"
+      },
+      {
+        "id": "P003",
+        "product": {
+          "id": "P003",
+          "name": "เนื้อวัว",
+          "price": 7,
+          "category": "เนื้อสัตว์",
+          "tag": "beef",
+          "stock": 93,
+          "available": true,
+          "image": "meat/P003.jpg"
+        },
+        "name": "เนื้อวัว",
+        "price": 7.0,
+        "qty": 2,
+        "subtotal": 14.0,
+        "image": "meat/P003.jpg"
+      },
+      {
+        "id": "P005",
+        "product": {
+          "id": "P005",
+          "name": "ไส้หมู",
+          "price": 7,
+          "category": "เนื้อสัตว์",
+          "tag": "pork",
+          "stock": 90,
+          "available": true,
+          "image": "meat/P005.jpg"
+        },
+        "name": "ไส้หมู",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "meat/P005.jpg"
+      },
+      {
+        "id": "P006",
+        "product": {
+          "id": "P006",
+          "name": "ลูกชิ้นหมู",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 91,
+          "available": true,
+          "image": "balls/P006.jpg"
+        },
+        "name": "ลูกชิ้นหมู",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P006.jpg"
+      },
+      {
+        "id": "P007",
+        "product": {
+          "id": "P007",
+          "name": "ลูกชิ้นปลา",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 87,
+          "available": true,
+          "image": "balls/P007.jpg"
+        },
+        "name": "ลูกชิ้นปลา",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P007.jpg"
+      },
+      {
+        "id": "P008",
+        "product": {
+          "id": "P008",
+          "name": "เต้าหู้ปลา",
+          "price": 7,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 90,
+          "available": true,
+          "image": "balls/P008.jpg"
+        },
+        "name": "เต้าหู้ปลา",
+        "price": 7.0,
+        "qty": 2,
+        "subtotal": 14.0,
+        "image": "balls/P008.jpg"
+      },
+      {
+        "id": "P009",
+        "product": {
+          "id": "P009",
+          "name": "ปูอัด",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 92,
+          "available": true,
+          "image": "balls/P009.jpg"
+        },
+        "name": "ปูอัด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P009.jpg"
+      },
+      {
+        "id": "P010",
+        "product": {
+          "id": "P010",
+          "name": "ไส้กรอก",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 88,
+          "available": true,
+          "image": "balls/P010.jpg"
+        },
+        "name": "ไส้กรอก",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P010.jpg"
+      },
+      {
+        "id": "P011",
+        "product": {
+          "id": "P011",
+          "name": "ผักกาดขาว",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 89,
+          "available": true,
+          "image": "vegetables/P011.jpg"
+        },
+        "name": "ผักกาดขาว",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "vegetables/P011.jpg"
+      },
+      {
+        "id": "P012",
+        "product": {
+          "id": "P012",
+          "name": "ผักบุ้ง",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 87,
+          "available": true,
+          "image": "vegetables/P012.jpg"
+        },
+        "name": "ผักบุ้ง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P012.jpg"
+      },
+      {
+        "id": "P013",
+        "product": {
+          "id": "P013",
+          "name": "เห็ดเข็มทอง",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 87,
+          "available": true,
+          "image": "vegetables/P013.jpg"
+        },
+        "name": "เห็ดเข็มทอง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P013.jpg"
+      },
+      {
+        "id": "P014",
+        "product": {
+          "id": "P014",
+          "name": "เห็ดออรินจิ",
+          "price": 6,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 86,
+          "available": true,
+          "image": "vegetables/P014.jpg"
+        },
+        "name": "เห็ดออรินจิ",
+        "price": 6.0,
+        "qty": 1,
+        "subtotal": 6.0,
+        "image": "vegetables/P014.jpg"
+      },
+      {
+        "id": "P015",
+        "product": {
+          "id": "P015",
+          "name": "ข้าวโพด",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 87,
+          "available": true,
+          "image": "vegetables/P015.jpg"
+        },
+        "name": "ข้าวโพด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P015.jpg"
+      },
+      {
+        "id": "P016",
+        "product": {
+          "id": "P016",
+          "name": "บรอกโคลี",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 91,
+          "available": true,
+          "image": "vegetables/P016.jpg"
+        },
+        "name": "บรอกโคลี",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P016.jpg"
+      },
+      {
+        "id": "P017",
+        "product": {
+          "id": "P017",
+          "name": "มาม่า",
+          "price": 10,
+          "category": "เส้น",
+          "tag": "noodle",
+          "stock": 90,
+          "available": true,
+          "image": "noodles/P017.jpg"
+        },
+        "name": "มาม่า",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "noodles/P017.jpg"
+      },
+      {
+        "id": "P018",
+        "product": {
+          "id": "P018",
+          "name": "วุ้นเส้น",
+          "price": 8,
+          "category": "เส้น",
+          "tag": "noodle",
+          "stock": 85,
+          "available": true,
+          "image": "noodles/P018.jpg"
+        },
+        "name": "วุ้นเส้น",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P018.jpg"
+      },
+      {
+        "id": "P019",
+        "product": {
+          "id": "P019",
+          "name": "เส้นมันเทศ",
+          "price": 8,
+          "category": "เส้น",
+          "tag": "noodle",
+          "stock": 90,
+          "available": true,
+          "image": "noodles/P019.jpg"
+        },
+        "name": "เส้นมันเทศ",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P019.jpg"
+      },
+      {
+        "id": "P021",
+        "product": {
+          "id": "P021",
+          "name": "กุ้ง",
+          "price": 10,
+          "category": "เนื้อสัตว์",
+          "tag": "seafood",
+          "stock": 86,
+          "available": true,
+          "image": "seafood/P021.jpg"
+        },
+        "name": "กุ้ง",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "seafood/P021.jpg"
+      },
+      {
+        "id": "P022",
+        "product": {
+          "id": "P022",
+          "name": "หมึก",
+          "price": 10,
+          "category": "เนื้อสัตว์",
+          "tag": "seafood",
+          "stock": 93,
+          "available": true,
+          "image": "seafood/P022.jpg"
+        },
+        "name": "หมึก",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "seafood/P022.jpg"
+      },
+      {
+        "id": "P023",
+        "product": {
+          "id": "P023",
+          "name": "ข้าวโพดอ่อน",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 92,
+          "available": true,
+          "image": "vegetables/P023.jpg"
+        },
+        "name": "ข้าวโพดอ่อน",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P023.jpg"
+      },
+      {
+        "id": "P024",
+        "product": {
+          "id": "P024",
+          "name": "แครอท",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 85,
+          "available": true,
+          "image": "vegetables/P024.jpg"
+        },
+        "name": "แครอท",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P024.jpg"
+      },
+      {
+        "id": "P033",
+        "product": {
+          "id": "P033",
+          "name": "น้ำจิ้มงา",
+          "price": 10,
+          "category": "น้ำจิ้ม",
+          "tag": "sauce",
+          "detail": "รสชาติเฉพาะของน้ำจิ้มงา",
+          "stock": 98,
+          "available": true,
+          "image": "sauce/P033.jpg"
+        },
+        "name": "น้ำจิ้มงา",
+        "price": 10.0,
+        "qty": 2,
+        "subtotal": 20.0,
+        "image": "sauce/P033.jpg"
+      }
+    ],
+    "subtotal": 217.0,
+    "tier_percent": 10,
+    "tier_discount": 21.7,
+    "coupon_code": "MALA10",
+    "coupon_discount": 10,
+    "food_total": 185.3,
+    "total": 185.3,
+    "status": 2,
+    "slip": "MZ0015_20261014230915.jpg",
+    "slip_note": "",
+    "points_earned": 18,
+    "points_given": false,
+    "date": "2026-10-14 23:09",
+    "created_at": "2026-10-14 23:09",
+    "item_list": [],
+    "item_count": 0
+  },
+  {
+    "order_id": "MZ0016",
+    "username": "Warat",
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "dawdadwad",
+    "note": "",
+    "lat": 16.45911,
+    "lng": 102.825221,
+    "km": 1.5,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 10
+    },
+    "spicy_level": 1,
+    "spicy_name": "ไม่เผ็ด",
+    "lines": [
+      {
+        "id": "P001",
+        "product": {
+          "id": "P001",
+          "name": "หมูสามชั้น",
+          "price": 5,
+          "category": "เนื้อสัตว์",
+          "tag": "pork",
+          "stock": 77,
+          "available": true,
+          "image": "meat/P001.jpg"
+        },
+        "name": "หมูสามชั้น",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "meat/P001.jpg"
+      },
+      {
+        "id": "P003",
+        "product": {
+          "id": "P003",
+          "name": "เนื้อวัว",
+          "price": 7,
+          "category": "เนื้อสัตว์",
+          "tag": "beef",
+          "stock": 91,
+          "available": true,
+          "image": "meat/P003.jpg"
+        },
+        "name": "เนื้อวัว",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "meat/P003.jpg"
+      },
+      {
+        "id": "P005",
+        "product": {
+          "id": "P005",
+          "name": "ไส้หมู",
+          "price": 7,
+          "category": "เนื้อสัตว์",
+          "tag": "pork",
+          "stock": 89,
+          "available": true,
+          "image": "meat/P005.jpg"
+        },
+        "name": "ไส้หมู",
+        "price": 7.0,
+        "qty": 3,
+        "subtotal": 21.0,
+        "image": "meat/P005.jpg"
+      },
+      {
+        "id": "P006",
+        "product": {
+          "id": "P006",
+          "name": "ลูกชิ้นหมู",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 89,
+          "available": true,
+          "image": "balls/P006.jpg"
+        },
+        "name": "ลูกชิ้นหมู",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P006.jpg"
+      },
+      {
+        "id": "P007",
+        "product": {
+          "id": "P007",
+          "name": "ลูกชิ้นปลา",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 85,
+          "available": true,
+          "image": "balls/P007.jpg"
+        },
+        "name": "ลูกชิ้นปลา",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P007.jpg"
+      },
+      {
+        "id": "P012",
+        "product": {
+          "id": "P012",
+          "name": "ผักบุ้ง",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 86,
+          "available": true,
+          "image": "vegetables/P012.jpg"
+        },
+        "name": "ผักบุ้ง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P012.jpg"
+      },
+      {
+        "id": "P013",
+        "product": {
+          "id": "P013",
+          "name": "เห็ดเข็มทอง",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 86,
+          "available": true,
+          "image": "vegetables/P013.jpg"
+        },
+        "name": "เห็ดเข็มทอง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P013.jpg"
+      },
+      {
+        "id": "P014",
+        "product": {
+          "id": "P014",
+          "name": "เห็ดออรินจิ",
+          "price": 6,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 85,
+          "available": true,
+          "image": "vegetables/P014.jpg"
+        },
+        "name": "เห็ดออรินจิ",
+        "price": 6.0,
+        "qty": 3,
+        "subtotal": 18.0,
+        "image": "vegetables/P014.jpg"
+      },
+      {
+        "id": "P015",
+        "product": {
+          "id": "P015",
+          "name": "ข้าวโพด",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 86,
+          "available": true,
+          "image": "vegetables/P015.jpg"
+        },
+        "name": "ข้าวโพด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P015.jpg"
+      },
+      {
+        "id": "P016",
+        "product": {
+          "id": "P016",
+          "name": "บรอกโคลี",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 90,
+          "available": true,
+          "image": "vegetables/P016.jpg"
+        },
+        "name": "บรอกโคลี",
+        "price": 5.0,
+        "qty": 3,
+        "subtotal": 15.0,
+        "image": "vegetables/P016.jpg"
+      },
+      {
+        "id": "P017",
+        "product": {
+          "id": "P017",
+          "name": "มาม่า",
+          "price": 10,
+          "category": "เส้น",
+          "tag": "noodle",
+          "stock": 89,
+          "available": true,
+          "image": "noodles/P017.jpg"
+        },
+        "name": "มาม่า",
+        "price": 10.0,
+        "qty": 2,
+        "subtotal": 20.0,
+        "image": "noodles/P017.jpg"
+      },
+      {
+        "id": "P018",
+        "product": {
+          "id": "P018",
+          "name": "วุ้นเส้น",
+          "price": 8,
+          "category": "เส้น",
+          "tag": "noodle",
+          "stock": 84,
+          "available": true,
+          "image": "noodles/P018.jpg"
+        },
+        "name": "วุ้นเส้น",
+        "price": 8.0,
+        "qty": 2,
+        "subtotal": 16.0,
+        "image": "noodles/P018.jpg"
+      },
+      {
+        "id": "P019",
+        "product": {
+          "id": "P019",
+          "name": "เส้นมันเทศ",
+          "price": 8,
+          "category": "เส้น",
+          "tag": "noodle",
+          "stock": 89,
+          "available": true,
+          "image": "noodles/P019.jpg"
+        },
+        "name": "เส้นมันเทศ",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P019.jpg"
+      },
+      {
+        "id": "P021",
+        "product": {
+          "id": "P021",
+          "name": "กุ้ง",
+          "price": 10,
+          "category": "เนื้อสัตว์",
+          "tag": "seafood",
+          "stock": 85,
+          "available": true,
+          "image": "seafood/P021.jpg"
+        },
+        "name": "กุ้ง",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "seafood/P021.jpg"
+      },
+      {
+        "id": "P023",
+        "product": {
+          "id": "P023",
+          "name": "ข้าวโพดอ่อน",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 91,
+          "available": true,
+          "image": "vegetables/P023.jpg"
+        },
+        "name": "ข้าวโพดอ่อน",
+        "price": 5.0,
+        "qty": 5,
+        "subtotal": 25.0,
+        "image": "vegetables/P023.jpg"
+      },
+      {
+        "id": "P024",
+        "product": {
+          "id": "P024",
+          "name": "แครอท",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 84,
+          "available": true,
+          "image": "vegetables/P024.jpg"
+        },
+        "name": "แครอท",
+        "price": 5.0,
+        "qty": 3,
+        "subtotal": 15.0,
+        "image": "vegetables/P024.jpg"
+      },
+      {
+        "id": "P033",
+        "product": {
+          "id": "P033",
+          "name": "น้ำจิ้มงา",
+          "price": 10,
+          "category": "น้ำจิ้ม",
+          "tag": "sauce",
+          "detail": "รสชาติเฉพาะของน้ำจิ้มงา",
+          "stock": 96,
+          "available": true,
+          "image": "sauce/P033.jpg"
+        },
+        "name": "น้ำจิ้มงา",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P033.jpg"
+      }
+    ],
+    "subtotal": 210.0,
+    "tier_percent": 10,
+    "tier_discount": 21.0,
+    "coupon_code": null,
+    "coupon_discount": 0,
+    "food_total": 189.0,
+    "total": 189.0,
+    "status": 2,
+    "slip": "MZ0016_20261014231949.jpg",
+    "slip_note": "",
+    "points_earned": 18,
+    "points_given": false,
+    "date": "2026-10-14 23:19",
+    "created_at": "2026-10-14 23:19",
+    "item_list": [],
+    "item_count": 0
+  },
+  {
+    "order_id": "MZ0017",
+    "username": "Warat",
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "awdawda",
+    "note": "",
+    "lat": 16.456476,
+    "lng": 102.824535,
+    "km": 1.8,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 10
+    },
+    "spicy_level": 1,
+    "spicy_name": "ไม่เผ็ด",
+    "lines": [
+      {
+        "id": "P001",
+        "product": {
+          "id": "P001",
+          "name": "หมูสามชั้น",
+          "price": 5,
+          "category": "เนื้อสัตว์",
+          "tag": "pork",
+          "stock": 76,
+          "available": true,
+          "image": "meat/P001.jpg"
+        },
+        "name": "หมูสามชั้น",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "meat/P001.jpg"
+      },
+      {
+        "id": "P005",
+        "product": {
+          "id": "P005",
+          "name": "ไส้หมู",
+          "price": 7,
+          "category": "เนื้อสัตว์",
+          "tag": "pork",
+          "stock": 86,
+          "available": true,
+          "image": "meat/P005.jpg"
+        },
+        "name": "ไส้หมู",
+        "price": 7.0,
+        "qty": 3,
+        "subtotal": 21.0,
+        "image": "meat/P005.jpg"
+      },
+      {
+        "id": "P006",
+        "product": {
+          "id": "P006",
+          "name": "ลูกชิ้นหมู",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 87,
+          "available": true,
+          "image": "balls/P006.jpg"
+        },
+        "name": "ลูกชิ้นหมู",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P006.jpg"
+      },
+      {
+        "id": "P007",
+        "product": {
+          "id": "P007",
+          "name": "ลูกชิ้นปลา",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 84,
+          "available": true,
+          "image": "balls/P007.jpg"
+        },
+        "name": "ลูกชิ้นปลา",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P007.jpg"
+      },
+      {
+        "id": "P010",
+        "product": {
+          "id": "P010",
+          "name": "ไส้กรอก",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 87,
+          "available": true,
+          "image": "balls/P010.jpg"
+        },
+        "name": "ไส้กรอก",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P010.jpg"
+      },
+      {
+        "id": "P011",
+        "product": {
+          "id": "P011",
+          "name": "ผักกาดขาว",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 87,
+          "available": true,
+          "image": "vegetables/P011.jpg"
+        },
+        "name": "ผักกาดขาว",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P011.jpg"
+      },
+      {
+        "id": "P012",
+        "product": {
+          "id": "P012",
+          "name": "ผักบุ้ง",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 85,
+          "available": true,
+          "image": "vegetables/P012.jpg"
+        },
+        "name": "ผักบุ้ง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P012.jpg"
+      },
+      {
+        "id": "P013",
+        "product": {
+          "id": "P013",
+          "name": "เห็ดเข็มทอง",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 85,
+          "available": true,
+          "image": "vegetables/P013.jpg"
+        },
+        "name": "เห็ดเข็มทอง",
+        "price": 5.0,
+        "qty": 3,
+        "subtotal": 15.0,
+        "image": "vegetables/P013.jpg"
+      },
+      {
+        "id": "P014",
+        "product": {
+          "id": "P014",
+          "name": "เห็ดออรินจิ",
+          "price": 6,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 82,
+          "available": true,
+          "image": "vegetables/P014.jpg"
+        },
+        "name": "เห็ดออรินจิ",
+        "price": 6.0,
+        "qty": 1,
+        "subtotal": 6.0,
+        "image": "vegetables/P014.jpg"
+      },
+      {
+        "id": "P015",
+        "product": {
+          "id": "P015",
+          "name": "ข้าวโพด",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 85,
+          "available": true,
+          "image": "vegetables/P015.jpg"
+        },
+        "name": "ข้าวโพด",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "vegetables/P015.jpg"
+      },
+      {
+        "id": "P017",
+        "product": {
+          "id": "P017",
+          "name": "มาม่า",
+          "price": 10,
+          "category": "เส้น",
+          "tag": "noodle",
+          "stock": 87,
+          "available": true,
+          "image": "noodles/P017.jpg"
+        },
+        "name": "มาม่า",
+        "price": 10.0,
+        "qty": 2,
+        "subtotal": 20.0,
+        "image": "noodles/P017.jpg"
+      },
+      {
+        "id": "P019",
+        "product": {
+          "id": "P019",
+          "name": "เส้นมันเทศ",
+          "price": 8,
+          "category": "เส้น",
+          "tag": "noodle",
+          "stock": 88,
+          "available": true,
+          "image": "noodles/P019.jpg"
+        },
+        "name": "เส้นมันเทศ",
+        "price": 8.0,
+        "qty": 2,
+        "subtotal": 16.0,
+        "image": "noodles/P019.jpg"
+      },
+      {
+        "id": "P022",
+        "product": {
+          "id": "P022",
+          "name": "หมึก",
+          "price": 10,
+          "category": "เนื้อสัตว์",
+          "tag": "seafood",
+          "stock": 92,
+          "available": true,
+          "image": "seafood/P022.jpg"
+        },
+        "name": "หมึก",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "seafood/P022.jpg"
+      },
+      {
+        "id": "P024",
+        "product": {
+          "id": "P024",
+          "name": "แครอท",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 81,
+          "available": true,
+          "image": "vegetables/P024.jpg"
+        },
+        "name": "แครอท",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P024.jpg"
+      },
+      {
+        "id": "P033",
+        "product": {
+          "id": "P033",
+          "name": "น้ำจิ้มงา",
+          "price": 10,
+          "category": "น้ำจิ้ม",
+          "tag": "sauce",
+          "detail": "รสชาติเฉพาะของน้ำจิ้มงา",
+          "stock": 95,
+          "available": true,
+          "image": "sauce/P033.jpg"
+        },
+        "name": "น้ำจิ้มงา",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P033.jpg"
+      }
+    ],
+    "subtotal": 158.0,
+    "tier_percent": 5,
+    "tier_discount": 7.9,
+    "coupon_code": null,
+    "coupon_discount": 0,
+    "food_total": 150.1,
+    "total": 150.1,
+    "status": 2,
+    "slip": "MZ0017_20261014233524.jpg",
+    "slip_note": "",
+    "points_earned": 15,
+    "points_given": false,
+    "date": "2026-10-14 23:35",
+    "created_at": "2026-10-14 23:35",
+    "item_list": [],
+    "items": [],
+    "item_count": 0
+  },
+  {
+    "order_id": "ORD20261014234330",
+    "id": "ORD20261014234330",
+    "username": "Warat",
+    "created_at": "2026-10-14 23:43",
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 10,
+      "detail": "พริกและเครื่องเทศจัดเต็ม ชาลิ้น เผ็ดสะใจ",
+      "image": "soup/S01.jpg"
+    },
+    "spicy_level": 4,
+    "spicy_name": "เผ็ดมาก",
+    "items": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "meat/P001.jpg"
+      },
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "meat/P002.jpg"
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7.0,
+        "qty": 2,
+        "subtotal": 14.0,
+        "image": "meat/P003.jpg"
+      },
+      {
+        "id": "P014",
+        "name": "เห็ดออรินจิ",
+        "price": 6.0,
+        "qty": 1,
+        "subtotal": 6.0,
+        "image": "vegetables/P014.jpg"
+      },
+      {
+        "id": "P024",
+        "name": "แครอท",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "vegetables/P024.jpg"
+      },
+      {
+        "id": "P032",
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P032.jpg"
+      }
+    ],
+    "item_list": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "meat/P001.jpg"
+      },
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "meat/P002.jpg"
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7.0,
+        "qty": 2,
+        "subtotal": 14.0,
+        "image": "meat/P003.jpg"
+      },
+      {
+        "id": "P014",
+        "name": "เห็ดออรินจิ",
+        "price": 6.0,
+        "qty": 1,
+        "subtotal": 6.0,
+        "image": "vegetables/P014.jpg"
+      },
+      {
+        "id": "P024",
+        "name": "แครอท",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "vegetables/P024.jpg"
+      },
+      {
+        "id": "P032",
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P032.jpg"
+      }
+    ],
+    "pricing": {
+      "subtotal": 60.0,
+      "tier_percent": 0,
+      "tier_discount": 0.0,
+      "coupon_code": null,
+      "coupon_discount": 0,
+      "coupon_note": "",
+      "final_total": 60.0,
+      "hint": "ซื้ออีก 40.0 บาท ลด 5%"
+    },
+    "delivery": {
+      "address": "ำฟไหำกะพ",
+      "fee": 0,
+      "km": 3.5,
+      "lat": 16.455994,
+      "lng": 102.851453,
+      "name": "Warat",
+      "note": "",
+      "phone": "0933189044"
+    },
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "ำฟไหำกะพ",
+    "note": "",
+    "lat": 16.455994,
+    "lng": 102.851453,
+    "km": 3.5,
+    "fee": 0,
+    "grand_total": 60.0,
+    "status": 9,
+    "slip": null,
+    "cancel_note": "หมดเวลาชำระเงิน ระบบยกเลิกอัตโนมัติ"
+  },
+  {
+    "order_id": "ORD20261014234533",
+    "id": "ORD20261014234533",
+    "username": "Warat",
+    "created_at": "2026-10-14 23:45",
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 10,
+      "detail": "พริกและเครื่องเทศจัดเต็ม ชาลิ้น เผ็ดสะใจ",
+      "image": "soup/S01.jpg"
+    },
+    "spicy_level": 1,
+    "spicy_name": "ไม่เผ็ด",
+    "items": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "meat/P001.jpg"
+      },
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "meat/P002.jpg"
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "meat/P003.jpg"
+      },
+      {
+        "id": "P005",
+        "name": "ไส้หมู",
+        "price": 7.0,
+        "qty": 2,
+        "subtotal": 14.0,
+        "image": "meat/P005.jpg"
+      },
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P006.jpg"
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P007.jpg"
+      },
+      {
+        "id": "P008",
+        "name": "เต้าหู้ปลา",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "balls/P008.jpg"
+      },
+      {
+        "id": "P009",
+        "name": "ปูอัด",
+        "price": 5.0,
+        "qty": 3,
+        "subtotal": 15.0,
+        "image": "balls/P009.jpg"
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P010.jpg"
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P012.jpg"
+      },
+      {
+        "id": "P014",
+        "name": "เห็ดออรินจิ",
+        "price": 6.0,
+        "qty": 2,
+        "subtotal": 12.0,
+        "image": "vegetables/P014.jpg"
+      },
+      {
+        "id": "P016",
+        "name": "บรอกโคลี",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P016.jpg"
+      },
+      {
+        "id": "P017",
+        "name": "มาม่า",
+        "price": 10.0,
+        "qty": 3,
+        "subtotal": 30.0,
+        "image": "noodles/P017.jpg"
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8.0,
+        "qty": 2,
+        "subtotal": 16.0,
+        "image": "noodles/P019.jpg"
+      },
+      {
+        "id": "P021",
+        "name": "กุ้ง",
+        "price": 10.0,
+        "qty": 2,
+        "subtotal": 20.0,
+        "image": "seafood/P021.jpg"
+      },
+      {
+        "id": "P022",
+        "name": "หมึก",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "seafood/P022.jpg"
+      },
+      {
+        "id": "P023",
+        "name": "ข้าวโพดอ่อน",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P023.jpg"
+      },
+      {
+        "id": "P033",
+        "name": "น้ำจิ้มงา",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P033.jpg"
+      }
+    ],
+    "item_list": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "meat/P001.jpg"
+      },
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "meat/P002.jpg"
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "meat/P003.jpg"
+      },
+      {
+        "id": "P005",
+        "name": "ไส้หมู",
+        "price": 7.0,
+        "qty": 2,
+        "subtotal": 14.0,
+        "image": "meat/P005.jpg"
+      },
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P006.jpg"
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P007.jpg"
+      },
+      {
+        "id": "P008",
+        "name": "เต้าหู้ปลา",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "balls/P008.jpg"
+      },
+      {
+        "id": "P009",
+        "name": "ปูอัด",
+        "price": 5.0,
+        "qty": 3,
+        "subtotal": 15.0,
+        "image": "balls/P009.jpg"
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P010.jpg"
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P012.jpg"
+      },
+      {
+        "id": "P014",
+        "name": "เห็ดออรินจิ",
+        "price": 6.0,
+        "qty": 2,
+        "subtotal": 12.0,
+        "image": "vegetables/P014.jpg"
+      },
+      {
+        "id": "P016",
+        "name": "บรอกโคลี",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P016.jpg"
+      },
+      {
+        "id": "P017",
+        "name": "มาม่า",
+        "price": 10.0,
+        "qty": 3,
+        "subtotal": 30.0,
+        "image": "noodles/P017.jpg"
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8.0,
+        "qty": 2,
+        "subtotal": 16.0,
+        "image": "noodles/P019.jpg"
+      },
+      {
+        "id": "P021",
+        "name": "กุ้ง",
+        "price": 10.0,
+        "qty": 2,
+        "subtotal": 20.0,
+        "image": "seafood/P021.jpg"
+      },
+      {
+        "id": "P022",
+        "name": "หมึก",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "seafood/P022.jpg"
+      },
+      {
+        "id": "P023",
+        "name": "ข้าวโพดอ่อน",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P023.jpg"
+      },
+      {
+        "id": "P033",
+        "name": "น้ำจิ้มงา",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P033.jpg"
+      }
+    ],
+    "pricing": {
+      "subtotal": 206.0,
+      "tier_percent": 10,
+      "tier_discount": 20.6,
+      "coupon_code": null,
+      "coupon_discount": 0,
+      "coupon_note": "",
+      "final_total": 185.4,
+      "hint": ""
+    },
+    "delivery": {
+      "address": "ะกดัเี้ื่",
+      "fee": 0,
+      "km": 2.6,
+      "lat": 16.477548,
+      "lng": 102.799484,
+      "name": "Warat",
+      "note": "",
+      "phone": "0933189044"
+    },
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "ะกดัเี้ื่",
+    "note": "",
+    "lat": 16.477548,
+    "lng": 102.799484,
+    "km": 2.6,
+    "fee": 0,
+    "grand_total": 185.4,
+    "status": 4,
+    "slip": "slip_ORD20261014234533_1791996405.jpg"
+  },
+  {
+    "order_id": "ORD20261014235832",
+    "id": "ORD20261014235832",
+    "username": "Warat",
+    "created_at": "2026-10-14 23:58",
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 10,
+      "detail": "พริกและเครื่องเทศจัดเต็ม ชาลิ้น เผ็ดสะใจ",
+      "image": "soup/S01.jpg"
+    },
+    "spicy_level": 3,
+    "spicy_name": "เผ็ดปานกลาง",
+    "items": [
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 5.0,
+        "qty": 3,
+        "subtotal": 15.0,
+        "image": "meat/P002.jpg"
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "meat/P003.jpg"
+      },
+      {
+        "id": "P005",
+        "name": "ไส้หมู",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "meat/P005.jpg"
+      },
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P006.jpg"
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P007.jpg"
+      },
+      {
+        "id": "P008",
+        "name": "เต้าหู้ปลา",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "balls/P008.jpg"
+      },
+      {
+        "id": "P009",
+        "name": "ปูอัด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P009.jpg"
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P010.jpg"
+      },
+      {
+        "id": "P011",
+        "name": "ผักกาดขาว",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P011.jpg"
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P012.jpg"
+      },
+      {
+        "id": "P013",
+        "name": "เห็ดเข็มทอง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P013.jpg"
+      },
+      {
+        "id": "P015",
+        "name": "ข้าวโพด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P015.jpg"
+      },
+      {
+        "id": "P017",
+        "name": "มาม่า",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "noodles/P017.jpg"
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P019.jpg"
+      },
+      {
+        "id": "P021",
+        "name": "กุ้ง",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "seafood/P021.jpg"
+      },
+      {
+        "id": "P022",
+        "name": "หมึก",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "seafood/P022.jpg"
+      },
+      {
+        "id": "P023",
+        "name": "ข้าวโพดอ่อน",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "vegetables/P023.jpg"
+      },
+      {
+        "id": "P024",
+        "name": "แครอท",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P024.jpg"
+      },
+      {
+        "id": "P031",
+        "name": "น้ำจิ้มสูตรทางร้าน",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P031.jpg"
+      }
+    ],
+    "item_list": [
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 5.0,
+        "qty": 3,
+        "subtotal": 15.0,
+        "image": "meat/P002.jpg"
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "meat/P003.jpg"
+      },
+      {
+        "id": "P005",
+        "name": "ไส้หมู",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "meat/P005.jpg"
+      },
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P006.jpg"
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P007.jpg"
+      },
+      {
+        "id": "P008",
+        "name": "เต้าหู้ปลา",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "balls/P008.jpg"
+      },
+      {
+        "id": "P009",
+        "name": "ปูอัด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P009.jpg"
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P010.jpg"
+      },
+      {
+        "id": "P011",
+        "name": "ผักกาดขาว",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P011.jpg"
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P012.jpg"
+      },
+      {
+        "id": "P013",
+        "name": "เห็ดเข็มทอง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P013.jpg"
+      },
+      {
+        "id": "P015",
+        "name": "ข้าวโพด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P015.jpg"
+      },
+      {
+        "id": "P017",
+        "name": "มาม่า",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "noodles/P017.jpg"
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P019.jpg"
+      },
+      {
+        "id": "P021",
+        "name": "กุ้ง",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "seafood/P021.jpg"
+      },
+      {
+        "id": "P022",
+        "name": "หมึก",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "seafood/P022.jpg"
+      },
+      {
+        "id": "P023",
+        "name": "ข้าวโพดอ่อน",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "vegetables/P023.jpg"
+      },
+      {
+        "id": "P024",
+        "name": "แครอท",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P024.jpg"
+      },
+      {
+        "id": "P031",
+        "name": "น้ำจิ้มสูตรทางร้าน",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P031.jpg"
+      }
+    ],
+    "pricing": {
+      "subtotal": 159.0,
+      "tier_percent": 5,
+      "tier_discount": 7.95,
+      "coupon_code": "MALA10",
+      "coupon_discount": 10,
+      "coupon_note": "",
+      "final_total": 141.05,
+      "hint": "ซื้ออีก 41.0 บาท ลด 10%"
+    },
+    "delivery": {
+      "address": "456 warfydghdawdu",
+      "fee": 0,
+      "km": 0.5,
+      "lat": 16.476499,
+      "lng": 102.823157,
+      "name": "Warat",
+      "note": "",
+      "phone": "0933189044"
+    },
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "456 warfydghdawdu",
+    "note": "",
+    "lat": 16.476499,
+    "lng": 102.823157,
+    "km": 0.5,
+    "fee": 0,
+    "grand_total": 141.05,
+    "status": 5,
+    "slip": "slip_ORD20261014235832_1791997130.jpg"
+  },
+  {
+    "order_id": "MZ0021",
+    "username": "Warat",
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "ดัเ้่ากฟไก",
+    "note": "",
+    "lat": 16.476231,
+    "lng": 102.809779,
+    "km": 1.5,
+    "delivery_fee": 0.0,
+    "soup": {
+      "id": "S05",
+      "name": "หม่าล่าดั้งเดิม",
+      "price": 5
+    },
+    "spicy_level": 4,
+    "spicy_name": "เผ็ดมาก",
+    "lines": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "meat/P001.jpg"
+      },
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "meat/P002.jpg"
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7.0,
+        "qty": 2,
+        "subtotal": 14.0,
+        "image": "meat/P003.jpg"
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P007.jpg"
+      },
+      {
+        "id": "P009",
+        "name": "ปูอัด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P009.jpg"
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P010.jpg"
+      },
+      {
+        "id": "P011",
+        "name": "ผักกาดขาว",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P011.jpg"
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P012.jpg"
+      },
+      {
+        "id": "P014",
+        "name": "เห็ดออรินจิ",
+        "price": 6.0,
+        "qty": 1,
+        "subtotal": 6.0,
+        "image": "vegetables/P014.jpg"
+      },
+      {
+        "id": "P015",
+        "name": "ข้าวโพด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P015.jpg"
+      },
+      {
+        "id": "P017",
+        "name": "มาม่า",
+        "price": 10.0,
+        "qty": 2,
+        "subtotal": 20.0,
+        "image": "noodles/P017.jpg"
+      },
+      {
+        "id": "P018",
+        "name": "วุ้นเส้น",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P018.jpg"
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P019.jpg"
+      },
+      {
+        "id": "P022",
+        "name": "หมึก",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "seafood/P022.jpg"
+      },
+      {
+        "id": "P023",
+        "name": "ข้าวโพดอ่อน",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "vegetables/P023.jpg"
+      },
+      {
+        "id": "P024",
+        "name": "แครอท",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P024.jpg"
+      },
+      {
+        "id": "P032",
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P032.jpg"
+      },
+      {
+        "id": "p_28",
+        "name": "ไก่",
+        "price": 4.0,
+        "qty": 1,
+        "subtotal": 4.0,
+        "image": "meat/jpg"
+      }
+    ],
+    "subtotal": 160.0,
+    "tier_percent": 5,
+    "tier_discount": 8.0,
+    "coupon_code": null,
+    "coupon_discount": 0,
+    "food_total": 152.0,
+    "total": 152.0,
+    "status": 5,
+    "slip": "MZ0021_20261015231343.jpg",
+    "slip_note": "",
+    "points_earned": 15,
+    "points_given": true,
+    "date": "2026-10-15 23:13",
+    "created_at": "2026-10-15 23:13",
+    "item_list": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "meat/P001.jpg"
+      },
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "meat/P002.jpg"
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7.0,
+        "qty": 2,
+        "subtotal": 14.0,
+        "image": "meat/P003.jpg"
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P007.jpg"
+      },
+      {
+        "id": "P009",
+        "name": "ปูอัด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P009.jpg"
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P010.jpg"
+      },
+      {
+        "id": "P011",
+        "name": "ผักกาดขาว",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P011.jpg"
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P012.jpg"
+      },
+      {
+        "id": "P014",
+        "name": "เห็ดออรินจิ",
+        "price": 6.0,
+        "qty": 1,
+        "subtotal": 6.0,
+        "image": "vegetables/P014.jpg"
+      },
+      {
+        "id": "P015",
+        "name": "ข้าวโพด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P015.jpg"
+      },
+      {
+        "id": "P017",
+        "name": "มาม่า",
+        "price": 10.0,
+        "qty": 2,
+        "subtotal": 20.0,
+        "image": "noodles/P017.jpg"
+      },
+      {
+        "id": "P018",
+        "name": "วุ้นเส้น",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P018.jpg"
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P019.jpg"
+      },
+      {
+        "id": "P022",
+        "name": "หมึก",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "seafood/P022.jpg"
+      },
+      {
+        "id": "P023",
+        "name": "ข้าวโพดอ่อน",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "vegetables/P023.jpg"
+      },
+      {
+        "id": "P024",
+        "name": "แครอท",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P024.jpg"
+      },
+      {
+        "id": "P032",
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P032.jpg"
+      },
+      {
+        "id": "p_28",
+        "name": "ไก่",
+        "price": 4.0,
+        "qty": 1,
+        "subtotal": 4.0,
+        "image": "meat/jpg"
+      }
+    ],
+    "items": [
+      {
+        "id": "P001",
+        "name": "หมูสามชั้น",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "meat/P001.jpg"
+      },
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "meat/P002.jpg"
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7.0,
+        "qty": 2,
+        "subtotal": 14.0,
+        "image": "meat/P003.jpg"
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P007.jpg"
+      },
+      {
+        "id": "P009",
+        "name": "ปูอัด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P009.jpg"
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P010.jpg"
+      },
+      {
+        "id": "P011",
+        "name": "ผักกาดขาว",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P011.jpg"
+      },
+      {
+        "id": "P012",
+        "name": "ผักบุ้ง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P012.jpg"
+      },
+      {
+        "id": "P014",
+        "name": "เห็ดออรินจิ",
+        "price": 6.0,
+        "qty": 1,
+        "subtotal": 6.0,
+        "image": "vegetables/P014.jpg"
+      },
+      {
+        "id": "P015",
+        "name": "ข้าวโพด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P015.jpg"
+      },
+      {
+        "id": "P017",
+        "name": "มาม่า",
+        "price": 10.0,
+        "qty": 2,
+        "subtotal": 20.0,
+        "image": "noodles/P017.jpg"
+      },
+      {
+        "id": "P018",
+        "name": "วุ้นเส้น",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P018.jpg"
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P019.jpg"
+      },
+      {
+        "id": "P022",
+        "name": "หมึก",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "seafood/P022.jpg"
+      },
+      {
+        "id": "P023",
+        "name": "ข้าวโพดอ่อน",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "vegetables/P023.jpg"
+      },
+      {
+        "id": "P024",
+        "name": "แครอท",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P024.jpg"
+      },
+      {
+        "id": "P032",
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P032.jpg"
+      },
+      {
+        "id": "p_28",
+        "name": "ไก่",
+        "price": 4.0,
+        "qty": 1,
+        "subtotal": 4.0,
+        "image": "meat/jpg"
+      }
+    ],
+    "item_count": 18,
+    "grand_total": 152.0,
+    "fee": 0.0
+  },
+  {
+    "order_id": "MZ0022",
+    "username": "Warat",
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "-ๅึค/ถกฟน่ไกฟไก",
+    "note": "",
+    "lat": 16.474585,
+    "lng": 102.810465,
+    "km": 1.4,
+    "delivery_fee": 0.0,
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 10
+    },
+    "spicy_level": 3,
+    "spicy_name": "เผ็ดปานกลาง",
+    "lines": [
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "meat/P002.jpg"
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "meat/P003.jpg"
+      },
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P006.jpg"
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5.0,
+        "qty": 3,
+        "subtotal": 15.0,
+        "image": "balls/P007.jpg"
+      },
+      {
+        "id": "P008",
+        "name": "เต้าหู้ปลา",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "balls/P008.jpg"
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P010.jpg"
+      },
+      {
+        "id": "P013",
+        "name": "เห็ดเข็มทอง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P013.jpg"
+      },
+      {
+        "id": "P015",
+        "name": "ข้าวโพด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P015.jpg"
+      },
+      {
+        "id": "P016",
+        "name": "บรอกโคลี",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P016.jpg"
+      },
+      {
+        "id": "P018",
+        "name": "วุ้นเส้น",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P018.jpg"
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P019.jpg"
+      },
+      {
+        "id": "P023",
+        "name": "ข้าวโพดอ่อน",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "vegetables/P023.jpg"
+      },
+      {
+        "id": "P024",
+        "name": "แครอท",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P024.jpg"
+      },
+      {
+        "id": "P032",
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P032.jpg"
+      },
+      {
+        "id": "p_28",
+        "name": "ไก่",
+        "price": 25.0,
+        "qty": 2,
+        "subtotal": 50.0,
+        "image": "meat/chicken.jpg"
+      }
+    ],
+    "subtotal": 160.0,
+    "tier_percent": 5,
+    "tier_discount": 8.0,
+    "coupon_code": "MALA10",
+    "coupon_discount": 10,
+    "food_total": 142.0,
+    "total": 142.0,
+    "status": 2,
+    "slip": "MZ0022_20261016115347.jpg",
+    "slip_note": "",
+    "points_earned": 14,
+    "points_given": false,
+    "date": "2026-10-16 11:53",
+    "created_at": "2026-10-16 11:53",
+    "item_list": [
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "meat/P002.jpg"
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "meat/P003.jpg"
+      },
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P006.jpg"
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5.0,
+        "qty": 3,
+        "subtotal": 15.0,
+        "image": "balls/P007.jpg"
+      },
+      {
+        "id": "P008",
+        "name": "เต้าหู้ปลา",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "balls/P008.jpg"
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P010.jpg"
+      },
+      {
+        "id": "P013",
+        "name": "เห็ดเข็มทอง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P013.jpg"
+      },
+      {
+        "id": "P015",
+        "name": "ข้าวโพด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P015.jpg"
+      },
+      {
+        "id": "P016",
+        "name": "บรอกโคลี",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P016.jpg"
+      },
+      {
+        "id": "P018",
+        "name": "วุ้นเส้น",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P018.jpg"
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P019.jpg"
+      },
+      {
+        "id": "P023",
+        "name": "ข้าวโพดอ่อน",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "vegetables/P023.jpg"
+      },
+      {
+        "id": "P024",
+        "name": "แครอท",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P024.jpg"
+      },
+      {
+        "id": "P032",
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P032.jpg"
+      },
+      {
+        "id": "p_28",
+        "name": "ไก่",
+        "price": 25.0,
+        "qty": 2,
+        "subtotal": 50.0,
+        "image": "meat/chicken.jpg"
+      }
+    ],
+    "items": [
+      {
+        "id": "P002",
+        "name": "หมูสไลซ์",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "meat/P002.jpg"
+      },
+      {
+        "id": "P003",
+        "name": "เนื้อวัว",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "meat/P003.jpg"
+      },
+      {
+        "id": "P006",
+        "name": "ลูกชิ้นหมู",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P006.jpg"
+      },
+      {
+        "id": "P007",
+        "name": "ลูกชิ้นปลา",
+        "price": 5.0,
+        "qty": 3,
+        "subtotal": 15.0,
+        "image": "balls/P007.jpg"
+      },
+      {
+        "id": "P008",
+        "name": "เต้าหู้ปลา",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "balls/P008.jpg"
+      },
+      {
+        "id": "P010",
+        "name": "ไส้กรอก",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P010.jpg"
+      },
+      {
+        "id": "P013",
+        "name": "เห็ดเข็มทอง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P013.jpg"
+      },
+      {
+        "id": "P015",
+        "name": "ข้าวโพด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P015.jpg"
+      },
+      {
+        "id": "P016",
+        "name": "บรอกโคลี",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P016.jpg"
+      },
+      {
+        "id": "P018",
+        "name": "วุ้นเส้น",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P018.jpg"
+      },
+      {
+        "id": "P019",
+        "name": "เส้นมันเทศ",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P019.jpg"
+      },
+      {
+        "id": "P023",
+        "name": "ข้าวโพดอ่อน",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "vegetables/P023.jpg"
+      },
+      {
+        "id": "P024",
+        "name": "แครอท",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P024.jpg"
+      },
+      {
+        "id": "P032",
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P032.jpg"
+      },
+      {
+        "id": "p_28",
+        "name": "ไก่",
+        "price": 25.0,
+        "qty": 2,
+        "subtotal": 50.0,
+        "image": "meat/chicken.jpg"
+      }
+    ],
+    "item_count": 15,
+    "grand_total": 142.0,
+    "fee": 0.0
+  },
+  {
+    "order_id": "MZ0023",
+    "username": "Warat",
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "awdsad",
+    "note": "",
+    "lat": 16.451208,
+    "lng": 102.880469,
+    "km": 6.6,
+    "delivery_fee": 10,
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 10
+    },
+    "spicy_level": 5,
+    "spicy_name": "เผ็ดพ่นไฟ",
+    "lines": [
+      {
+        "id": "P001",
+        "product": {
+          "id": "P001",
+          "name": "หมูสามชั้น",
+          "price": 5,
+          "category": "เนื้อสัตว์",
+          "tag": "pork",
+          "stock": 73,
+          "available": true,
+          "image": "meat/P001.jpg"
+        },
+        "name": "หมูสามชั้น",
+        "price": 5.0,
+        "qty": 5,
+        "subtotal": 25.0,
+        "image": "meat/P001.jpg"
+      },
+      {
+        "id": "P002",
+        "product": {
+          "id": "P002",
+          "name": "หมูสไลซ์",
+          "price": 5,
+          "category": "เนื้อสัตว์",
+          "tag": "pork",
+          "stock": 85,
+          "available": true,
+          "image": "meat/P002.jpg"
+        },
+        "name": "หมูสไลซ์",
+        "price": 5.0,
+        "qty": 4,
+        "subtotal": 20.0,
+        "image": "meat/P002.jpg"
+      },
+      {
+        "id": "P003",
+        "product": {
+          "id": "P003",
+          "name": "เนื้อวัว",
+          "price": 7,
+          "category": "เนื้อสัตว์",
+          "tag": "beef",
+          "stock": 87,
+          "available": true,
+          "image": "meat/P003.jpg"
+        },
+        "name": "เนื้อวัว",
+        "price": 7.0,
+        "qty": 4,
+        "subtotal": 28.0,
+        "image": "meat/P003.jpg"
+      },
+      {
+        "id": "P005",
+        "product": {
+          "id": "P005",
+          "name": "ไส้หมู",
+          "price": 7,
+          "category": "เนื้อสัตว์",
+          "tag": "pork",
+          "stock": 83,
+          "available": true,
+          "image": "meat/P005.jpg"
+        },
+        "name": "ไส้หมู",
+        "price": 7.0,
+        "qty": 3,
+        "subtotal": 21.0,
+        "image": "meat/P005.jpg"
+      },
+      {
+        "id": "P006",
+        "product": {
+          "id": "P006",
+          "name": "ลูกชิ้นหมู",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 84,
+          "available": true,
+          "image": "balls/P006.jpg"
+        },
+        "name": "ลูกชิ้นหมู",
+        "price": 5.0,
+        "qty": 5,
+        "subtotal": 25.0,
+        "image": "balls/P006.jpg"
+      },
+      {
+        "id": "P007",
+        "product": {
+          "id": "P007",
+          "name": "ลูกชิ้นปลา",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 78,
+          "available": true,
+          "image": "balls/P007.jpg"
+        },
+        "name": "ลูกชิ้นปลา",
+        "price": 5.0,
+        "qty": 5,
+        "subtotal": 25.0,
+        "image": "balls/P007.jpg"
+      },
+      {
+        "id": "P008",
+        "product": {
+          "id": "P008",
+          "name": "เต้าหู้ปลา",
+          "price": 7,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 87,
+          "available": true,
+          "image": "balls/P008.jpg"
+        },
+        "name": "เต้าหู้ปลา",
+        "price": 7.0,
+        "qty": 4,
+        "subtotal": 28.0,
+        "image": "balls/P008.jpg"
+      },
+      {
+        "id": "P009",
+        "product": {
+          "id": "P009",
+          "name": "ปูอัด",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 90,
+          "available": true,
+          "image": "balls/P009.jpg"
+        },
+        "name": "ปูอัด",
+        "price": 5.0,
+        "qty": 4,
+        "subtotal": 20.0,
+        "image": "balls/P009.jpg"
+      },
+      {
+        "id": "P010",
+        "product": {
+          "id": "P010",
+          "name": "ไส้กรอก",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 83,
+          "available": true,
+          "image": "balls/P010.jpg"
+        },
+        "name": "ไส้กรอก",
+        "price": 5.0,
+        "qty": 4,
+        "subtotal": 20.0,
+        "image": "balls/P010.jpg"
+      },
+      {
+        "id": "P011",
+        "product": {
+          "id": "P011",
+          "name": "ผักกาดขาว",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 85,
+          "available": true,
+          "image": "vegetables/P011.jpg"
+        },
+        "name": "ผักกาดขาว",
+        "price": 5.0,
+        "qty": 3,
+        "subtotal": 15.0,
+        "image": "vegetables/P011.jpg"
+      },
+      {
+        "id": "P012",
+        "product": {
+          "id": "P012",
+          "name": "ผักบุ้ง",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 83,
+          "available": true,
+          "image": "vegetables/P012.jpg"
+        },
+        "name": "ผักบุ้ง",
+        "price": 5.0,
+        "qty": 3,
+        "subtotal": 15.0,
+        "image": "vegetables/P012.jpg"
+      },
+      {
+        "id": "P013",
+        "product": {
+          "id": "P013",
+          "name": "เห็ดเข็มทอง",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 81,
+          "available": true,
+          "image": "vegetables/P013.jpg"
+        },
+        "name": "เห็ดเข็มทอง",
+        "price": 5.0,
+        "qty": 3,
+        "subtotal": 15.0,
+        "image": "vegetables/P013.jpg"
+      },
+      {
+        "id": "P014",
+        "product": {
+          "id": "P014",
+          "name": "เห็ดออรินจิ",
+          "price": 6,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 80,
+          "available": true,
+          "image": "vegetables/P014.jpg"
+        },
+        "name": "เห็ดออรินจิ",
+        "price": 6.0,
+        "qty": 3,
+        "subtotal": 18.0,
+        "image": "vegetables/P014.jpg"
+      },
+      {
+        "id": "P015",
+        "product": {
+          "id": "P015",
+          "name": "ข้าวโพด",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 81,
+          "available": true,
+          "image": "vegetables/P015.jpg"
+        },
+        "name": "ข้าวโพด",
+        "price": 5.0,
+        "qty": 3,
+        "subtotal": 15.0,
+        "image": "vegetables/P015.jpg"
+      },
+      {
+        "id": "P016",
+        "product": {
+          "id": "P016",
+          "name": "บรอกโคลี",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 86,
+          "available": true,
+          "image": "vegetables/P016.jpg"
+        },
+        "name": "บรอกโคลี",
+        "price": 5.0,
+        "qty": 3,
+        "subtotal": 15.0,
+        "image": "vegetables/P016.jpg"
+      },
+      {
+        "id": "P017",
+        "product": {
+          "id": "P017",
+          "name": "มาม่า",
+          "price": 10,
+          "category": "เส้น",
+          "tag": "noodle",
+          "stock": 83,
+          "available": true,
+          "image": "noodles/P017.jpg"
+        },
+        "name": "มาม่า",
+        "price": 10.0,
+        "qty": 2,
+        "subtotal": 20.0,
+        "image": "noodles/P017.jpg"
+      },
+      {
+        "id": "P018",
+        "product": {
+          "id": "P018",
+          "name": "วุ้นเส้น",
+          "price": 8,
+          "category": "เส้น",
+          "tag": "noodle",
+          "stock": 80,
+          "available": true,
+          "image": "noodles/P018.jpg"
+        },
+        "name": "วุ้นเส้น",
+        "price": 8.0,
+        "qty": 2,
+        "subtotal": 16.0,
+        "image": "noodles/P018.jpg"
+      },
+      {
+        "id": "P019",
+        "product": {
+          "id": "P019",
+          "name": "เส้นมันเทศ",
+          "price": 8,
+          "category": "เส้น",
+          "tag": "noodle",
+          "stock": 84,
+          "available": true,
+          "image": "noodles/P019.jpg"
+        },
+        "name": "เส้นมันเทศ",
+        "price": 8.0,
+        "qty": 2,
+        "subtotal": 16.0,
+        "image": "noodles/P019.jpg"
+      },
+      {
+        "id": "P020",
+        "product": {
+          "id": "P020",
+          "name": "เส้นบุก",
+          "category": "เส้น",
+          "price": 15,
+          "image": "noodles/P020.jpg",
+          "available": true,
+          "stock": 99
+        },
+        "name": "เส้นบุก",
+        "price": 15.0,
+        "qty": 1,
+        "subtotal": 15.0,
+        "image": "noodles/P020.jpg"
+      },
+      {
+        "id": "P021",
+        "product": {
+          "id": "P021",
+          "name": "กุ้ง",
+          "price": 10,
+          "category": "เนื้อสัตว์",
+          "tag": "seafood",
+          "stock": 84,
+          "available": true,
+          "image": "seafood/P021.jpg"
+        },
+        "name": "กุ้ง",
+        "price": 10.0,
+        "qty": 2,
+        "subtotal": 20.0,
+        "image": "seafood/P021.jpg"
+      },
+      {
+        "id": "P022",
+        "product": {
+          "id": "P022",
+          "name": "หมึก",
+          "price": 10,
+          "category": "เนื้อสัตว์",
+          "tag": "seafood",
+          "stock": 90,
+          "available": true,
+          "image": "seafood/P022.jpg"
+        },
+        "name": "หมึก",
+        "price": 10.0,
+        "qty": 2,
+        "subtotal": 20.0,
+        "image": "seafood/P022.jpg"
+      },
+      {
+        "id": "P023",
+        "product": {
+          "id": "P023",
+          "name": "ข้าวโพดอ่อน",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 82,
+          "available": true,
+          "image": "vegetables/P023.jpg"
+        },
+        "name": "ข้าวโพดอ่อน",
+        "price": 5.0,
+        "qty": 3,
+        "subtotal": 15.0,
+        "image": "vegetables/P023.jpg"
+      },
+      {
+        "id": "P024",
+        "product": {
+          "id": "P024",
+          "name": "แครอท",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 78,
+          "available": true,
+          "image": "vegetables/P024.jpg"
+        },
+        "name": "แครอท",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "vegetables/P024.jpg"
+      },
+      {
+        "id": "P031",
+        "product": {
+          "id": "P031",
+          "name": "น้ำจิ้มสูตรทางร้าน",
+          "price": 10,
+          "category": "น้ำจิ้ม",
+          "tag": "sauce",
+          "detail": "สูตรเฉพาะของร้าน MALA CUSTOM",
+          "stock": 90,
+          "available": true,
+          "image": "sauce/P031.jpg"
+        },
+        "name": "น้ำจิ้มสูตรทางร้าน",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P031.jpg"
+      },
+      {
+        "id": "P041",
+        "product": {
+          "id": "P041",
+          "name": "เม็ดหม่าล่า ชาน้อย",
+          "category": "เม็ดหม่าล่า",
+          "price": 5,
+          "stock": 100,
+          "available": true,
+          "image": "",
+          "detail": "ชาเบา ๆ เหมาะกับมือใหม่",
+          "tag": "seed"
+        },
+        "name": "เม็ดหม่าล่า ชาน้อย",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": ""
+      },
+      {
+        "id": "p_28",
+        "product": {
+          "id": "p_28",
+          "name": "ไก่",
+          "category": "เนื้อสัตว์",
+          "price": 25,
+          "image": "meat/chicken.jpg",
+          "available": true,
+          "stock": 48
+        },
+        "name": "ไก่",
+        "price": 25.0,
+        "qty": 2,
+        "subtotal": 50.0,
+        "image": "meat/chicken.jpg"
+      }
+    ],
+    "subtotal": 512.0,
+    "tier_percent": 10,
+    "tier_discount": 51.2,
+    "coupon_code": "MALA10",
+    "coupon_discount": 10,
+    "food_total": 450.8,
+    "total": 460.8,
+    "status": 2,
+    "slip": "MZ0023_20261016155732.jpg",
+    "slip_note": "",
+    "points_earned": 45,
+    "points_given": false,
+    "date": "2026-10-16 15:57"
+  },
+  {
+    "order_id": "MZ0024",
+    "username": "Warat",
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "wadsa",
+    "note": "",
+    "lat": 16.455818,
+    "lng": 102.854364,
+    "km": 3.8,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 10
+    },
+    "spicy_level": 4,
+    "spicy_name": "เผ็ดมาก",
+    "lines": [
+      {
+        "id": "P001",
+        "product": {
+          "id": "P001",
+          "name": "หมูสามชั้น",
+          "price": 5,
+          "category": "เนื้อสัตว์",
+          "tag": "pork",
+          "stock": 68,
+          "available": true,
+          "image": "meat/P001.jpg"
+        },
+        "name": "หมูสามชั้น",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "meat/P001.jpg"
+      },
+      {
+        "id": "P002",
+        "product": {
+          "id": "P002",
+          "name": "หมูสไลซ์",
+          "price": 5,
+          "category": "เนื้อสัตว์",
+          "tag": "pork",
+          "stock": 81,
+          "available": true,
+          "image": "meat/P002.jpg"
+        },
+        "name": "หมูสไลซ์",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "meat/P002.jpg"
+      },
+      {
+        "id": "P005",
+        "product": {
+          "id": "P005",
+          "name": "ไส้หมู",
+          "price": 7,
+          "category": "เนื้อสัตว์",
+          "tag": "pork",
+          "stock": 80,
+          "available": true,
+          "image": "meat/P005.jpg"
+        },
+        "name": "ไส้หมู",
+        "price": 7.0,
+        "qty": 3,
+        "subtotal": 21.0,
+        "image": "meat/P005.jpg"
+      },
+      {
+        "id": "P009",
+        "product": {
+          "id": "P009",
+          "name": "ปูอัด",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 86,
+          "available": true,
+          "image": "balls/P009.jpg"
+        },
+        "name": "ปูอัด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P009.jpg"
+      },
+      {
+        "id": "P012",
+        "product": {
+          "id": "P012",
+          "name": "ผักบุ้ง",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 80,
+          "available": true,
+          "image": "vegetables/P012.jpg"
+        },
+        "name": "ผักบุ้ง",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "vegetables/P012.jpg"
+      },
+      {
+        "id": "P013",
+        "product": {
+          "id": "P013",
+          "name": "เห็ดเข็มทอง",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 78,
+          "available": true,
+          "image": "vegetables/P013.jpg"
+        },
+        "name": "เห็ดเข็มทอง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P013.jpg"
+      },
+      {
+        "id": "P014",
+        "product": {
+          "id": "P014",
+          "name": "เห็ดออรินจิ",
+          "price": 6,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 77,
+          "available": true,
+          "image": "vegetables/P014.jpg"
+        },
+        "name": "เห็ดออรินจิ",
+        "price": 6.0,
+        "qty": 1,
+        "subtotal": 6.0,
+        "image": "vegetables/P014.jpg"
+      },
+      {
+        "id": "P015",
+        "product": {
+          "id": "P015",
+          "name": "ข้าวโพด",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 78,
+          "available": true,
+          "image": "vegetables/P015.jpg"
+        },
+        "name": "ข้าวโพด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P015.jpg"
+      },
+      {
+        "id": "P016",
+        "product": {
+          "id": "P016",
+          "name": "บรอกโคลี",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 83,
+          "available": true,
+          "image": "vegetables/P016.jpg"
+        },
+        "name": "บรอกโคลี",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P016.jpg"
+      },
+      {
+        "id": "P017",
+        "product": {
+          "id": "P017",
+          "name": "มาม่า",
+          "price": 10,
+          "category": "เส้น",
+          "tag": "noodle",
+          "stock": 81,
+          "available": true,
+          "image": "noodles/P017.jpg"
+        },
+        "name": "มาม่า",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "noodles/P017.jpg"
+      },
+      {
+        "id": "P019",
+        "product": {
+          "id": "P019",
+          "name": "เส้นมันเทศ",
+          "price": 8,
+          "category": "เส้น",
+          "tag": "noodle",
+          "stock": 82,
+          "available": true,
+          "image": "noodles/P019.jpg"
+        },
+        "name": "เส้นมันเทศ",
+        "price": 8.0,
+        "qty": 1,
+        "subtotal": 8.0,
+        "image": "noodles/P019.jpg"
+      },
+      {
+        "id": "P021",
+        "product": {
+          "id": "P021",
+          "name": "กุ้ง",
+          "price": 10,
+          "category": "เนื้อสัตว์",
+          "tag": "seafood",
+          "stock": 82,
+          "available": true,
+          "image": "seafood/P021.jpg"
+        },
+        "name": "กุ้ง",
+        "price": 10.0,
+        "qty": 2,
+        "subtotal": 20.0,
+        "image": "seafood/P021.jpg"
+      },
+      {
+        "id": "P022",
+        "product": {
+          "id": "P022",
+          "name": "หมึก",
+          "price": 10,
+          "category": "เนื้อสัตว์",
+          "tag": "seafood",
+          "stock": 88,
+          "available": true,
+          "image": "seafood/P022.jpg"
+        },
+        "name": "หมึก",
+        "price": 10.0,
+        "qty": 3,
+        "subtotal": 30.0,
+        "image": "seafood/P022.jpg"
+      },
+      {
+        "id": "P031",
+        "product": {
+          "id": "P031",
+          "name": "น้ำจิ้มสูตรทางร้าน",
+          "price": 10,
+          "category": "น้ำจิ้ม",
+          "tag": "sauce",
+          "detail": "สูตรเฉพาะของร้าน MALA CUSTOM",
+          "stock": 89,
+          "available": true,
+          "image": "sauce/P031.jpg"
+        },
+        "name": "น้ำจิ้มสูตรทางร้าน",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P031.jpg"
+      },
+      {
+        "id": "P041",
+        "product": {
+          "id": "P041",
+          "name": "กรองเม็ดหม่าล่าออก",
+          "category": "เม็ดหม่าล่า",
+          "price": 0,
+          "stock": 9999,
+          "available": true,
+          "image": "",
+          "detail": "ไม่มีเม็ดในชาม กินง่าย ได้กลิ่นหอมและรสหม่าล่าครบ",
+          "tag": "seed"
+        },
+        "name": "กรองเม็ดหม่าล่าออก",
+        "price": 0.0,
+        "qty": 1,
+        "subtotal": 0.0,
+        "image": ""
+      }
+    ],
+    "subtotal": 160.0,
+    "tier_percent": 5,
+    "tier_discount": 8.0,
+    "coupon_code": "MALA10",
+    "coupon_discount": 10,
+    "food_total": 142.0,
+    "total": 142.0,
+    "status": 9,
+    "slip": "",
+    "slip_note": "",
+    "points_earned": 14,
+    "points_given": false,
+    "date": "2026-10-16 16:56",
+    "cancel_note": "หมดเวลาชำระเงิน ระบบยกเลิกอัตโนมัติ"
+  },
+  {
+    "order_id": "MZ0025",
+    "username": "Warat",
+    "customer_name": "Warat Pattayaso",
+    "phone": "0933189044",
+    "address": "dfghnjm",
+    "note": "",
+    "lat": 16.476234,
+    "lng": 102.80084,
+    "km": 1.4,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S02",
+      "name": "ซุปน้ำดำ",
+      "price": 10
+    },
+    "spicy_level": 4,
+    "spicy_name": "เผ็ดมาก",
+    "lines": [
+      {
+        "id": "P002",
+        "product": {
+          "id": "P002",
+          "name": "หมูสไลซ์",
+          "price": 5,
+          "category": "เนื้อสัตว์",
+          "tag": "pork",
+          "stock": 89,
+          "available": true,
+          "image": "meat/P002.jpg"
+        },
+        "name": "หมูสไลซ์",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "meat/P002.jpg"
+      },
+      {
+        "id": "P006",
+        "product": {
+          "id": "P006",
+          "name": "ลูกชิ้นหมู",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 83,
+          "available": true,
+          "image": "balls/P006.jpg"
+        },
+        "name": "ลูกชิ้นหมู",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P006.jpg"
+      },
+      {
+        "id": "P007",
+        "product": {
+          "id": "P007",
+          "name": "ลูกชิ้นปลา",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 76,
+          "available": true,
+          "image": "balls/P007.jpg"
+        },
+        "name": "ลูกชิ้นปลา",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "balls/P007.jpg"
+      },
+      {
+        "id": "P008",
+        "product": {
+          "id": "P008",
+          "name": "เต้าหู้ปลา",
+          "price": 7,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 89,
+          "available": true,
+          "image": "balls/P008.jpg"
+        },
+        "name": "เต้าหู้ปลา",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "balls/P008.jpg"
+      },
+      {
+        "id": "P009",
+        "product": {
+          "id": "P009",
+          "name": "ปูอัด",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 89,
+          "available": true,
+          "image": "balls/P009.jpg"
+        },
+        "name": "ปูอัด",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P009.jpg"
+      },
+      {
+        "id": "P010",
+        "product": {
+          "id": "P010",
+          "name": "ไส้กรอก",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 83,
+          "available": true,
+          "image": "balls/P010.jpg"
+        },
+        "name": "ไส้กรอก",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P010.jpg"
+      },
+      {
+        "id": "P011",
+        "product": {
+          "id": "P011",
+          "name": "ผักกาดขาว",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 85,
+          "available": true,
+          "image": "vegetables/P011.jpg"
+        },
+        "name": "ผักกาดขาว",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P011.jpg"
+      },
+      {
+        "id": "P012",
+        "product": {
+          "id": "P012",
+          "name": "ผักบุ้ง",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 84,
+          "available": true,
+          "image": "vegetables/P012.jpg"
+        },
+        "name": "ผักบุ้ง",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "vegetables/P012.jpg"
+      },
+      {
+        "id": "P014",
+        "product": {
+          "id": "P014",
+          "name": "เห็ดออรินจิ",
+          "price": 6,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 81,
+          "available": true,
+          "image": "vegetables/P014.jpg"
+        },
+        "name": "เห็ดออรินจิ",
+        "price": 6.0,
+        "qty": 3,
+        "subtotal": 18.0,
+        "image": "vegetables/P014.jpg"
+      },
+      {
+        "id": "P015",
+        "product": {
+          "id": "P015",
+          "name": "ข้าวโพด",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 85,
+          "available": true,
+          "image": "vegetables/P015.jpg"
+        },
+        "name": "ข้าวโพด",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "vegetables/P015.jpg"
+      },
+      {
+        "id": "P017",
+        "product": {
+          "id": "P017",
+          "name": "มาม่า",
+          "price": 10,
+          "category": "เส้น",
+          "tag": "noodle",
+          "stock": 85,
+          "available": true,
+          "image": "noodles/P017.jpg"
+        },
+        "name": "มาม่า",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "noodles/P017.jpg"
+      },
+      {
+        "id": "P020",
+        "product": {
+          "id": "P020",
+          "name": "เส้นบุก",
+          "category": "เส้น",
+          "price": 15,
+          "image": "noodles/P020.jpg",
+          "available": true,
+          "stock": 98
+        },
+        "name": "เส้นบุก",
+        "price": 15.0,
+        "qty": 1,
+        "subtotal": 15.0,
+        "image": "noodles/P020.jpg"
+      },
+      {
+        "id": "P021",
+        "product": {
+          "id": "P021",
+          "name": "กุ้ง",
+          "price": 10,
+          "category": "เนื้อสัตว์",
+          "tag": "seafood",
+          "stock": 84,
+          "available": true,
+          "image": "seafood/P021.jpg"
+        },
+        "name": "กุ้ง",
+        "price": 10.0,
+        "qty": 2,
+        "subtotal": 20.0,
+        "image": "seafood/P021.jpg"
+      },
+      {
+        "id": "P022",
+        "product": {
+          "id": "P022",
+          "name": "หมึก",
+          "price": 10,
+          "category": "เนื้อสัตว์",
+          "tag": "seafood",
+          "stock": 91,
+          "available": true,
+          "image": "seafood/P022.jpg"
+        },
+        "name": "หมึก",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "seafood/P022.jpg"
+      },
+      {
+        "id": "P024",
+        "product": {
+          "id": "P024",
+          "name": "แครอท",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 80,
+          "available": true,
+          "image": "vegetables/P024.jpg"
+        },
+        "name": "แครอท",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "vegetables/P024.jpg"
+      },
+      {
+        "id": "P032",
+        "product": {
+          "id": "P032",
+          "name": "น้ำจิ้มสุกี้",
+          "price": 10,
+          "category": "น้ำจิ้ม",
+          "tag": "sauce",
+          "detail": "รสหวานเปรี้ยวเผ็ดนิด ๆ แบบสุกี้",
+          "stock": 94,
+          "available": true,
+          "image": "sauce/P032.jpg"
+        },
+        "name": "น้ำจิ้มสุกี้",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P032.jpg"
+      },
+      {
+        "id": "P041",
+        "product": {
+          "id": "P041",
+          "name": "กรองเม็ดหม่าล่าออก",
+          "category": "เม็ดหม่าล่า",
+          "price": 0,
+          "stock": 9999,
+          "available": true,
+          "image": "",
+          "detail": "ไม่มีเม็ดในชาม กินง่าย ได้กลิ่นหอมและรสหม่าล่าครบ",
+          "tag": "seed"
+        },
+        "name": "กรองเม็ดหม่าล่าออก",
+        "price": 0.0,
+        "qty": 1,
+        "subtotal": 0.0,
+        "image": ""
+      }
+    ],
+    "subtotal": 160.0,
+    "tier_percent": 5,
+    "tier_discount": 8.0,
+    "coupon_code": null,
+    "coupon_discount": 0,
+    "food_total": 152.0,
+    "total": 152.0,
+    "status": 5,
+    "slip": "MZ0025_20261016184410_bf3ba0.jpg",
+    "slip_note": "",
+    "points_earned": 15,
+    "points_given": true,
+    "date": "2026-10-16 18:43",
+    "expires_at": "2026-10-16 19:13:52"
+  },
+  {
+    "order_id": "MZ0026",
+    "username": "Warat",
+    "customer_name": "Warat",
+    "phone": "0933189044",
+    "address": "fcgbnk",
+    "note": "",
+    "lat": 16.474478,
+    "lng": 102.811145,
+    "km": 0.7,
+    "delivery_fee": 0,
+    "soup": {
+      "id": "S04",
+      "name": "หม่าล่านม",
+      "price": 10
+    },
+    "spicy_level": 5,
+    "spicy_name": "เผ็ดพ่นไฟ",
+    "lines": [
+      {
+        "id": "P001",
+        "product": {
+          "id": "P001",
+          "name": "หมูสามชั้น",
+          "price": 5,
+          "category": "เนื้อสัตว์",
+          "tag": "pork",
+          "stock": 76,
+          "available": true,
+          "image": "meat/P001.jpg"
+        },
+        "name": "หมูสามชั้น",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "meat/P001.jpg"
+      },
+      {
+        "id": "P003",
+        "product": {
+          "id": "P003",
+          "name": "เนื้อวัว",
+          "price": 7,
+          "category": "เนื้อสัตว์",
+          "tag": "beef",
+          "stock": 92,
+          "available": true,
+          "image": "meat/P003.jpg"
+        },
+        "name": "เนื้อวัว",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "meat/P003.jpg"
+      },
+      {
+        "id": "P005",
+        "product": {
+          "id": "P005",
+          "name": "ไส้หมู",
+          "price": 7,
+          "category": "เนื้อสัตว์",
+          "tag": "pork",
+          "stock": 85,
+          "available": true,
+          "image": "meat/P005.jpg"
+        },
+        "name": "ไส้หมู",
+        "price": 7.0,
+        "qty": 4,
+        "subtotal": 28.0,
+        "image": "meat/P005.jpg"
+      },
+      {
+        "id": "P006",
+        "product": {
+          "id": "P006",
+          "name": "ลูกชิ้นหมู",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 82,
+          "available": true,
+          "image": "balls/P006.jpg"
+        },
+        "name": "ลูกชิ้นหมู",
+        "price": 5.0,
+        "qty": 3,
+        "subtotal": 15.0,
+        "image": "balls/P006.jpg"
+      },
+      {
+        "id": "P007",
+        "product": {
+          "id": "P007",
+          "name": "ลูกชิ้นปลา",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 74,
+          "available": true,
+          "image": "balls/P007.jpg"
+        },
+        "name": "ลูกชิ้นปลา",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P007.jpg"
+      },
+      {
+        "id": "P008",
+        "product": {
+          "id": "P008",
+          "name": "เต้าหู้ปลา",
+          "price": 7,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 88,
+          "available": true,
+          "image": "balls/P008.jpg"
+        },
+        "name": "เต้าหู้ปลา",
+        "price": 7.0,
+        "qty": 1,
+        "subtotal": 7.0,
+        "image": "balls/P008.jpg"
+      },
+      {
+        "id": "P010",
+        "product": {
+          "id": "P010",
+          "name": "ไส้กรอก",
+          "price": 5,
+          "category": "ลูกชิ้น",
+          "tag": "ball",
+          "stock": 82,
+          "available": true,
+          "image": "balls/P010.jpg"
+        },
+        "name": "ไส้กรอก",
+        "price": 5.0,
+        "qty": 1,
+        "subtotal": 5.0,
+        "image": "balls/P010.jpg"
+      },
+      {
+        "id": "P012",
+        "product": {
+          "id": "P012",
+          "name": "ผักบุ้ง",
+          "price": 5,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 83,
+          "available": true,
+          "image": "vegetables/P012.jpg"
+        },
+        "name": "ผักบุ้ง",
+        "price": 5.0,
+        "qty": 2,
+        "subtotal": 10.0,
+        "image": "vegetables/P012.jpg"
+      },
+      {
+        "id": "P014",
+        "product": {
+          "id": "P014",
+          "name": "เห็ดออรินจิ",
+          "price": 6,
+          "category": "ผัก",
+          "tag": "veggie",
+          "stock": 78,
+          "available": true,
+          "image": "vegetables/P014.jpg"
+        },
+        "name": "เห็ดออรินจิ",
+        "price": 6.0,
+        "qty": 4,
+        "subtotal": 24.0,
+        "image": "vegetables/P014.jpg"
+      },
+      {
+        "id": "P017",
+        "product": {
+          "id": "P017",
+          "name": "มาม่า",
+          "price": 10,
+          "category": "เส้น",
+          "tag": "noodle",
+          "stock": 84,
+          "available": true,
+          "image": "noodles/P017.jpg"
+        },
+        "name": "มาม่า",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "noodles/P017.jpg"
+      },
+      {
+        "id": "P019",
+        "product": {
+          "id": "P019",
+          "name": "เส้นมันเทศ",
+          "price": 8,
+          "category": "เส้น",
+          "tag": "noodle",
+          "stock": 85,
+          "available": true,
+          "image": "noodles/P019.jpg"
+        },
+        "name": "เส้นมันเทศ",
+        "price": 8.0,
+        "qty": 3,
+        "subtotal": 24.0,
+        "image": "noodles/P019.jpg"
+      },
+      {
+        "id": "P021",
+        "product": {
+          "id": "P021",
+          "name": "กุ้ง",
+          "price": 10,
+          "category": "เนื้อสัตว์",
+          "tag": "seafood",
+          "stock": 82,
+          "available": true,
+          "image": "seafood/P021.jpg"
+        },
+        "name": "กุ้ง",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "seafood/P021.jpg"
+      },
+      {
+        "id": "P022",
+        "product": {
+          "id": "P022",
+          "name": "หมึก",
+          "price": 10,
+          "category": "เนื้อสัตว์",
+          "tag": "seafood",
+          "stock": 90,
+          "available": true,
+          "image": "seafood/P022.jpg"
+        },
+        "name": "หมึก",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "seafood/P022.jpg"
+      },
+      {
+        "id": "P033",
+        "product": {
+          "id": "P033",
+          "name": "น้ำจิ้มงา",
+          "price": 10,
+          "category": "น้ำจิ้ม",
+          "tag": "sauce",
+          "detail": "รสชาติเฉพาะของน้ำจิ้มงา",
+          "stock": 95,
+          "available": true,
+          "image": "sauce/P033.jpg"
+        },
+        "name": "น้ำจิ้มงา",
+        "price": 10.0,
+        "qty": 1,
+        "subtotal": 10.0,
+        "image": "sauce/P033.jpg"
+      },
+      {
+        "id": "P041",
+        "product": {
+          "id": "P041",
+          "name": "กรองเม็ดหม่าล่าออก",
+          "category": "เม็ดหม่าล่า",
+          "price": 0,
+          "stock": 9998,
+          "available": true,
+          "image": "",
+          "detail": "ไม่มีเม็ดในชาม กินง่าย ได้กลิ่นหอมและรสหม่าล่าครบ",
+          "tag": "seed"
+        },
+        "name": "กรองเม็ดหม่าล่าออก",
+        "price": 0.0,
+        "qty": 1,
+        "subtotal": 0.0,
+        "image": ""
+      },
+      {
+        "id": "p_28",
+        "product": {
+          "id": "p_28",
+          "name": "ไก่",
+          "category": "เนื้อสัตว์",
+          "price": 25,
+          "image": "meat/chicken.jpg",
+          "available": true,
+          "stock": 46
+        },
+        "name": "ไก่",
+        "price": 25.0,
+        "qty": 1,
+        "subtotal": 25.0,
+        "image": "meat/chicken.jpg"
+      }
+    ],
+    "subtotal": 210.0,
+    "tier_percent": 10,
+    "tier_discount": 21.0,
+    "coupon_code": null,
+    "coupon_discount": 0,
+    "member_code": "",
+    "member_discount": 0,
+    "food_total": 189.0,
+    "vat_enabled": true,
+    "vat_mode": "included",
+    "vat_rate": 7.0,
+    "vat_base": 189.0,
+    "subtotal_ex_vat": 176.64,
+    "vat_amount": 12.36,
+    "vat_demo": true,
+    "total": 189.0,
+    "status": 5,
+    "slip": "MZ0026_20261027195044_67dd31.jpg",
+    "slip_note": "",
+    "points_earned": 18,
+    "points_given": true,
+    "date": "2026-10-27 19:50",
+    "expires_at": "2026-10-27 20:20:37",
+    "review": {
+      "stars": 5,
+      "comment": "",
+      "at": "2026-10-27 19:51:30"
+    },
+    "review_skipped": false
+  }
+]

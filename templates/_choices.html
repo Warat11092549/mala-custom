@@ -1,0 +1,19 @@
+{# _choices.html - แสดงน้ำจิ้ม / เม็ดหม่าล่า ไว้แถบเดียวกับน้ำซุปและความเผ็ด (อ่านอย่างเดียว) #}
+{% macro choices(sauces, seeds) %}
+  <p style="margin: 4px 0;">
+    <strong>น้ำจิ้ม:</strong>
+    {% if sauces %}
+      {% for s in sauces %}{{ s.name }} × {{ s.qty }}{% if s.subtotal %} ({{ '%g'|format(s.subtotal) }} บาท){% endif %}{% if not loop.last %}, {% endif %}{% endfor %}
+    {% else %}
+      <span style="color: var(--muted);">ไม่เอา</span>
+    {% endif %}
+  </p>
+  <p style="margin: 4px 0;">
+    <strong>เม็ดหม่าล่า:</strong>
+    {% if seeds %}
+      {% for s in seeds %}{{ s.name }}{% if s.subtotal %} ({{ '%g'|format(s.subtotal) }} บาท){% endif %}{% if not loop.last %}, {% endif %}{% endfor %}
+    {% else %}
+      <span style="color: var(--muted);">ไม่ระบุ</span>
+    {% endif %}
+  </p>
+{% endmacro %}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ชำระเงิน - MALA CUSTOM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  {% include '_nav.html' %}
+
+  <header>
+    <h1>{{ ic('credit') }} ชำระเงิน</h1>
+    <p>ออเดอร์ {{ order.order_id }}</p>
+  </header>
+
+  <main>
+    {% for message in get_flashed_messages() %}
+      <p class="msg">{{ message }}</p>
+    {% endfor %}
+
+    {% if order.status == 1 and order.slip_note %}
+      <div class="slip-rejected">
+        <strong>{{ ic('cancel') }} สลิปของคุณไม่ผ่านการตรวจสอบ</strong>
+        <p>เหตุผลจากร้าน: {{ order.slip_note }}</p>
+        <p>กรุณาตรวจสอบการโอนเงิน แล้ว<strong>แนบสลิปใหม่อีกครั้ง</strong>ด้านล่าง เพื่อให้ร้านตรวจสอบอีกรอบ</p>
+      </div>
+    {% elif order.status == 1 %}
+      <div class="slip-pending-note">
+        {{ ic('clock') }} ออเดอร์ยังไม่ได้ชำระเงิน — โอนเงินตาม QR ด้านล่าง แล้วแนบสลิปเพื่อส่งให้ร้านตรวจสอบ
+      </div>
+    {% endif %}
+
+    {% if order.status == 1 and seconds_left is not none %}
+      <div class="pay-timer" id="pay-timer" data-left="{{ seconds_left if seconds_left > 0 else 0 }}">
+        {{ ic('clock') }} กรุณาชำระและแนบสลิปภายใน <strong id="pay-timer-text">--:--</strong>
+        <small>(เกิน {{ timeout_minutes }} นาที ระบบจะยกเลิกออเดอร์และคืนสต็อกให้อัตโนมัติ)</small>
+      </div>
+    {% endif %}
+
+    <div class="pay-card">
+      <div class="pay-head">
+        <span class="pay-badge">PromptPay</span>
+        <span class="pay-head-text">สแกนเพื่อชำระเงิน · {{ shop_name }}</span>
+      </div>
+
+      <div class="pay-amount">
+        <small>ยอดที่ต้องโอน</small>
+        <strong>฿ {{ "%.2f"|format(order.total) }}</strong>
+        <small>ค่าอาหาร {{ "%.2f"|format(order.food_total) }}{% if order.vat_enabled and order.vat_mode == 'included' %} (รวม VAT {{ '%g'|format(order.vat_rate) }}% {{ "%.2f"|format(order.vat_amount) }} แล้ว){% elif order.vat_enabled %} + VAT {{ '%g'|format(order.vat_rate) }}% {{ "%.2f"|format(order.vat_amount) }}{% endif %} + ค่าส่ง {{ '%g'|format(order.delivery_fee) }} บาท</small>
+        {% if order.vat_demo %}{% set show_vat_notice = true %}{% include '_vat_notice.html' %}{% endif %}
+      </div>
+
+      <div class="pay-tear"><span></span><i></i><span></span></div>
+
+      <div class="qr-frame">
+        <span class="qr-corner tl"></span><span class="qr-corner tr"></span>
+        <span class="qr-corner bl"></span><span class="qr-corner br"></span>
+        <div class="qr">{{ qr_svg|safe }}</div>
+      </div>
+
+      <div class="pay-account">
+        <small>ชื่อบัญชี</small>
+        <strong>{{ account_name }}</strong>
+      </div>
+
+      <p class="pay-hint">เปิดแอปธนาคาร → สแกน QR ยอดเงินจะถูกใส่ให้อัตโนมัติ<br>
+         <small>กรุณาตรวจชื่อบัญชีและยอดเงินให้ตรงก่อนกดโอน แล้วแนบสลิปด้านล่าง</small></p>
+    </div>
+
+    <div class="card">
+      {% if order.slip %}
+        <p>{{ ic('check') }} ส่งสลิปแล้ว (สถานะ: รอตรวจสอบการโอนเงิน)</p>
+        <img class="slip-thumb" src="{{ url_for('view_slip', order_id=order.order_id) }}" alt="สลิปที่แนบ">
+        <p><small>ถ้าแนบผิด แนบใหม่ได้ด้านล่าง</small></p>
+      {% endif %}
+
+      <form action="{{ url_for('upload_slip', order_id=order.order_id) }}"
+            method="post" enctype="multipart/form-data" class="auth-form" id="slip-form">
+        <input type="file" name="slip" accept="image/*" required>
+        <small>รองรับ JPG, PNG, WEBP ขนาดไม่เกิน 5 MB</small>
+        <button class="btn">{% if order.slip_note %}ส่งสลิปใหม่{% elif order.slip %}เปลี่ยนสลิป{% else %}ส่งสลิป{% endif %}</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h3>{{ ic('message') }} ติดต่อร้าน</h3>
+      <p><strong>{{ shop_name }}</strong></p>
+      <p>โทร {{ shop_phone }}</p>
+      <p><small>{{ shop_address }}</small></p>
+    </div>
+
+    {% if order.slip %}
+      <a href="{{ url_for('order_status', order_id=order.order_id) }}">ดูสถานะออเดอร์ →</a>
+    {% endif %}
+
+    {% if order.status == 1 %}
+      <form action="{{ url_for('customer_cancel_order', order_id=order.order_id) }}" method="post"
+            class="cancel-form" onsubmit="return confirm('ยกเลิกออเดอร์ {{ order.order_id }} ใช่ไหม? (ถ้าโอนเงินไปแล้วอย่ายกเลิก)');">
+        <button type="submit" class="btn-cancel">{{ ic('trash') }} ยกเลิกออเดอร์นี้</button>
+      </form>
+    {% endif %}
+  </main>
+
+  <script>
+    // กันกดส่งสลิปรัว: ล็อกปุ่มหลังกดครั้งแรก
+    (function () {
+      var form = document.getElementById('slip-form');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          if (form.dataset.sending) { e.preventDefault(); return; }
+          form.dataset.sending = '1';
+          var btn = form.querySelector('button');
+          if (btn) { btn.disabled = true; btn.textContent = 'กำลังส่ง...'; }
+        });
+      }
+      // นับถอยหลังเวลาชำระเงิน หมดแล้วโหลดหน้าใหม่ (เซิร์ฟเวอร์จะยกเลิกให้)
+      var timer = document.getElementById('pay-timer');
+      if (timer) {
+        var left = parseInt(timer.dataset.left, 10);
+        var text = document.getElementById('pay-timer-text');
+        function tick() {
+          if (left <= 0) { text.textContent = '00:00'; setTimeout(function () { location.reload(); }, 1500); return; }
+          var m = Math.floor(left / 60), s = left % 60;
+          text.textContent = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+          left -= 1; setTimeout(tick, 1000);
+        }
+        tick();
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ r.title }} {{ r.no }} - {{ r.seller.name }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body { background: #e9e9ec; }
+    .rc-toolbar { max-width: 460px; margin: 16px auto 0; display: flex; gap: 10px; justify-content: space-between; align-items: center; padding: 0 12px; }
+    .rc-toolbar .btn { width: auto; margin: 0; padding: 9px 22px; }
+    .receipt { max-width: 460px; margin: 12px auto 28px; padding: 26px 24px; background: #fff; color: #111; font-size: 14px; line-height: 1.5; border-radius: 6px; box-shadow: 0 6px 24px rgba(0,0,0,.18); }
+    .rc-head { text-align: center; padding-bottom: 12px; border-bottom: 2px solid #111; }
+    .rc-logo-wrap { display: inline-block; margin-bottom: 8px; padding: 8px 14px; background: #1b1d21; border-radius: 8px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .rc-logo { display: block; height: 56px; width: auto; }
+    .rc-seller { font-weight: 700; font-size: 17px; }
+    .rc-head small { display: block; color: #444; }
+    .rc-title { margin: 12px 0 2px; text-align: center; font-size: 16px; font-weight: 700; }
+    .rc-meta { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; margin: 10px 0; }
+    .rc-meta dt { color: #555; } .rc-meta dd { margin: 0; text-align: right; }
+    table.rc-items { width: 100%; border-collapse: collapse; margin-top: 6px; }
+    .rc-items th { text-align: left; font-size: 12px; color: #555; border-bottom: 1px solid #111; padding: 4px 0; }
+    .rc-items th:last-child, .rc-items td:last-child { text-align: right; white-space: nowrap; }
+    .rc-items th.q, .rc-items td.q { text-align: center; width: 44px; }
+    .rc-items td { padding: 4px 0; border-bottom: 1px dotted #bbb; vertical-align: top; }
+    .rc-sum { margin-top: 8px; }
+    .rc-sum div { display: flex; justify-content: space-between; padding: 2px 0; }
+    .rc-sum .disc { color: #b00020; }
+    .rc-sum .grand { border-top: 2px solid #111; margin-top: 6px; padding-top: 6px; font-size: 18px; font-weight: 700; }
+    .rc-vat { margin-top: 8px; padding: 8px 10px; background: #f4f4f4; border-radius: 4px; font-size: 13px; }
+    .rc-foot { margin-top: 16px; text-align: center; font-size: 13px; color: #444; border-top: 1px dashed #999; padding-top: 10px; }
+    /* พิมพ์แบบม้วนยาวใบเดียว (เครื่องพิมพ์ใบเสร็จความร้อน): ความกว้างตามกระดาษ ความยาวตามเนื้อหา */
+    .rc-paper { padding: 0 12px; max-width: 460px; margin: 10px auto 0; text-align: right; font-size: 13px; color: var(--muted); }
+    .rc-paper select { font: inherit; padding: 3px 6px; }
+    body.measuring .rc-logo-wrap { display: none; }
+    @media print {
+      body { background: #fff; }
+      .rc-toolbar, .rc-paper { display: none !important; }
+      .receipt { width: var(--paper-w, 72mm); max-width: none; margin: 0; padding: 0; box-shadow: none; border-radius: 0; font-size: 12px; color: #000; }
+      .rc-logo-wrap { display: none; }
+      .rc-sum .disc { color: #000; }
+      .rc-vat { background: none; border: 1px dashed #000; }
+      .rc-foot, .rc-head small, .rc-meta dt { color: #000; }
+    }
+  </style>
+</head>
+<body>
+  <div class="rc-toolbar">
+    {% if is_admin %}
+      <a href="{{ url_for('admin_order_detail', order_id=order.order_id) }}" class="btn-link">← กลับไปออเดอร์</a>
+      <button type="button" class="btn" onclick="window.print()">{{ ic('receipt') }} พิมพ์ใบเสร็จ</button>
+    {% else %}
+      <a href="{{ url_for('order_status', order_id=order.order_id) }}" class="btn-link">← กลับไปสถานะออเดอร์</a>
+    {% endif %}
+  </div>
+
+  {% if is_admin %}
+    <div class="rc-paper">
+      กว้างกระดาษ
+      <select id="paper">
+        <option value="80">80 มม. (ม้วนทั่วไป)</option>
+        <option value="58">58 มม. (ม้วนเล็ก)</option>
+      </select>
+    </div>
+  {% endif %}
+
+  <article class="receipt" id="receipt">
+    <div class="rc-head">
+      <div class="rc-logo-wrap"><img class="rc-logo" src="{{ url_for('static', filename='images/theme/logo_nav.png') }}" alt=""></div>
+      <div class="rc-seller">{{ r.seller.name }}</div>
+      <small>{{ r.seller.address }}</small>
+      {% if r.seller.tax_id %}<small>เลขประจำตัวผู้เสียภาษี {{ r.seller.tax_id }}{% if r.seller.branch %} · {{ r.seller.branch }}{% endif %}</small>{% endif %}
+      <small>โทร {{ r.shop_phone }}</small>
+    </div>
+
+    <div class="rc-title">{{ r.title }}</div>
+    <dl class="rc-meta">
+      <dt>เลขที่</dt><dd>{{ r.no }}</dd>
+      <dt>วันที่</dt><dd>{{ order.created_at }}</dd>
+      <dt>ลูกค้า</dt><dd>{{ order.customer_name }}</dd>
+      <dt>ชำระเงิน</dt><dd>โอนผ่านพร้อมเพย์</dd>
+    </dl>
+
+    <table class="rc-items">
+      <thead><tr><th>รายการ</th><th class="q">จำนวน</th><th>บาท</th></tr></thead>
+      <tbody>
+        {% for row in r.rows %}
+          <tr><td>{{ row.name }}</td><td class="q">{{ row.qty }}</td><td>{{ '%.2f'|format(row.amount) }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="rc-sum">
+      {% if r.discounts %}
+        <div><span>รวมค่าอาหาร</span><span>{{ '%.2f'|format(r.gross) }}</span></div>
+        {% for d in r.discounts %}<div class="disc"><span>{{ d.label }}</span><span>-{{ '%.2f'|format(d.amount) }}</span></div>{% endfor %}
+      {% endif %}
+      {% if r.vat and r.vat.mode == 'added' %}
+        <div><span>ค่าอาหารหลังหักส่วนลด</span><span>{{ '%.2f'|format(r.vat.base) }}</span></div>
+        <div><span>VAT {{ '%g'|format(r.vat.rate) }}%</span><span>{{ '%.2f'|format(r.vat.amount) }}</span></div>
+      {% elif r.vat and r.vat.stored %}
+        <div><span>ค่าอาหารหลังหักส่วนลด (รวม VAT)</span><span>{{ '%.2f'|format(r.vat.food) }}</span></div>
+      {% endif %}
+      {% if r.fee %}<div><span>ค่าจัดส่ง</span><span>{{ '%.2f'|format(r.fee) }}</span></div>{% endif %}
+      <div class="grand"><span>ยอดชำระสุทธิ</span><span>{{ '%.2f'|format(r.total) }}</span></div>
+    </div>
+
+    {% if r.vat and r.vat.mode == 'added' %}
+      {% if r.vat.demo and vat_cfg.notice %}<div class="rc-vat"><small>{{ vat_cfg.notice }}</small></div>{% endif %}
+    {% elif r.vat %}
+      <div class="rc-vat">
+        <div style="display:flex; justify-content:space-between;"><span>มูลค่าก่อนภาษี</span><span>{{ '%.2f'|format(r.vat.base) }}</span></div>
+        <div style="display:flex; justify-content:space-between;"><span>ภาษีมูลค่าเพิ่ม {{ '%g'|format(r.vat.rate) }}%</span><span>{{ '%.2f'|format(r.vat.amount) }}</span></div>
+        <small style="color:#555;">ราคาข้างต้นรวมภาษีมูลค่าเพิ่มแล้ว</small>
+        {% if r.vat.stored and r.vat.demo and vat_cfg.notice %}<br><small>{{ vat_cfg.notice }}</small>{% endif %}
+      </div>
+    {% endif %}
+
+    <div class="rc-foot">ขอบคุณที่อุดหนุน {{ r.seller.name }}</div>
+  </article>
+  <script>
+    // ตั้งขนาดหน้ากระดาษตอนพิมพ์: กว้างตามม้วน ยาวตามเนื้อหา (ใบเดียว ไม่แบ่งหน้า)
+    (function () {
+      var sheet = document.createElement('style'); document.head.appendChild(sheet);
+      var sel = document.getElementById('paper'), rc = document.getElementById('receipt');
+      try { var saved = localStorage.getItem('mala_paper'); if (sel && saved) { sel.value = saved; } } catch (e) {}
+      function apply() {
+        var w = sel ? parseInt(sel.value, 10) : 80;
+        var inner = w - 8;                                   // เว้นขอบซ้าย-ขวาข้างละ 4 มม.
+        document.documentElement.style.setProperty('--paper-w', inner + 'mm');
+        // วัดความสูงตามหน้าตาตอนพิมพ์จริง (แคบกว่า/ตัวเล็กกว่าบนจอ) แล้วคืนค่ากลับ
+        var old = rc.style.cssText;
+        rc.style.cssText = 'width:' + inner + 'mm;max-width:none;margin:0;padding:0;font-size:12px;box-shadow:none;';
+        document.body.classList.add('measuring');
+        var heightMm = Math.ceil(rc.getBoundingClientRect().height * 25.4 / 96 * 1.08) + 12;
+        document.body.classList.remove('measuring');
+        rc.style.cssText = old;
+        sheet.textContent = '@page { size: ' + w + 'mm ' + heightMm + 'mm; margin: 4mm; }';
+      }
+      if (sel) { sel.addEventListener('change', function () { try { localStorage.setItem('mala_paper', sel.value); } catch (e) {} apply(); }); }
+      window.addEventListener('beforeprint', function () {
+        document.documentElement.style.setProperty('--paper-w', ((sel ? parseInt(sel.value, 10) : 80) - 8) + 'mm');
+        apply();
+      });
+      apply();
+    })();
+  </script>
+</body>
+</html>

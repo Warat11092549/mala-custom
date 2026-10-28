@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สรุปรายการ - MALA CUSTOM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  {% include '_nav.html' %}
+
+  <header>
+    <h1>{{ ic('cart') }} สรุปรายการในตะกร้า</h1>
+  </header>
+
+  <main>
+    {% for message in get_flashed_messages() %}
+      <p class="msg">{{ message }}</p>
+    {% endfor %}
+    <a href="{{ url_for('seeds') }}">← ย้อนกลับไปเลือกเม็ดหม่าล่า</a>
+
+    <!-- สรุปน้ำซุปและความเผ็ด -->
+    <div class="card">
+      <h3>{{ ic('bowl') }} น้ำซุป ความเผ็ด น้ำจิ้ม & เม็ดหม่าล่า</h3>
+      <div class="item">
+        <span><strong>น้ำซุป:</strong> {{ soup.name }}</span>
+        <span style="color:var(--red); font-weight:600;">+{{ soup.price }} บาท</span>
+      </div>
+      <div class="item" style="margin-top: 6px;">
+        <span><strong>ระดับความเผ็ด:</strong> ระดับ {{ spicy_level }} ({{ spicy_name }})</span>
+      </div>
+
+      <div style="border-top: 1px dashed var(--line); margin-top: 10px; padding-top: 8px;">
+        <div class="item">
+          <span><strong>น้ำจิ้ม:</strong>{% if not sauce_items %} <span style="color:var(--muted);">ไม่เอา</span>{% endif %}</span>
+          <a href="{{ url_for('sauces') }}">{% if sauce_items %}แก้ไข{% else %}+ เลือกน้ำจิ้ม{% endif %}</a>
+        </div>
+        {% for item in sauce_items %}
+          <div class="item" style="margin-top: 4px; padding-left: 12px;">
+            <span>{{ item.name }} <small>{{ '%g'|format(item.price) }} × {{ item.qty }} = {{ '%g'|format(item.subtotal) }} บาท</small></span>
+            <div class="controls">
+              <form action="{{ url_for('decrease_item', product_id=item.id) }}" method="post" class="qty-form">
+                <input type="hidden" name="back" value="cart">
+                <button type="submit" class="small-btn">−</button>
+              </form>
+              <span class="qty-num">{{ item.qty }}</span>
+              <form action="{{ url_for('add_to_cart', product_id=item.id) }}" method="post" class="qty-form">
+                <input type="hidden" name="back" value="cart">
+                <button type="submit" class="small-btn">+</button>
+              </form>
+              <form action="{{ url_for('remove_item', product_id=item.id) }}" method="post" class="qty-form" style="margin-left: 6px;">
+                <input type="hidden" name="back" value="cart">
+                <button type="submit" class="small-btn danger" title="ลบรายการนี้">{{ ic('trash') }}</button>
+              </form>
+            </div>
+          </div>
+        {% endfor %}
+
+        <div class="item" style="margin-top: 8px;">
+          <span><strong>เม็ดหม่าล่า:</strong>
+            {% if seed_items %}{{ seed_items[0].name }}{% if seed_items[0].subtotal %} <small>({{ '%g'|format(seed_items[0].subtotal) }} บาท)</small>{% endif %}
+            {% else %}<span style="color:var(--muted);">ไม่ระบุ</span>{% endif %}
+          </span>
+          <span style="display:flex; align-items:center; gap:8px;">
+            <a href="{{ url_for('seeds') }}">{% if seed_items %}เปลี่ยน{% else %}+ เลือก{% endif %}</a>
+            {% if seed_items %}
+              <form action="{{ url_for('remove_item', product_id=seed_items[0].id) }}" method="post" class="qty-form" style="margin:0;">
+                <input type="hidden" name="back" value="cart">
+                <button type="submit" class="small-btn danger" title="เอาออก">{{ ic('trash') }}</button>
+              </form>
+            {% endif %}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <h2>วัตถุดิบในชาม</h2>
+
+    {% if ingredients %}
+      {% for item in ingredients %}
+        {% set prod = item.product if item.product is defined and item.product else item %}
+        <div class="card item-card">
+          <div class="item-main">
+            <div class="item-info">
+              <div class="item-name">{{ prod.name }}</div>
+              {% if prod.category == 'เม็ดหม่าล่า' %}
+                <div class="item-price">ตัวเลือกเม็ดหม่าล่า{% if item.subtotal == 0 %} · ไม่คิดเงินเพิ่ม{% else %} · <strong>{{ '%g'|format(item.subtotal) }} บาท</strong>{% endif %}</div>
+              {% else %}
+                <div class="item-price">{{ prod.price }} บาท × {{ item.qty }} ชิ้น = <strong>{{ item.subtotal }} บาท</strong></div>
+              {% endif %}
+            </div>
+
+            <div class="controls">
+              {% if prod.category != 'เม็ดหม่าล่า' %}
+              <form action="{{ url_for('decrease_item', product_id=prod.id) }}" method="post" class="qty-form">
+                <input type="hidden" name="back" value="cart">
+                <button type="submit" class="small-btn">−</button>
+              </form>
+
+              <span class="qty-num">{{ item.qty }}</span>
+
+              <form action="{{ url_for('add_to_cart', product_id=prod.id) }}" method="post" class="qty-form">
+                <input type="hidden" name="back" value="cart">
+                <button type="submit" class="small-btn">+</button>
+              </form>
+              {% endif %}
+
+              <form action="{{ url_for('remove_item', product_id=prod.id) }}" method="post" class="qty-form" style="margin-left: 6px;">
+                <input type="hidden" name="back" value="cart">
+                <button type="submit" class="small-btn danger" title="ลบรายการนี้">{{ ic('trash') }}</button>
+              </form>
+            </div>
+          </div>
+
+          {% if prod.image %}
+            <img src="{{ url_for('static', filename='images/' + prod.image) }}" 
+                 alt="{{ prod.name }}" 
+                 class="item-img"
+                 onerror="this.style.display='none';">
+          {% endif %}
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="card center" style="padding: 30px 16px;">
+        <p style="color:var(--muted); margin-bottom: 16px;">ยังไม่มีวัตถุดิบในตะกร้า</p>
+        <a href="{{ url_for('shop') }}" class="btn-link">ไปเลือกวัตถุดิบเพิ่ม</a>
+      </div>
+    {% endif %}
+
+    <!-- โค้ดส่วนลด -->
+    <h2>{{ ic('tag') }} โค้ดส่วนลด</h2>
+    <div class="card">
+      <form action="{{ url_for('apply_coupon') }}" method="post" class="coupon-form">
+        <input type="text" name="code" placeholder="พิมพ์โค้ดส่วนลด (เช่น MALA10)" value="{{ session.get('coupon', '') }}" required>
+        <button type="submit" class="btn-link" style="border-radius: 12px;">ใช้โค้ด</button>
+      </form>
+
+      {% if session.get('coupon') %}
+        <div class="item" style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line);">
+          <span class="discount">✔ ใช้คูปอง: <strong>{{ session.get('coupon') }}</strong></span>
+          <form action="{{ url_for('remove_coupon') }}" method="post" style="margin:0;">
+            <button type="submit" style="background:none; border:none; color:var(--red); cursor:pointer; font-size:14px; text-decoration:underline;">ยกเลิกคูปอง</button>
+          </form>
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- ส่วนสิทธิ์สมาชิก (ปุ่มโผล่เฉพาะคนที่มีโค้ดที่ใช้ได้ (เซิร์ฟเวอร์ตรวจซ้ำตอนกดและตอนสั่งซื้อ) -->
+    {% if member.enabled and (member.active or pricing.get('member_selected') or pricing.get('member_note')) %}
+      <h2>{{ ic('tag') }} สิทธิ์สมาชิก</h2>
+      <div class="card member-card">
+        {% if pricing.get('member_selected') %}
+          <div class="item">
+            <span class="discount">✔ ใช้สิทธิ์สมาชิกแล้ว{% if member.active %} <small>({{ member.active.code }})</small>{% endif %}</span>
+            <form action="{{ url_for('member_remove') }}" method="post" style="margin:0;">
+              <button type="submit" style="background:none; border:none; color:var(--red); cursor:pointer; font-size:14px; text-decoration:underline;">ไม่ใช้</button>
+            </form>
+          </div>
+        {% elif member.active %}
+          <div class="item">
+            <span>คุณได้สิทธิ์ลด <strong>{{ '%g'|format(member.active.value) }} บาท</strong><br>
+              <small style="color:var(--muted);">สั่งขั้นต่ำ {{ '%g'|format(member.active.min_order) }} บาท · ใช้ได้ครั้งเดียว · หมดอายุ {{ member.active_expires }}</small></span>
+            <form action="{{ url_for('member_apply') }}" method="post" style="margin:0;">
+              <button type="submit" class="btn-link" style="border-radius: 12px;">ใช้สิทธิ์</button>
+            </form>
+          </div>
+        {% endif %}
+        {% if pricing.get('member_note') %}
+          <div style="margin-top: 6px; font-size: 13px; color: var(--muted);">{{ pricing.member_note }}</div>
+        {% endif %}
+        {% if not stack_coupon_allowed %}<div style="margin-top:6px; font-size:12px; color:var(--muted);">ใช้ร่วมกับส่วนลดตามยอดได้ แต่ใช้ร่วมกับคูปองไม่ได้</div>{% endif %}
+      </div>
+    {% endif %}
+
+    <!-- สรุปยอดเงินรวมทั้งหมด (แก้ไขดึงค่าด้วย .get() ป้องกัน Error) -->
+    {% set tier_discount_val = pricing.get('tier_discount', 0) %}
+    {% set coupon_discount_val = pricing.get('coupon_discount', 0) %}
+    {% set subtotal_val = pricing.get('subtotal', 0) %}
+    {% set final_total_val = pricing.get('final_total', subtotal_val - tier_discount_val - coupon_discount_val) %}
+
+    <div class="card total">
+      <div class="item">
+        <span>ยอดรวมสินค้า & น้ำซุป:</span>
+        <span>{{ subtotal_val }} บาท</span>
+      </div>
+
+      {% if tier_discount_val > 0 %}
+        <div class="item discount" style="margin-top: 4px;">
+          <span>ส่วนลดตามยอด ({{ pricing.get('tier_percent', 0) }}%):</span>
+          <span>-{{ "%.2f"|format(tier_discount_val) }} บาท</span>
+        </div>
+      {% endif %}
+      {% if coupon_discount_val > 0 %}
+        <div class="item discount" style="margin-top: 4px;">
+          <span>คูปอง {{ pricing.get('coupon_code', '') }}:</span>
+          <span>-{{ "%.2f"|format(coupon_discount_val) }} บาท</span>
+        </div>
+      {% endif %}
+      {% if pricing.get('member_discount', 0) > 0 %}
+        <div class="item discount" style="margin-top: 4px;">
+          <span>สิทธิ์สมาชิก:</span>
+          <span>-{{ "%.2f"|format(pricing.get('member_discount', 0)) }} บาท</span>
+        </div>
+      {% endif %}
+      {% if pricing.get('coupon_note') %}
+        <div style="margin-top: 4px; font-size: 13px; color: var(--muted);">{{ pricing.coupon_note }}</div>
+      {% endif %}
+
+      {% if vat_cfg.enabled %}
+        <div class="item" style="margin-top: 8px; font-size: 14px; color: var(--muted);">
+          <span>มูลค่าก่อน VAT:</span>
+          <span>{{ "%.2f"|format(pricing.vat.subtotal_ex_vat) }} บาท</span>
+        </div>
+        <div class="item" style="font-size: 14px; color: var(--muted);">
+          <span>VAT {{ '%g'|format(pricing.vat.rate) }}% (รวมอยู่ในราคาแล้ว):</span>
+          <span>{{ "%.2f"|format(pricing.vat.vat_amount) }} บาท</span>
+        </div>
+      {% endif %}
+
+      <div style="margin-top: 12px; padding-top: 10px; border-top: 2px solid var(--line);">
+        <h2 style="margin:0;">ยอดชำระสุทธิ: {{ "%.2f"|format(final_total_val) }} บาท</h2>
+        <small style="color: var(--muted);">({% if vat_cfg.enabled %}ราคารวม VAT แล้ว · {% endif %}ยังไม่รวมค่าส่ง · ค่าส่งคิดตอนปักหมุดจัดส่ง)</small>
+      </div>
+      {% include '_vat_notice.html' %}
+    </div>
+
+    {% if ingredients and not shop_state.open %}
+      <p class="msg">{{ ic('shield') }} {{ shop_state.headline }} — {{ shop_state.detail }}<br>เก็บของไว้ในตะกร้าได้ แล้วกลับมากดสั่งตอนร้านเปิดนะ</p>
+      <span class="btn btn-disabled" aria-disabled="true">ร้านปิดอยู่ ยังสั่งซื้อไม่ได้</span>
+    {% elif ingredients %}
+      <a href="{{ url_for('checkout') }}" class="btn">ต่อไป: ปักหมุดจัดส่ง →</a>
+    {% else %}
+      <p class="msg">ต้องเลือกวัตถุดิบอย่างน้อย 1 อย่างก่อนไปขั้นตอนถัดไป</p>
+    {% endif %}
+  </main>
+</body>
+</html>

@@ -1,0 +1,81 @@
+{# แถบเมนูบน + แถบขั้นตอนสั่งซื้อ (Mala Spicy Style) #}
+{% set step_map = {'home': 1, 'start': 1, 'shop': 2, 'budget_page': 2, 'random_page': 2,
+                   'sauces': 3, 'seeds': 4, 'cart_page': 5, 'checkout': 6, 'checkout_summary': 6} %}
+{% set current = step_map.get(request.endpoint, 0) %}
+{% set step_names = ['เลือกซุป', 'เลือกวัตถุดิบ', 'เลือกน้ำจิ้ม', 'เลือกเม็ดหม่าล่า', 'ดูตะกร้า', 'จัดส่ง'] %}
+{% set step_links = ['home', 'shop', 'sauces', 'seeds', 'cart_page', 'checkout'] %}
+
+<nav class="topbar">
+  <a class="brand" href="{{ url_for('admin_orders') if session.get('role') == 'admin' else url_for('home') }}">
+    <img class="brand-logo" src="{{ url_for('static', filename='images/theme/logo_nav.png') }}" alt="Mala Custom">
+  </a>
+
+  <div class="nav-group">
+    {% if session.get('role') == 'admin' %}
+      <a class="nav-btn" href="{{ url_for('admin_orders') }}">{{ ic('receipt') }} <span class="nav-text">จัดการออเดอร์</span><span class="alert-badge" data-alert-badge="slips" title="สลิปรอตรวจ" {% if not (admin_alerts or {}).get('pending_slips') %}hidden{% endif %}>{{ (admin_alerts or {}).get('pending_slips', 0) }}</span></a>
+      <a class="nav-btn" href="{{ url_for('admin_products') }}">{{ ic('box') }} <span class="nav-text">สต็อกสินค้า</span><span class="alert-badge is-low" data-alert-badge="low" title="สินค้าใกล้หมด/หมด" {% if not (admin_alerts or {}).get('low_total') %}hidden{% endif %}>{{ (admin_alerts or {}).get('low_total', 0) }}</span></a>
+      <a class="nav-btn" href="{{ url_for('admin_report') }}">{{ ic('receipt') }} <span class="nav-text">รายได้</span></a>
+      <a class="nav-btn" href="{{ url_for('admin_reviews') }}">{{ ic('star') }} <span class="nav-text">รีวิว</span></a>
+      <a class="nav-btn" href="{{ url_for('admin_settings') }}">{{ ic('settings') }} <span class="nav-text">ตั้งค่าร้าน</span></a>
+      <button type="button" class="nav-btn alert-sound" id="alert-sound-toggle" aria-label="เปิดหรือปิดเสียงแจ้งเตือนออเดอร์ใหม่">{{ ic('bell') }} <span class="nav-text alert-sound-label">เสียง: ปิด</span></button>
+      <script src="{{ url_for('static', filename='admin_alerts.js') }}" defer
+              data-url="{{ url_for('admin_api_alerts') }}"
+              data-order-url="{{ url_for('admin_order_detail', order_id='__ID__') }}"
+              data-products-url="{{ url_for('admin_products') }}"
+              data-slips-url="{{ url_for('admin_orders', status=2) }}"
+              data-poll="{{ alert_poll_seconds or 10 }}"></script>
+    {% else %}
+      <a class="nav-btn" href="{{ url_for('home') }}">{{ ic('home') }} <span class="nav-text">หน้าแรก</span></a>
+      {% if session.get('username') %}
+        <a class="nav-btn" href="{{ url_for('order_history') }}">{{ ic('receipt') }} <span class="nav-text">ประวัติการสั่ง</span></a>
+      {% endif %}
+      <form action="{{ url_for('reset') }}" method="post" style="margin: 0;">
+        <button type="submit" class="nav-btn" onclick="return confirm('ล้างตะกร้าและเริ่มใหม่ทั้งหมดใช่ไหม?');">
+          {{ ic('refresh') }} <span class="nav-text">เริ่มใหม่</span>
+        </button>
+      </form>
+    {% endif %}
+
+    <span class="nav-user">{{ ic('user') }} {{ session.get('name', 'ลูกค้า') }}</span>
+    
+    {% if session.get('username') %}
+      <form action="{{ url_for('logout') }}" method="post" style="margin: 0;">
+        <button type="submit" class="nav-btn nav-out">ออกจากระบบ</button>
+      </form>
+    {% endif %}
+  </div>
+</nav>
+
+{% if session.get('role') != 'admin' and current > 0 %}
+  <div class="steps-wrapper">
+    <ol class="steps">
+      {% for name in step_names %}
+        <li class="{{ 'done' if loop.index < current else ('current' if loop.index == current else '') }}">
+          {% if loop.index < current %}
+            <a href="{{ url_for(step_links[loop.index0]) }}">
+              <span class="dot">✔</span>
+              <span class="label">{{ name }}</span>
+            </a>
+          {% else %}
+            <span class="step-static">
+              <span class="dot">{{ loop.index }}</span>
+              <span class="label">{{ name }}</span>
+            </span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+    <!-- แถบย่อขั้นตอนบนมือถือ -->
+    <div class="mobile-step-badge">
+      <span>ขั้นตอนที่ {{ current }}/{{ step_names|length }}: <strong>{{ step_names[current - 1] }}</strong></span>
+    </div>
+  </div>
+{% endif %}
+
+{# แถบบอกสถานะร้านปิด: โชว์เฉพาะลูกค้าในหน้าที่ใช้เลือก/สั่งอาหาร #}
+{% if session.get('role') != 'admin' and not shop_state.open and request.endpoint in ordering_endpoints %}
+  <div class="closed-strip" role="status">
+    <strong>{{ ic('shield') }} {{ shop_state.headline }}</strong>
+    <span>{{ shop_state.detail }} · ดูเมนูได้ แต่ยังกดสั่งซื้อไม่ได้</span>
+  </div>
+{% endif %}

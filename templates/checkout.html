@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ปักหมุดและระบุที่อยู่จัดส่ง - MALA CUSTOM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+</head>
+<body>
+  {% include '_nav.html' %}
+
+  <header>
+    <h1>{{ ic('pin') }} ปักหมุดและระบุที่อยู่จัดส่ง</h1>
+    <p>ปักหมุดบนแผนที่และกรอกที่อยู่จัดส่ง</p>
+  </header>
+
+  <main>
+    <a href="{{ url_for('cart_page') }}">← ย้อนกลับไปตะกร้าสินค้า</a>
+
+    <div class="card" style="margin-top: 14px;">
+      <h3>{{ ic('truck') }} เงื่อนไขค่าส่งตามระยะทาง</h3>
+      <ul style="margin: 8px 0; padding-left: 20px; color: var(--muted); font-size: 14px;">
+        <li>ภายใน {{ free_km }} กม. <strong>ส่งฟรี</strong></li>
+        <li>เกินจากนั้นคิดกิโลเมตรละ {{ rate }} บาท (ปัดขึ้นเป็นกิโลเมตรเต็ม)</li>
+        <li>ส่งได้ไม่เกิน {{ max_km }} กม.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+      {% endif %}
+
+      <form action="{{ url_for('checkout') }}" method="post" onsubmit="return checkPin();">
+        <h2>1. ปักหมุดตำแหน่งจัดส่งบนแผนที่</h2>
+        <button type="button" class="chip" onclick="useMyLocation()" style="margin-bottom: 10px;">{{ ic('pin') }} ใช้ตำแหน่งปัจจุบันของฉัน</button>
+        <div id="map" style="height: 280px; border-radius: 14px; margin-bottom: 10px; border: 1px solid var(--line);"></div>
+        <div class="fee-box" id="fee-text" style="font-weight: 600; color: var(--red-spicy); margin-bottom: 8px;">
+          จิ้มบนแผนที่เพื่อปักหมุดบ้านของคุณ (ลากหมุดเพื่อปรับตำแหน่งได้)
+        </div>
+        <small><a href="https://www.google.com/maps?q={{ shop_lat }},{{ shop_lng }}" target="_blank" rel="noopener">{{ ic('location') }} ดูตำแหน่งร้านใน Google Maps</a></small>
+
+        <h2 style="margin-top: 24px;">2. ข้อมูลผู้รับและที่อยู่จัดส่ง</h2>
+        
+        <div style="margin-bottom: 12px;">
+          <label>ชื่อ-นามสกุล ผู้รับ:</label>
+          <input type="text" name="fullname" value="{{ form.get('name') or session.name }}" required>
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <label>เบอร์โทรศัพท์ (9-10 หลัก):</label>
+          <input type="text" name="phone" value="{{ form.get('phone', '') }}" inputmode="numeric" placeholder="เช่น 0812345678" required>
+        </div>
+
+        <!-- ช่องกรอกที่อยู่แบบช่องเดียวพร้อมคำอธิบาย -->
+        <div style="margin-bottom: 16px;">
+          <label><strong>ที่อยู่จัดส่ง:</strong></label>
+          <div style="font-size: 13px; color: var(--muted); margin: 4px 0 8px; line-height: 1.5; background: var(--blush); padding: 10px 14px; border-radius: 10px;">
+            {{ ic('pin') }} <strong>สิ่งที่ต้องระบุ (จำเป็น):</strong> บ้านเลขที่, ตำบล/แขวง, อำเภอ/เขต, จังหวัด<br>
+            {{ ic('help') }} <strong>มีหรือไม่มีก็ได้ (ถ้ามีให้ระบุ):</strong> หมู่บ้าน/อาคาร/คอนโด, ซอย, ถนน<br>
+            {{ ic('cancel') }} <strong>ไม่ต้องใส่:</strong> รหัสไปรษณีย์
+          </div>
+          <textarea name="address" rows="3" placeholder="เช่น 123/45 หมู่บ้านสุขสันต์ ซ.มิตรภาพ 15 ถ.มิตรภาพ ต.ในเมือง อ.เมือง จ.ขอนแก่น" required>{{ form.get('address', '') }}</textarea>
+        </div>
+
+        <div style="margin-top: 14px;">
+          <label>หมายเหตุถึงไรเดอร์ / จุดสังเกต (ถ้ามี):</label>
+          <textarea name="note" rows="2" placeholder="เช่น ฝากไว้ที่ป้อมยาม, โทรหาก่อนส่ง">{{ form.get('note', '') }}</textarea>
+        </div>
+
+        <input type="hidden" name="lat" id="lat" value="{{ saved.lat if saved else '' }}">
+        <input type="hidden" name="lng" id="lng" value="{{ saved.lng if saved else '' }}">
+
+        <div class="card" style="margin-top: 20px; background: var(--blush); border-color: #ffd2c2;">
+          <p style="margin: 0; font-size: 16px;">
+            ยอดค่าอาหาร (หักส่วนลดแล้ว): <strong style="color: var(--red-spicy); font-size: 18px;">{{ "%.2f"|format(pricing.final_total) }} บาท</strong>
+            <small style="display: block; color: var(--muted);">(ยังไม่รวมค่าส่งตามระยะทางที่คำนวณจากหมุด{% if vat_cfg.enabled %} · ราคาอาหารรวม VAT {{ '%g'|format(vat_cfg.rate) }}% แล้ว{% endif %})</small>
+          </p>
+        </div>
+
+        <button type="submit" class="btn">ยืนยันที่อยู่ และไปหน้าชำระเงิน →</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+  <script>
+    const SHOP = [{{ shop_lat }}, {{ shop_lng }}];
+    const FREE_KM = {{ free_km }};
+    const RATE = {{ rate }};
+    const MAX_KM = {{ max_km }};
+    const SAVED = {{ saved|tojson }};
+
+    let map = null;
+    let pin = null;
+
+    function distanceKm(lat1, lng1, lat2, lng2) {
+      const R = 6371;
+      const rad = function (d) { return d * Math.PI / 180; };
+      const dLat = rad(lat2 - lat1);
+      const dLng = rad(lng2 - lng1);
+      const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(rad(lat1)) * Math.cos(rad(lat2)) *
+                Math.sin(dLng / 2) * Math.sin(dLng / 2);
+      return R * 2 * Math.asin(Math.sqrt(a));
+    }
+
+    function showFee(lat, lng) {
+      const km = Math.round(distanceKm(SHOP[0], SHOP[1], lat, lng) * 10) / 10;
+      let text = 'ห่างร้านประมาณ ' + km.toFixed(1) + ' กม.';
+
+      if (km > MAX_KM) {
+        text += ' | ไกลเกินพื้นที่จัดส่ง (ส่งได้ไม่เกิน ' + MAX_KM + ' กม.)';
+      } else {
+        const extra = km - FREE_KM;
+        const fee = extra <= 0 ? 0 : Math.ceil(extra) * RATE;
+        text += ' | ค่าส่ง ' + (fee === 0 ? 'ฟรี' : fee + ' บาท');
+      }
+      document.getElementById('fee-text').textContent = text;
+    }
+
+    function setLocation(lat, lng) {
+      document.getElementById('lat').value = lat.toFixed(6);
+      document.getElementById('lng').value = lng.toFixed(6);
+      showFee(lat, lng);
+
+      if (map) {
+        const latlng = L.latLng(lat, lng);
+        if (pin) {
+          pin.setLatLng(latlng);
+        } else {
+          pin = L.marker(latlng, {draggable: true}).addTo(map);
+          pin.on('dragend', function () {
+            const p = pin.getLatLng();
+            setLocation(p.lat, p.lng);
+          });
+        }
+      }
+    }
+
+    function useMyLocation() {
+      if (!navigator.geolocation) {
+        alert('เบราว์เซอร์นี้ไม่รองรับการหาตำแหน่ง ลองจิ้มบนแผนที่แทนนะ');
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(function (pos) {
+        setLocation(pos.coords.latitude, pos.coords.longitude);
+        if (map) {
+          map.setView([pos.coords.latitude, pos.coords.longitude], 14);
+        }
+      }, function () {
+        alert('ดึงตำแหน่งไม่ได้ ลองจิ้มบนแผนที่แทนนะ');
+      });
+    }
+
+    function checkPin() {
+      if (document.getElementById('lat').value === '') {
+        alert('กรุณาปักหมุดตำแหน่งที่จะให้ไปส่งบนแผนที่ก่อนนะ');
+        return false;
+      }
+      return true;
+    }
+
+    if (typeof L === 'undefined') {
+      document.getElementById('map').innerHTML =
+        '<p class="alert alert-danger" style="padding:16px">โหลดแผนที่ไม่สำเร็จ ตรวจอินเทอร์เน็ตแล้วกด Ctrl + F5 หรือกดปุ่ม "ใช้ตำแหน่งปัจจุบันของฉัน" แทน</p>';
+    } else {
+      map = L.map('map').setView(SHOP, 12);
+
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      L.marker(SHOP).addTo(map).bindPopup('ร้าน MALA CUSTOM');
+      L.circle(SHOP, {radius: FREE_KM * 1000, color: '#c0392b', weight: 1, fill: false}).addTo(map);
+      L.circle(SHOP, {radius: MAX_KM * 1000, color: '#999999', weight: 1, dashArray: '5', fill: false}).addTo(map);
+
+      map.on('click', function (e) {
+        setLocation(e.latlng.lat, e.latlng.lng);
+      });
+
+      setTimeout(function () { map.invalidateSize(); }, 300);
+    }
+
+    if (SAVED) {
+      setLocation(SAVED.lat, SAVED.lng);
+      if (map) {
+        map.setView([SAVED.lat, SAVED.lng], 13);
+      }
+    }
+  </script>
+</body>
+</html>

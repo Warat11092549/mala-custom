@@ -1,0 +1,352 @@
+{
+  "soups": [
+    {
+      "id": "S01",
+      "name": "หม่าล่าเข้มข้น",
+      "price": 10,
+      "detail": "พริกและเครื่องเทศจัดเต็ม ชาลิ้น เผ็ดสะใจ",
+      "image": "soup/S01.jpg"
+    },
+    {
+      "id": "S02",
+      "name": "ซุปน้ำดำ",
+      "price": 10,
+      "detail": "ซุปสีเข้ม รสกลมกล่อม หอมเครื่องเทศ",
+      "image": "soup/S02.jpg"
+    },
+    {
+      "id": "S03",
+      "name": "ซุปกระดูกหมู",
+      "price": 10,
+      "detail": "ต้มจากกระดูกหมู หวานกลมกล่อม",
+      "image": "soup/S03.jpg"
+    },
+    {
+      "id": "S04",
+      "name": "หม่าล่านม",
+      "price": 10,
+      "detail": "หม่าล่าผสมนม ซุปครีมมี่ เผ็ดนุ่มละมุน",
+      "image": "soup/S04.jpg"
+    },
+    {
+      "id": "S05",
+      "name": "หม่าล่าดั้งเดิม",
+      "price": 5,
+      "detail": "สูตรต้นตำรับ ชาลิ้น เผ็ดหอม",
+      "image": "soup/S05.jpg"
+    },
+    {
+      "id": "S06",
+      "name": "ซุปน้ำใส",
+      "price": 5,
+      "detail": "ซุปใสรสเบา เหมาะกับคนไม่ชอบเผ็ด",
+      "image": "soup/S06.jpg"
+    }
+  ],
+  "products": [
+    {
+      "id": "P001",
+      "name": "หมูสามชั้น",
+      "price": 5,
+      "category": "เนื้อสัตว์",
+      "tag": "pork",
+      "stock": 74,
+      "available": true,
+      "image": "meat/P001.jpg"
+    },
+    {
+      "id": "P002",
+      "name": "หมูสไลซ์",
+      "price": 5,
+      "category": "เนื้อสัตว์",
+      "tag": "pork",
+      "stock": 88,
+      "available": true,
+      "image": "meat/P002.jpg"
+    },
+    {
+      "id": "P003",
+      "name": "เนื้อวัว",
+      "price": 7,
+      "category": "เนื้อสัตว์",
+      "tag": "beef",
+      "stock": 91,
+      "available": true,
+      "image": "meat/P003.jpg"
+    },
+    {
+      "id": "P005",
+      "name": "ไส้หมู",
+      "price": 7,
+      "category": "เนื้อสัตว์",
+      "tag": "pork",
+      "stock": 81,
+      "available": true,
+      "image": "meat/P005.jpg"
+    },
+    {
+      "id": "P021",
+      "name": "กุ้ง",
+      "price": 10,
+      "category": "เนื้อสัตว์",
+      "tag": "seafood",
+      "stock": 81,
+      "available": true,
+      "image": "seafood/P021.jpg"
+    },
+    {
+      "id": "P022",
+      "name": "หมึก",
+      "price": 10,
+      "category": "เนื้อสัตว์",
+      "tag": "seafood",
+      "stock": 89,
+      "available": true,
+      "image": "seafood/P022.jpg"
+    },
+    {
+      "id": "P006",
+      "name": "ลูกชิ้นหมู",
+      "price": 5,
+      "category": "ลูกชิ้น",
+      "tag": "ball",
+      "stock": 79,
+      "available": true,
+      "image": "balls/P006.jpg"
+    },
+    {
+      "id": "P007",
+      "name": "ลูกชิ้นปลา",
+      "price": 5,
+      "category": "ลูกชิ้น",
+      "tag": "ball",
+      "stock": 73,
+      "available": true,
+      "image": "balls/P007.jpg"
+    },
+    {
+      "id": "P008",
+      "name": "เต้าหู้ปลา",
+      "price": 7,
+      "category": "ลูกชิ้น",
+      "tag": "ball",
+      "stock": 87,
+      "available": true,
+      "image": "balls/P008.jpg"
+    },
+    {
+      "id": "P009",
+      "name": "ปูอัด",
+      "price": 5,
+      "category": "ลูกชิ้น",
+      "tag": "ball",
+      "stock": 88,
+      "available": true,
+      "image": "balls/P009.jpg"
+    },
+    {
+      "id": "P010",
+      "name": "ไส้กรอก",
+      "price": 5,
+      "category": "ลูกชิ้น",
+      "tag": "ball",
+      "stock": 81,
+      "available": true,
+      "image": "balls/P010.jpg"
+    },
+    {
+      "id": "P011",
+      "name": "ผักกาดขาว",
+      "price": 5,
+      "category": "ผัก",
+      "tag": "veggie",
+      "stock": 84,
+      "available": true,
+      "image": "vegetables/P011.jpg"
+    },
+    {
+      "id": "P012",
+      "name": "ผักบุ้ง",
+      "price": 5,
+      "category": "ผัก",
+      "tag": "veggie",
+      "stock": 81,
+      "available": true,
+      "image": "vegetables/P012.jpg"
+    },
+    {
+      "id": "P013",
+      "name": "เห็ดเข็มทอง",
+      "price": 5,
+      "category": "ผัก",
+      "tag": "veggie",
+      "stock": 83,
+      "available": true,
+      "image": "vegetables/P013.jpg"
+    },
+    {
+      "id": "P014",
+      "name": "เห็ดออรินจิ",
+      "price": 6,
+      "category": "ผัก",
+      "tag": "veggie",
+      "stock": 74,
+      "available": true,
+      "image": "vegetables/P014.jpg"
+    },
+    {
+      "id": "P015",
+      "name": "ข้าวโพด",
+      "price": 5,
+      "category": "ผัก",
+      "tag": "veggie",
+      "stock": 83,
+      "available": true,
+      "image": "vegetables/P015.jpg"
+    },
+    {
+      "id": "P016",
+      "name": "บรอกโคลี",
+      "price": 5,
+      "category": "ผัก",
+      "tag": "veggie",
+      "stock": 84,
+      "available": true,
+      "image": "vegetables/P016.jpg"
+    },
+    {
+      "id": "P023",
+      "name": "ข้าวโพดอ่อน",
+      "price": 5,
+      "category": "ผัก",
+      "tag": "veggie",
+      "stock": 81,
+      "available": true,
+      "image": "vegetables/P023.jpg"
+    },
+    {
+      "id": "P024",
+      "name": "แครอท",
+      "price": 5,
+      "category": "ผัก",
+      "tag": "veggie",
+      "stock": 78,
+      "available": true,
+      "image": "vegetables/P024.jpg"
+    },
+    {
+      "id": "P017",
+      "name": "มาม่า",
+      "price": 10,
+      "category": "เส้น",
+      "tag": "noodle",
+      "stock": 83,
+      "available": true,
+      "image": "noodles/P017.jpg"
+    },
+    {
+      "id": "P018",
+      "name": "วุ้นเส้น",
+      "price": 8,
+      "category": "เส้น",
+      "tag": "noodle",
+      "stock": 82,
+      "available": true,
+      "image": "noodles/P018.jpg"
+    },
+    {
+      "id": "P019",
+      "name": "เส้นมันเทศ",
+      "price": 8,
+      "category": "เส้น",
+      "tag": "noodle",
+      "stock": 82,
+      "available": true,
+      "image": "noodles/P019.jpg"
+    },
+    {
+      "id": "P020",
+      "name": "เส้นบุก",
+      "category": "เส้น",
+      "price": 15,
+      "image": "noodles/P020.jpg",
+      "available": true,
+      "stock": 97
+    },
+    {
+      "id": "P031",
+      "name": "น้ำจิ้มสูตรทางร้าน",
+      "price": 10,
+      "category": "น้ำจิ้ม",
+      "tag": "sauce",
+      "detail": "สูตรเฉพาะของร้าน MALA CUSTOM",
+      "stock": 90,
+      "available": true,
+      "image": "sauce/P031.jpg"
+    },
+    {
+      "id": "P032",
+      "name": "น้ำจิ้มสุกี้",
+      "price": 10,
+      "category": "น้ำจิ้ม",
+      "tag": "sauce",
+      "detail": "รสหวานเปรี้ยวเผ็ดนิด ๆ แบบสุกี้",
+      "stock": 93,
+      "available": true,
+      "image": "sauce/P032.jpg"
+    },
+    {
+      "id": "P033",
+      "name": "น้ำจิ้มงา",
+      "price": 10,
+      "category": "น้ำจิ้ม",
+      "tag": "sauce",
+      "detail": "รสชาติเฉพาะของน้ำจิ้มงา",
+      "stock": 94,
+      "available": true,
+      "image": "sauce/P033.jpg"
+    },
+    {
+      "id": "P034",
+      "name": "น้ำจิ้มสูตรหม่าล่า",
+      "price": 10,
+      "category": "น้ำจิ้ม",
+      "tag": "sauce",
+      "detail": "ชาลิ้น เผ็ดหอม เข้ากับหม่าล่า",
+      "stock": 99,
+      "available": true,
+      "image": "sauce/P034.jpg"
+    },
+    {
+      "id": "p_28",
+      "name": "ไก่",
+      "category": "เนื้อสัตว์",
+      "price": 25,
+      "image": "meat/chicken.jpg",
+      "available": true,
+      "stock": 45
+    },
+    {
+      "id": "P041",
+      "name": "กรองเม็ดหม่าล่าออก",
+      "category": "เม็ดหม่าล่า",
+      "price": 0,
+      "stock": 9997,
+      "available": true,
+      "image": "",
+      "detail": "ไม่มีเม็ดในชาม กินง่าย ได้กลิ่นหอมและรสหม่าล่าครบ",
+      "tag": "seed"
+    },
+    {
+      "id": "P042",
+      "name": "ไม่กรองเม็ดหม่าล่า",
+      "category": "เม็ดหม่าล่า",
+      "price": 0,
+      "stock": 9999,
+      "available": true,
+      "image": "",
+      "detail": "เม็ดหม่าล่าอยู่ในซุป ชาแบบดั้งเดิม (เคี้ยวเม็ดได้)",
+      "tag": "seed"
+    }
+  ]
+}

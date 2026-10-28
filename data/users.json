@@ -1,0 +1,37 @@
+[
+  {
+    "username": "admin",
+    "password_hash": "pbkdf2:sha256:1000000$THY6WNlABSuBuNTx$7e6579ad5c9291c524a5b7a018c75edf5b75238e37ebe6696a2b448b8f9e9f83",
+    "name": "ผู้ดูแลร้าน",
+    "role": "admin",
+    "points": 0
+  },
+  {
+    "username": "Warat",
+    "password_hash": "pbkdf2:sha256:1000000$1tCoWd3kmAuyTJTu$ca79e5d06317364da28d336246a8a8dff3363fa49f6c5a450efb8146ddcc55e8",
+    "name": "Warat",
+    "role": "customer",
+    "points": 112
+  },
+  {
+    "username": "test",
+    "password_hash": "pbkdf2:sha256:1000000$ZwFQkiloJu8RZJOH$a08e46cab063279997baf1375f2018e79f344414d129cd2039bd006f51d21eae",
+    "name": "test1",
+    "role": "customer",
+    "points": 0
+  },
+  {
+    "username": "hiwmala",
+    "password_hash": "pbkdf2:sha256:1000000$ved1HUevotkLzRED$ec276d824c7f62b5e606fe3665ec4bc160df5382684904b6175506e779c43a6b",
+    "name": "hiw",
+    "role": "customer",
+    "points": 0
+  },
+  {
+    "username": "hiwmalaaaa",
+    "password_hash": "pbkdf2:sha256:1000000$VrhINJrhU0wZLbeR$6d04ec151eb555acc9ee0a335abddeee39c49c759b42ed9d0f717544dd236619",
+    "name": "hiwmalaaaa",
+    "role": "customer",
+    "points": 0
+  }
+]

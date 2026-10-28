@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ยินดีต้อนรับ - {{ shop_name }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    /* หน้าต้อนรับ: โลโก้ + ภาพหม้อหม่าล่าเป็นพื้นหลัง · ขยับเฉพาะ transform/opacity
+       ถ้าเครื่องตั้ง "ลดการเคลื่อนไหว" style.css จะปิดแอนิเมชันให้เอง (เนื้อหายังเห็นครบ) */
+    .welcome-body {
+      min-height: 100vh; margin: 0; color: #fff; background: var(--chalk);
+      background-image: linear-gradient(180deg, rgba(14, 15, 18, 0.72) 0%, rgba(14, 15, 18, 0.86) 100%),
+                        url('{{ url_for("static", filename="images/theme/hero.jpg") }}');
+      background-size: cover; background-position: center; background-attachment: fixed;
+    }
+    .welcome {
+      min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 28px 20px 40px; max-width: 560px; margin: 0 auto;
+    }
+    .welcome-logo { width: min(440px, 86vw); height: auto; filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.6)); animation: wFade 0.7s var(--ease) backwards; }
+    .welcome-kicker { margin: 18px 0 4px; font-size: 18px; color: #ffd2b8; animation: wUp 0.6s var(--ease) 0.2s backwards; }
+    .welcome-sub { margin: 0 0 18px; color: #d4d4d4; font-size: 16px; animation: wUp 0.6s var(--ease) 0.35s backwards; }
+    .welcome-status {
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; font-size: 14px;
+      background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.22); animation: wUp 0.6s var(--ease) 0.5s backwards;
+    }
+    .welcome-status .ic { width: 16px; height: 16px; }
+    .welcome-status.is-closed { background: rgba(201, 66, 11, 0.28); border-color: #e75b1e; }
+    .welcome-detail { margin-top: 8px; font-size: 14px; color: #ffd2b8; }
+    .welcome-promo {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; padding: 10px 14px; border-radius: 10px;
+      background: rgba(231, 91, 30, 0.2); border: 1px dashed #e75b1e; font-size: 14px; max-width: 420px; animation: wUp 0.6s var(--ease) 0.6s backwards;
+    }
+    .welcome-cta {
+      position: relative; display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; padding: 15px 40px; border-radius: 999px;
+      background: var(--orange-fire); color: #fff; font-size: 19px; font-weight: 700; text-decoration: none;
+      box-shadow: 0 8px 22px rgba(231, 91, 30, 0.5); animation: wUp 0.6s var(--ease) 0.75s backwards;
+      transition: transform 0.15s var(--ease), background 0.15s;
+    }
+    .welcome-cta:hover { background: var(--orange-hover); transform: translateY(-2px); }
+    .welcome-cta:active { transform: scale(0.97); }
+    .welcome-cta::after {
+      content: ""; position: absolute; inset: 0; border-radius: inherit; border: 2px solid var(--orange-fire);
+      animation: ctaRing 2.2s ease-out 1.6s infinite; pointer-events: none;
+    }
+    @keyframes ctaRing { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.28, 1.6); opacity: 0; } }
+    .welcome-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; color: #ffd2b8; font-size: 14px; animation: wUp 0.6s var(--ease) 0.95s backwards; }
+    @keyframes wUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    @keyframes wFade { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body class="welcome-body">
+  <main class="welcome">
+    <h1 class="welcome-logo-wrap" style="margin:0;font-size:0;line-height:0;">
+      <img class="welcome-logo" src="{{ url_for('static', filename='images/theme/logo.png') }}" alt="{{ shop_name }}">
+    </h1>
+
+    <p class="welcome-kicker">{% if returning %}ยินดีต้อนรับกลับมา{% else %}ยินดีต้อนรับสู่ร้าน{% endif %}{% if display_name %} คุณ{{ display_name }}{% endif %}</p>
+    <p class="welcome-sub">เลือกเอง เผ็ดเอง อร่อยเอง</p>
+
+    <div class="welcome-status {{ '' if shop_state.open else 'is-closed' }}" role="status">
+      {{ ic('check') if shop_state.open else ic('cancel') }} {{ shop_state.headline }} · เวลาทำการ {{ shop_state.hours_text }}
+    </div>
+    {% if not shop_state.open and shop_state.detail %}<div class="welcome-detail">{{ shop_state.detail }}</div>{% endif %}
+
+    {% if promo_banner.enabled %}<div class="welcome-promo">{{ ic('tag') }} {{ promo_banner.text }}</div>{% endif %}
+
+    <a class="welcome-cta" href="{{ url_for('home') }}">{% if shop_state.open %}สั่งหม่าล่าเลย{% else %}{{ ic('eye') }} ดูเมนูล่วงหน้า{% endif %}</a>
+    {% if returning %}<a class="welcome-link" href="{{ url_for('order_history') }}">{{ ic('receipt') }} ดูประวัติการสั่งของฉัน</a>{% endif %}
+  </main>
+</body>
+</html>

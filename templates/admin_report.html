@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>รายได้ & วัตถุดิบขายดี - Admin MALA CUSTOM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .rp-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-bottom: 22px; }
+    .rp-card { background: var(--paper); border: 1.5px solid var(--line); border-radius: var(--radius-lg);
+               padding: 16px 18px; box-shadow: var(--shadow-soft); }
+    .rp-card small { color: var(--muted); display: block; }
+    .rp-card .big { font-size: 26px; font-weight: 700; color: var(--red-spicy); margin: 4px 0; }
+    .rp-section { margin-bottom: 28px; }
+    .rp-table { width: 100%; border-collapse: collapse; background: var(--paper); border-radius: var(--radius-sm);
+                overflow: hidden; box-shadow: var(--shadow-soft); font-size: 14px; }
+    .rp-table th { background: var(--blush); color: var(--red-deep); text-align: left; padding: 10px 12px; }
+    .rp-table td { padding: 9px 12px; border-top: 1px solid var(--line); vertical-align: middle; }
+    .rp-table .num { text-align: right; white-space: nowrap; }
+    .rp-bar { background: var(--blush); border-radius: 8px; height: 12px; min-width: 90px; }
+    .rp-bar span { display: block; height: 100%; border-radius: 8px; background: var(--mala-gradient); }
+    .rp-scroll { overflow-x: auto; }
+    .rp-note { color: var(--muted); font-size: 13px; margin: 6px 0 12px; }
+    .rp-low { color: var(--red-spicy); font-weight: 600; }
+  </style>
+</head>
+<body>
+  {% include '_nav.html' %}
+
+  <header>
+    <h1>{{ ic('receipt') }} รายได้ & วัตถุดิบขายดี</h1>
+    <p>นับเฉพาะออเดอร์ที่{{ basis_label }}</p>
+  </header>
+
+  <main style="max-width: 960px;">
+
+    <!-- เลือกเกณฑ์นับรายได้ -->
+    <div class="chips" style="justify-content: center;">
+      {% for key, label in basis_options.items() %}
+        <a class="chip {% if basis == key %}active{% endif %}"
+           href="{{ url_for('admin_report', basis=key, month=month, days=days) }}">{{ label }}</a>
+      {% endfor %}
+    </div>
+
+    <!-- สรุปรายได้ -->
+    <div class="rp-cards">
+      <div class="rp-card">
+        <small>วันนี้</small>
+        <div class="big">{{ '{:,.2f}'.format(today.total) }}</div>
+        <small>{{ today.orders }} ออเดอร์</small>
+      </div>
+      <div class="rp-card">
+        <small>เดือนนี้</small>
+        <div class="big">{{ '{:,.2f}'.format(this_month.total) }}</div>
+        <small>{{ this_month.orders }} ออเดอร์</small>
+      </div>
+      <div class="rp-card">
+        <small>ทั้งหมดตั้งแต่เปิดระบบ</small>
+        <div class="big">{{ '{:,.2f}'.format(all_time.total) }}</div>
+        <small>{{ all_time.orders }} ออเดอร์ · ค่าอาหาร {{ '{:,.2f}'.format(all_time.food) }}{% if all_time.vat %} · VAT {{ '{:,.2f}'.format(all_time.vat) }}{% endif %} · ค่าส่ง {{ '{:,.2f}'.format(all_time.fee) }}</small>
+      </div>
+    </div>
+
+    <!-- รายวัน -->
+    <div class="rp-section">
+      <h2>{{ ic('calendar') }} รายได้รายวัน</h2>
+      <div class="chips">
+        {% for m in month_options %}
+          <a class="chip {% if m == month %}active{% endif %}"
+             href="{{ url_for('admin_report', basis=basis, month=m, days=days) }}">{{ m }}</a>
+        {% endfor %}
+      </div>
+      <p class="rp-note">เดือน {{ month }}: รวม {{ '{:,.2f}'.format(picked_month.total) }} บาท จาก {{ picked_month.orders }} ออเดอร์</p>
+      {% if daily %}
+        <div class="rp-scroll">
+        <table class="rp-table">
+          <tr><th>วันที่</th><th class="num">ออเดอร์</th><th class="num">ยอดรวม (บาท)</th><th>เทียบวันสูงสุด</th></tr>
+          {% for d in daily %}
+            <tr>
+              <td>{{ d.label }}</td>
+              <td class="num">{{ d.orders }}</td>
+              <td class="num"><strong>{{ '{:,.2f}'.format(d.total) }}</strong></td>
+              <td><div class="rp-bar"><span style="width: {{ d.pct }}%"></span></div></td>
+            </tr>
+          {% endfor %}
+        </table>
+        </div>
+      {% else %}
+        <div class="card center"><p style="color: var(--muted);">เดือนนี้ยังไม่มีรายได้ตามเกณฑ์ที่เลือก</p></div>
+      {% endif %}
+    </div>
+
+    <!-- รายเดือน -->
+    <div class="rp-section">
+      <h2>{{ ic('calendar') }} รายได้รายเดือน</h2>
+      {% if monthly %}
+        <div class="rp-scroll">
+        <table class="rp-table">
+          <tr><th>เดือน</th><th class="num">ออเดอร์</th><th class="num">ค่าอาหาร</th>{% if all_time.vat %}<th class="num">VAT</th>{% endif %}<th class="num">ค่าส่ง</th><th class="num">ยอดรวม (บาท)</th><th>เทียบเดือนสูงสุด</th></tr>
+          {% for m in monthly %}
+            <tr>
+              <td>{{ m.label }}</td>
+              <td class="num">{{ m.orders }}</td>
+              <td class="num">{{ '{:,.2f}'.format(m.food) }}</td>
+              {% if all_time.vat %}<td class="num">{{ '{:,.2f}'.format(m.vat) }}</td>{% endif %}
+              <td class="num">{{ '{:,.2f}'.format(m.fee) }}</td>
+              <td class="num"><strong>{{ '{:,.2f}'.format(m.total) }}</strong></td>
+              <td><div class="rp-bar"><span style="width: {{ m.pct }}%"></span></div></td>
+            </tr>
+          {% endfor %}
+        </table>
+        </div>
+      {% else %}
+        <div class="card center"><p style="color: var(--muted);">ยังไม่มีข้อมูลรายได้</p></div>
+      {% endif %}
+    </div>
+
+    <!-- วัตถุดิบที่ถูกสั่งมากสุด -->
+    <div class="rp-section">
+      <h2>{{ ic('meat') }} ลูกค้าสั่งอะไรเยอะสุด (ไว้วางแผนซื้อวัตถุดิบ)</h2>
+      <div class="chips">
+        {% for d, label in [(7, '7 วันล่าสุด'), (30, '30 วันล่าสุด'), (0, 'ทั้งหมด')] %}
+          <a class="chip {% if days == d %}active{% endif %}"
+             href="{{ url_for('admin_report', basis=basis, month=month, days=d) }}">{{ label }}</a>
+        {% endfor %}
+      </div>
+      <p class="rp-note">นับจาก {{ top.order_count }} ออเดอร์ · ตัวเลขสีแดงในช่อง "คงเหลือ" = สต็อกเหลือน้อยกว่า 20 ชิ้น</p>
+
+      {% if top.rows %}
+        <div class="rp-scroll">
+        <table class="rp-table">
+          <tr><th>#</th><th>วัตถุดิบ</th><th>หมวด</th><th class="num">สั่งรวม (ชิ้น)</th><th class="num">อยู่ในกี่ออเดอร์</th><th class="num">ยอดขาย (บาท)</th><th class="num">คงเหลือ</th><th>เทียบอันดับ 1</th></tr>
+          {% for it in top.rows %}
+            <tr>
+              <td>{{ loop.index }}</td>
+              <td><strong>{{ it.name }}</strong></td>
+              <td>{{ it.category }}</td>
+              <td class="num"><strong>{{ it.qty }}</strong></td>
+              <td class="num">{{ it.orders }}</td>
+              <td class="num">{{ '{:,.2f}'.format(it.money) }}</td>
+              <td class="num {% if it.stock is not none and it.stock < 20 %}rp-low{% endif %}">{{ it.stock if it.stock is not none else '-' }}</td>
+              <td><div class="rp-bar"><span style="width: {{ it.pct }}%"></span></div></td>
+            </tr>
+          {% endfor %}
+        </table>
+        </div>
+
+        <div class="rp-cards" style="margin-top: 18px;">
+          <div class="rp-card">
+            <small>ซุปที่ถูกสั่งมากสุด</small>
+            {% for name, n in top.soups %}<div>{{ loop.index }}. {{ name }} — {{ n }} ครั้ง</div>{% endfor %}
+          </div>
+          <div class="rp-card">
+            <small>แยกตามหมวด (ชิ้น)</small>
+            {% for name, n in top.categories %}<div>{{ name }} — {{ n }} ชิ้น</div>{% endfor %}
+          </div>
+        </div>
+      {% else %}
+        <div class="card center"><p style="color: var(--muted);">ช่วงนี้ยังไม่มีออเดอร์ตามเกณฑ์ที่เลือก</p></div>
+      {% endif %}
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เลือกน้ำจิ้ม - MALA CUSTOM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  {% include '_nav.html' %}
+
+  <header>
+    <h1>{{ ic('chili') }} เลือกน้ำจิ้มเด็ด</h1>
+    <p>เพิ่มความอร่อยครบรสให้ชามของคุณ</p>
+  </header>
+
+  <main>
+    <a href="{{ url_for('shop') }}">← ย้อนกลับไปเลือกวัตถุดิบ</a>
+
+    <h2>รายการน้ำจิ้ม</h2>
+
+    {% for sauce in sauces %}
+      <div class="card item-card" id="item-{{ sauce.id }}">
+        <div class="item-main">
+          <div class="item-info">
+            <div class="item-name">{{ sauce.name }}</div>
+            {% if sauce.detail %}<small style="display:block; color:var(--muted);">{{ sauce.detail }}</small>{% endif %}
+            <div class="item-price">{{ sauce.price }} บาท / ถ้วย</div>
+          </div>
+
+          <div class="controls">
+            {% if sauce.stock > 0 and sauce.available %}
+              <form action="{{ url_for('decrease_item', product_id=sauce.id) }}" method="post" class="qty-form">
+                <input type="hidden" name="back" value="sauces">
+                <button type="submit" class="small-btn">−</button>
+              </form>
+
+              <span class="qty-num">{{ quantities.get(sauce.id, 0) }}</span>
+
+              <form action="{{ url_for('add_to_cart', product_id=sauce.id) }}" method="post" class="qty-form">
+                <input type="hidden" name="back" value="sauces">
+                <button type="submit" class="small-btn">+</button>
+              </form>
+            {% else %}
+              <span class="soldout">หมด</span>
+            {% endif %}
+          </div>
+        </div>
+
+        {% if sauce.image %}
+          <img src="{{ url_for('static', filename='images/' + sauce.image) }}" 
+               alt="{{ sauce.name }}" 
+               class="item-img"
+               onerror="this.style.display='none';">
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    <!-- แถบสรุปยอดด้านล่าง -->
+    <div class="bottom-bar" id="live-bar">
+      <div>
+        <small>จำนวนในตะกร้า:</small>
+        <div>
+          <strong data-live-total>{{ quantities.values() | sum }} ชิ้น ({{ pricing.subtotal }} บาท)</strong>
+        </div>
+      </div>
+      <a href="{{ url_for('seeds') }}" class="btn-link">ถัดไป: เลือกเม็ดหม่าล่า →</a>
+    </div>
+  </main>
+  <script src="{{ url_for('static', filename='cart_live.js') }}" defer></script>
+</body>
+</html>

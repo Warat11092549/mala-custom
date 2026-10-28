@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>เลือกน้ำซุป & ความเผ็ด - MALA CUSTOM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    /* สไตล์เฉพาะสำหรับกล่องความเผ็ดรวมในการ์ดเดียว */
+    .spicy-card-group {
+      padding: 8px 16px;
+    }
+    .spicy-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 8px;
+      cursor: pointer;
+      transition: background 0.15s ease, border-radius 0.15s ease;
+      border-bottom: 1px dashed var(--line);
+    }
+    .spicy-row:last-child {
+      border-bottom: none;
+    }
+    .spicy-row:hover {
+      background: var(--blush);
+      border-radius: 12px;
+    }
+    .spicy-row input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--red-spicy);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  {% include '_nav.html' %}
+
+  <header class="hero">
+    <img class="hero-logo" src="{{ url_for('static', filename='images/theme/logo.png') }}" alt="Mala Custom">
+    <p class="hero-tag">สร้างชามหม่าล่าในแบบของคุณ</p>
+  </header>
+
+  {% if promo_banner.enabled %}
+    <div class="promo-banner">{{ ic('tag') }} {{ promo_banner.text }}</div>
+  {% endif %}
+
+  <main>
+    {% if not shop_state.open %}
+      <div class="closed-card">
+        <div class="closed-emoji">{{ ic('clock') }}</div>
+        <h2>{{ shop_state.headline }}</h2>
+        <p class="closed-detail">{{ shop_state.detail }}</p>
+        <p class="closed-sub">กรุณารอร้านเปิดก่อนนะ · เวลาทำการ {{ shop_state.hours_text }}<br>
+          ระหว่างนี้ดูเมนูล่วงหน้าได้ แต่ยังกดสั่งซื้อไม่ได้</p>
+      </div>
+    {% endif %}
+
+    <form action="{{ url_for('select_soup') }}" method="post">
+      <h2>1. เลือกน้ำซุป</h2>
+      <div class="option-list">
+        {% for soup in soups %}
+          <label class="card option-card">
+            <div class="option-left">
+              <input type="radio" name="soup" value="{{ soup.id }}" {% if loop.first %}checked{% endif %} required>
+              <div class="option-details">
+                <strong>{{ soup.name }}</strong>
+                <small>{{ soup.detail }}</small>
+                <span class="soup-price">+{{ soup.price }} บาท</span>
+              </div>
+            </div>
+            {% if soup.image %}
+              <img src="{{ url_for('static', filename='images/' + soup.image) }}" alt="{{ soup.name }}" class="option-img" onerror="this.style.display='none';">
+            {% endif %}
+          </label>
+        {% endfor %}
+      </div>
+
+      <h2>2. เลือกความเผ็ด</h2>
+      <div class="card spicy-card-group">
+        {% for level, name in spicy_levels.items() %}
+          <label class="spicy-row">
+            <input type="radio" name="spicy" value="{{ level }}" {% if level == 1 %}checked{% endif %} required>
+            <div class="spicy-info">
+              <strong>{{ name }}</strong>
+              <small>{% if level == 1 %}กลมกล่อม เด็กกินได้
+                {% elif level == 2 %}กำลังดี ชาเบา ๆ
+                {% elif level == 3 %}ลิ้นชาสะใจ
+                {% elif level == 4 %}เครื่องพริกจัดเต็ม
+                {% elif level == 5 %}สายเผ็ดระดับเซียน{% endif %}</small>
+            </div>
+            <span class="spicy-chilis" aria-hidden="true">{% for _ in range(level) %}{{ ic('chili') }}{% endfor %}</span>
+          </label>
+        {% endfor %}
+      </div>
+
+      <button type="submit" class="btn" style="margin-top: 24px;">{% if shop_state.open %}ถัดไป: ไปเลือกวัตถุดิบ →{% else %}ดูเมนูล่วงหน้า (ยังสั่งซื้อไม่ได้) →{% endif %}</button>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>จัดการสินค้า & สต็อก - Admin</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  {% include '_nav.html' %}
+  <header>
+    <h1>{{ ic('box') }} จัดการสินค้า & สต็อกวัตถุดิบ</h1>
+    <p>เพิ่ม แก้ไข ราคา รูปภาพ และจำนวนสต็อกสินค้าในระบบ</p>
+  </header>
+
+  <main style="max-width: 900px;">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <div class="alert {{ 'alert-danger' if category == 'error' else 'alert-success' }}">{{ message }}</div>
+      {% endfor %}
+    {% endwith %}
+
+    <!-- ฟอร์มเพิ่ม/แก้ไขสินค้า -->
+    <div class="card">
+      <h2>{{ ic('plus') }} เพิ่ม / แก้ไข รายการสินค้า</h2>
+      <form action="{{ url_for('admin_save_product') }}" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" id="prod_id">
+        <input type="hidden" name="existing_image" id="prod_existing_image">
+
+        <div class="address-grid">
+          <div>
+            <label>ชื่อสินค้า:</label>
+            <input type="text" name="name" id="prod_name" required>
+          </div>
+          <div>
+            <label>หมวดหมู่:</label>
+            <select name="category" id="prod_category">
+              {% for cat in categories %}
+                <option value="{{ cat }}">{{ cat }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div>
+            <label>ราคา (บาท):</label>
+            <input type="number" step="0.01" name="price" id="prod_price" required>
+          </div>
+          <div>
+            <label>จำนวนสต็อก (ชิ้น/ถ้วย):</label>
+            <input type="number" name="stock" id="prod_stock" required>
+          </div>
+          <div class="full-width">
+            <label>รายละเอียดสินค้า (ถ้ามี):</label>
+            <input type="text" name="detail" id="prod_detail">
+          </div>
+          <div class="full-width">
+            <label>อัปโหลดรูปภาพสินค้าใหม่ (JPG / PNG / WEBP ไม่เกิน 5 MB):</label>
+            <input type="file" name="image_file" accept="image/jpeg,image/png,image/webp">
+          </div>
+          <div class="full-width">
+            <label><input type="checkbox" name="available" id="prod_available" checked> เปิดขาย (ลูกค้าเห็นและสั่งได้)</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn" style="margin-top:16px;">{{ ic('check') }} บันทึกสินค้า</button>
+        <a href="{{ url_for('admin_products') }}" style="margin-left:12px; font-size:14px;">ล้างฟอร์ม / เพิ่มสินค้าใหม่</a>
+      </form>
+    </div>
+
+    <h2>รายการสินค้าทั้งหมด</h2>
+    {% for p in products %}
+      <div class="card item-card">
+        <div class="item-main">
+          <div class="item-info">
+            <div class="item-name">{{ p.name }} <small>({{ p.category }})</small></div>
+            <div class="item-price">ราคา: {{ p.price }} บาท | <strong>สต็อก: {{ p.stock }}</strong>{% if not p.available %} | <span style="color: var(--red);">{{ ic('cancel') }} ปิดขาย</span>{% endif %}{% if p.available and p.stock is number %}{% if p.stock <= 0 %} | <span class="stock-tag is-out">หมดแล้ว</span>{% elif p.stock <= (admin_alerts or {}).get('threshold', 20) %} | <span class="stock-tag">ใกล้หมด</span>{% endif %}{% endif %}</div>
+          </div>
+          <div class="controls">
+            <button type="button" class="small-btn" onclick='editProd({{ p | tojson }})'>{{ ic('edit') }}</button>
+            <form action="{{ url_for('admin_delete_product', prod_id=p.id) }}" method="post" style="margin:0;" onsubmit="return confirm('ยืนยันลบสินค้านี้?');">
+              <button type="submit" class="small-btn danger">{{ ic('trash') }}</button>
+            </form>
+          </div>
+        </div>
+        {% if p.image %}
+          <img src="{{ url_for('static', filename='images/' + p.image) }}" class="item-img" onerror="this.style.display='none';">
+        {% endif %}
+      </div>
+    {% endfor %}
+  </main>
+
+  <script>
+    function editProd(p) {
+      document.getElementById('prod_id').value = p.id;
+      document.getElementById('prod_name').value = p.name;
+      document.getElementById('prod_category').value = p.category;
+      document.getElementById('prod_price').value = p.price;
+      document.getElementById('prod_stock').value = p.stock;
+      document.getElementById('prod_detail').value = p.detail || '';
+      document.getElementById('prod_existing_image').value = p.image || '';
+      document.getElementById('prod_available').checked = (p.available !== false);
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>สรุปยอด - MALA CUSTOM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  {% include '_nav.html' %}
+
+  <header>
+    <h1>{{ ic('receipt') }} สรุปยอดสุดท้าย</h1>
+    <p>{{ soup.name }} · {{ spicy_name }}</p>
+  </header>
+
+  <main>
+    <a href="{{ url_for('checkout') }}">← แก้ไขที่อยู่จัดส่ง</a>
+
+    <div class="card">
+      <h3>รายการอาหาร</h3>
+      <div class="item"><span>น้ำซุป {{ soup.name }} <small>เผ็ดระดับ {{ spicy_level }}</small></span><span>{{ '%g'|format(soup.price) }} บาท</span></div>
+      {% for item in sauce_items %}
+        <div class="item">
+          <span>น้ำจิ้ม: {{ item.name }} <small>{{ '%g'|format(item.price) }} × {{ item.qty }}</small></span>
+          <span>{{ '%g'|format(item.subtotal) }} บาท</span>
+        </div>
+      {% endfor %}
+      {% for item in seed_items %}
+        <div class="item">
+          <span>เม็ดหม่าล่า: {{ item.name }}</span>
+          <span>{% if item.subtotal %}{{ '%g'|format(item.subtotal) }} บาท{% else %}ไม่คิดเพิ่ม{% endif %}</span>
+        </div>
+      {% endfor %}
+      {% for item in ingredients %}
+        <div class="item">
+          <span>{{ item.name }} <small>{{ '%g'|format(item.price) }} × {{ item.qty }}</small></span>
+          <span>{{ '%g'|format(item.subtotal) }} บาท</span>
+        </div>
+      {% endfor %}
+
+      <div class="total">
+        <p>ยอดรวมสินค้า (ก่อนลด): {{ '%.2f'|format(pricing.subtotal) }} บาท</p>
+        {% if pricing.tier_discount > 0 %}
+          <p class="discount">ส่วนลดตามยอด ({{ pricing.tier_percent }}%): -{{ "%.2f"|format(pricing.tier_discount) }} บาท</p>
+        {% endif %}
+        {% if pricing.coupon_discount > 0 %}
+          <p class="discount">คูปอง {{ pricing.coupon_code }}: -{{ "%.2f"|format(pricing.coupon_discount) }} บาท</p>
+        {% endif %}
+        {% if pricing.member_discount > 0 %}
+          <p class="discount">สิทธิ์สมาชิก: -{{ "%.2f"|format(pricing.member_discount) }} บาท</p>
+        {% endif %}
+        <p>ค่าอาหารสุทธิ (หลังหักส่วนลด{% if vat.enabled %} · รวม VAT แล้ว{% endif %}): {{ "%.2f"|format(pricing.final_total) }} บาท</p>
+        {% if vat.enabled %}
+          <p style="font-size: 14px; color: var(--muted);">มูลค่าก่อน VAT: {{ "%.2f"|format(vat.subtotal_ex_vat) }} บาท<br>
+          VAT {{ '%g'|format(vat.rate) }}% (รวมอยู่ในราคาแล้ว ไม่บวกเพิ่ม): {{ "%.2f"|format(vat.vat_amount) }} บาท</p>
+        {% endif %}
+        <p>ค่าส่ง ({{ km }} กม.): {{ 'ฟรี' if fee == 0 else (fee ~ ' บาท') }}</p>
+        <h2>ยอดชำระสุทธิ {{ "%.2f"|format(grand_total) }} บาท</h2>
+        {% include '_vat_notice.html' %}
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>{{ ic('pin') }} จัดส่งที่</h3>
+      <p><strong>{{ info.name }}</strong> โทร {{ info.phone }}</p>
+            {% if info.address %}
+        <p>{{ info.address }}</p>
+      {% endif %}
+      <p><a href="https://www.google.com/maps?q={{ info.lat }},{{ info.lng }}" target="_blank" rel="noopener">{{ ic('location') }} เปิดตำแหน่งจัดส่งใน Google Maps</a></p>
+      {% if info.note %}
+        <p><small>หมายเหตุ: {{ info.note }}</small></p>
+      {% endif %}
+    </div>
+
+            <form action="{{ url_for('place_order') }}" method="post"
+      onsubmit="if (!confirm('ยืนยันการสั่งซื้อและไปหน้าชำระเงิน?')) { return false; } this.querySelector('button').disabled = true;">
+      <button class="btn">ยืนยันสั่งซื้อ และไปชำระเงิน →</button>
+    </form>
+  </main>
+</body>
+</html>

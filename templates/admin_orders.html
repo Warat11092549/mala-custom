@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>จัดการออเดอร์ - Admin MALA CUSTOM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .admin-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+      justify-content: center;
+    }
+    
+    .admin-search-form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .admin-search-form input { flex: 1; }
+    
+    .admin-order-card {
+      background: var(--paper);
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .admin-order-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      border-color: #ffd2c2;
+    }
+
+    .admin-order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px dashed var(--line);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .admin-order-body {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .admin-order-info p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: var(--text-main);
+    }
+
+    .ingredient-chips {
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--muted);
+      background: var(--blush);
+      padding: 8px 12px;
+      border-radius: 10px;
+      line-height: 1.4;
+    }
+
+    .admin-order-price-action {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .admin-order-body { flex-direction: column; }
+      .admin-order-price-action {
+        text-align: left;
+        align-items: flex-start;
+        width: 100%;
+        border-top: 1px dashed var(--line);
+        padding-top: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  {% include '_nav.html' %}
+
+  <header>
+    <h1>{{ ic('receipt') }} จัดการออเดอร์หลังร้าน</h1>
+    <p>ออเดอร์ทั้งหมดในระบบ {{ total_orders }} รายการ</p>
+  </header>
+
+  <main>
+    {% for message in get_flashed_messages() %}
+      <p class="msg">{{ message }}</p>
+    {% endfor %}
+    <div class="shop-switch {{ 'is-open' if shop_state.open else 'is-closed' }}">
+      <span>{{ ic('check') if shop_state.open else ic('cancel') }} <strong>{{ shop_state.headline }}</strong>
+        <small>· เวลาทำการ {{ shop_state.hours_text }}{% if shop_state.mode == 'closed' %} · ปิดโดยแอดมิน{% elif shop_state.mode == 'open' %} · บังคับเปิด{% endif %}</small></span>
+      <form action="{{ url_for('admin_settings_shop') }}" method="post" style="margin:0;"
+            {% if shop_state.mode != 'closed' %}onsubmit="return confirm('ปิดร้านชั่วคราว? ลูกค้าจะดูเมนูได้แต่สั่งซื้อไม่ได้ (ออเดอร์ที่สั่งไปแล้วยังชำระเงินต่อได้)');"{% endif %}>
+        <input type="hidden" name="next" value="admin_orders">
+        {% if shop_state.mode == 'closed' %}
+          <input type="hidden" name="mode" value="auto">
+          <button type="submit" class="btn-link">▶ เปิดร้านตามเวลา</button>
+        {% else %}
+          <input type="hidden" name="mode" value="closed">
+          <button type="submit" class="btn-cancel">{{ ic('toggle_off') }} ปิดร้านชั่วคราว</button>
+        {% endif %}
+      </form>
+    </div>
+    <!-- แจ้งเตือนหลังร้าน (ตัวเลขอัปเดตสดจาก admin_alerts.js ทุก {{ alert_poll_seconds or 10 }} วินาที) -->
+    <div class="alert-cards">
+      <a class="alert-card slips {% if admin_alerts.pending_slips %}is-active{% endif %}" data-alert-card="slips"
+         href="{{ url_for('admin_orders', status=2) }}">
+        <small>{{ ic('wallet') }} สลิปรอตรวจ</small>
+        <div class="big" data-alert-count="slips">{{ admin_alerts.pending_slips }}</div>
+        <small>กดเพื่อดูเฉพาะออเดอร์ที่รอตรวจสลิป</small>
+      </a>
+      <div class="alert-card stock {% if admin_alerts.low_total %}is-active{% endif %}" data-alert-card="low">
+        <small>{{ ic('shield') }} สต็อกใกล้หมด <span class="alert-note">(เหลือ ≤ {{ admin_alerts.threshold }} ชิ้น)</span></small>
+        <div class="big" data-alert-count="low">{{ admin_alerts.low_total }}</div>
+        <div class="stock-tags" id="alert-low-list">
+          {% for r in admin_alerts.out_of_stock %}
+            <a class="stock-tag is-out" href="{{ url_for('admin_products') }}">{{ r.name }} · หมด</a>
+          {% endfor %}
+          {% for r in admin_alerts.low_stock[:12] %}
+            <a class="stock-tag" href="{{ url_for('admin_products') }}">{{ r.name }} · เหลือ {{ r.stock }}</a>
+          {% endfor %}
+          {% if not admin_alerts.low_total %}<span class="alert-ok">✔ สต็อกทุกรายการยังพอ</span>{% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="admin-filter-bar">
+      <a href="{{ url_for('admin_orders') }}" class="chip {% if not status_filter %}active{% endif %}">
+        ทั้งหมด ({{ total_orders }})
+      </a>
+      {% for code, name in status_names.items() %}
+        <a href="{{ url_for('admin_orders', status=code) }}" class="chip {% if status_filter == (code|string) %}active{% endif %}">
+          {{ name }} ({{ counts.get(code, 0) }})
+        </a>
+      {% endfor %}
+    </div>
+
+    <form action="{{ url_for('admin_orders') }}" method="get" class="admin-search-form">
+      {% if status_filter %}
+        <input type="hidden" name="status" value="{{ status_filter }}">
+      {% endif %}
+      <input type="text" name="q" value="{{ keyword }}" placeholder="ค้นหาเลขรหัสออเดอร์, ชื่อผู้ซื้อ หรือเบอร์โทร...">
+      <button type="submit" class="btn-link" style="padding: 0 24px; white-space: nowrap;">ค้นหา</button>
+    </form>
+
+    {% if order_list %}
+      {% for order in order_list %}
+        {% set order_id_val = order.get('order_id', order.get('id', '')) %}
+        <div class="admin-order-card">
+          <div class="admin-order-header">
+            <div>
+              <strong style="color: var(--red-spicy); font-size: 19px;">#{{ order_id_val }}</strong>
+              <span style="font-size: 13px; color: var(--muted); margin-left: 8px;">
+                {{ ic('clock') }} เวลาสั่ง: <strong>{{ order.created_at }}</strong>
+              </span>
+            </div>
+            <span class="chip" style="margin: 0; background: var(--blush); font-weight: 600; color: var(--red-spicy);">
+              {{ status_names.get(order.status, order.status) }}
+            </span>
+          </div>
+
+          <div class="admin-order-body">
+            <div class="admin-order-info" style="flex: 1;">
+              <p>{{ ic('user') }} <strong>ลูกค้า:</strong> {{ order.get('customer_name', order.get('name', '-')) }} ({{ ic('message') }} {{ order.get('phone', '-') }})</p>
+              <p>{{ ic('bowl') }} <strong>ซุป:</strong> {% if order.soup is mapping %}{{ order.soup.get('name', '-') }}{% else %}{{ order.soup }}{% endif %} (เผ็ดระดับ {{ order.get('spicy_level', 1) }})</p>
+              
+              <!-- แสดงรายการวัตถุดิบผ่าน item_list -->
+              <div class="ingredient-chips">
+                <strong>{{ ic('leaf') }} วัตถุดิบ ({{ order.item_count }} รายการ):</strong><br>
+                {% if order.item_list %}
+                  {% for item in order.item_list %}
+                    • {{ item.name }} x{{ item.qty }}{% if not loop.last %}, {% endif %}
+                  {% endfor %}
+                {% else %}
+                  <span style="color:var(--muted);">- ไม่มีรายการวัตถุดิบ -</span>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="admin-order-price-action">
+              <div style="font-size: 20px; font-weight: 700; color: var(--red-spicy);">
+                {{ "%.2f"|format(order.get('grand_total', order.get('total', 0))) }} บาท
+              </div>
+              <a href="{{ url_for('admin_order_detail', order_id=order_id_val) }}" class="btn-link" style="padding: 7px 18px; font-size: 14px;">
+                {{ ic('search') }} ดูรายละเอียด & จัดการ →
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="card center" style="padding: 40px 16px; margin-top: 20px;">
+        <p style="color: var(--muted);">ไม่พบข้อมูลออเดอร์ตามเงื่อนไขนี้</p>
+      </div>
+    {% endif %}
+  </main>
+</body>
+</html>

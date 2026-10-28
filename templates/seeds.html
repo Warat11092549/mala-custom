@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>กรองเม็ดหม่าล่า - MALA CUSTOM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  {% include '_nav.html' %}
+
+  <header>
+    <h1>{{ ic('chili') }} เม็ดหม่าล่า</h1>
+    <p>จะให้กรองเม็ดออกไหม? เลือกได้ 1 แบบ</p>
+  </header>
+
+  <main>
+    <a href="{{ url_for('sauces') }}">← ย้อนกลับไปเลือกน้ำจิ้ม</a>
+
+    {% for message in get_flashed_messages() %}
+      <p class="msg">{{ message }}</p>
+    {% endfor %}
+
+    <h2>เลือกแบบที่ชอบ</h2>
+
+    {% if seeds %}
+      <form action="{{ url_for('seeds_choose') }}" method="post">
+        {% for s in seeds %}
+          {% set ok = s.stock > 0 and s.available %}
+          <label class="card seed-option{% if not ok %} disabled{% endif %}" id="item-{{ s.id }}">
+            <input type="radio" name="seed" value="{{ s.id }}" required
+                   {% if chosen_seed == s.id %}checked{% endif %}
+                   {% if not ok %}disabled{% endif %}>
+            <span class="seed-body">
+              <span class="seed-name">{{ s.name }}</span>
+              {% if s.detail %}<small class="seed-detail">{{ s.detail }}</small>{% endif %}
+            </span>
+            <span class="seed-price">
+              {% if not ok %}หมด{% elif s.price == 0 %}ไม่คิดเพิ่ม{% else %}+{{ '%g'|format(s.price) }} บาท{% endif %}
+            </span>
+          </label>
+        {% endfor %}
+
+        <div class="bottom-bar" id="live-bar">
+          <div>
+            <small>ยอดตอนนี้ (ยังไม่รวมค่าส่ง{% if vat_cfg.enabled %} · รวม VAT แล้ว{% endif %}):</small>
+            <div><strong data-live-total>{{ '%g'|format(pricing.subtotal) }} บาท</strong></div>
+          </div>
+          <button type="submit" class="btn-link">ถัดไป: ดูตะกร้าสินค้า →</button>
+        </div>
+      </form>
+
+      <p style="text-align:center;"><a href="{{ url_for('cart_page') }}">ข้ามขั้นตอนนี้ (ไม่ระบุ) →</a></p>
+    {% else %}
+      <div class="card center" style="padding: 28px 16px;">
+        <p style="color: var(--muted); margin: 0;">ตอนนี้ร้านยังไม่มีตัวเลือกเม็ดหม่าล่า กดถัดไปได้เลย</p>
+        <p><a href="{{ url_for('cart_page') }}" class="btn-link">ถัดไป: ดูตะกร้าสินค้า →</a></p>
+      </div>
+    {% endif %}
+  </main>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>เข้าสู่ระบบ - MALA CUSTOM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="hero">
+    <img class="hero-logo" src="{{ url_for('static', filename='images/theme/logo.png') }}" alt="Mala Custom">
+    <p class="hero-tag">เลือกเอง เผ็ดเอง อร่อยเอง</p>
+  </header>
+
+  <main class="auth-box">
+    <div class="card">
+      <h2>เข้าสู่ระบบ</h2>
+
+      {% for message in get_flashed_messages() %}
+        <p class="msg">{{ message }}</p>
+      {% endfor %}
+
+      <form action="{{ url_for('login') }}" method="post" class="auth-form">
+        <label>ชื่อผู้ใช้</label>
+        <input type="text" name="username" required autofocus>
+
+        <label>รหัสผ่าน</label>
+        <input type="password" name="password" required>
+
+        <button class="btn">เข้าสู่ระบบ</button>
+      </form>
+
+      <p>ยังไม่มีบัญชี? <a href="{{ url_for('register') }}">สมัครสมาชิก</a></p>
+    </div>
+  </main>
+</body>
+</html>

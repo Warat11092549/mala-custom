@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>จัดการออเดอร์ #{{ order.get('order_id', order.get('id', '')) }} - Admin</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .grab-stepper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      margin: 20px 0 30px;
+      padding: 0 10px;
+    }
+    .grab-stepper::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: 40px;
+      right: 40px;
+      height: 4px;
+      background: var(--line, #e0e0e0);
+      z-index: 1;
+    }
+    .grab-step-item {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      flex: 1;
+      text-align: center;
+    }
+    .grab-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid var(--line, #ccc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--muted, #666);
+      transition: all 0.3s ease;
+    }
+    .grab-step-item.active .grab-circle {
+      border-color: var(--red-spicy, #d32f2f);
+      background: var(--red-spicy, #d32f2f);
+      color: #ffffff;
+      box-shadow: 0 0 0 5px rgba(211, 47, 47, 0.2);
+    }
+    .grab-step-item.done .grab-circle {
+      border-color: var(--red-spicy, #d32f2f);
+      background: var(--red-spicy, #d32f2f);
+      color: #ffffff;
+    }
+    .grab-step-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted, #666);
+    }
+    .grab-step-item.active .grab-step-label {
+      color: var(--red-spicy, #d32f2f);
+      font-weight: 700;
+    }
+    .next-action-card {
+      background: linear-gradient(135deg, #fff5f2 0%, #ffffff 100%);
+      border: 2px solid var(--red-spicy, #d32f2f);
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .slip-img {
+      max-width: 100%;
+      max-height: 280px;
+      border-radius: 12px;
+      border: 1px solid var(--line, #ccc);
+      margin-top: 8px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 650px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .grab-step-label { font-size: 11px; }
+      .grab-circle { width: 34px; height: 34px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  {% include '_nav.html' %}
+
+  <header style="text-align: center; margin-top: 15px;">
+    <h1>{{ ic('truck') }} จัดการสถานะออเดอร์</h1>
+    <p>กดปุ่มลัดเพื่อเลื่อนสถานะออเดอร์ตามขั้นตอนทันที</p>
+  </header>
+
+  <main style="max-width: 850px; margin: 0 auto; padding: 0 15px;">
+    <a href="{{ url_for('admin_orders') }}">← ย้อนกลับไปรายการออเดอร์ทั้งหมด</a>
+
+    {% set order_id_val = order.get('order_id', order.get('id', '')) %}
+    {% set st = order.get('status', 1) %}
+
+    <!-- แสดง Flash Message -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for msg in messages %}
+          <div style="background: #e3f2fd; color: #0d47a1; padding: 10px 15px; border-radius: 8px; margin-top: 10px; text-align: center;">
+            {{ msg }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <div class="card" style="margin-top: 16px; padding: 15px;">
+      <div style="text-align: center; margin-bottom: 10px;">
+        <strong style="font-size: 22px; color: var(--red-spicy, #d32f2f);">ออเดอร์ #{{ order_id_val }}</strong>
+        <div style="font-size: 14px; color: var(--text-main, #333); margin-top: 2px;">
+          {{ ic('clock') }} เวลาสั่งซื้อ: <strong>{{ order.created_at }}</strong>
+        </div>
+      </div>
+
+      <!-- Grab Stepper -->
+      <div class="grab-stepper">
+        <div class="grab-step-item {% if st >= 2 %}done{% endif %} {% if st == 2 %}active{% endif %}">
+          <div class="grab-circle">{{ ic('edit') }}</div>
+          <div class="grab-step-label">รอตรวจสลิป</div>
+        </div>
+        <div class="grab-step-item {% if st >= 3 %}done{% endif %} {% if st == 3 %}active{% endif %}">
+          <div class="grab-circle">{{ ic('user') }}‍{{ ic('bowl') }}</div>
+          <div class="grab-step-label">กำลังปรุง</div>
+        </div>
+        <div class="grab-step-item {% if st >= 4 %}done{% endif %} {% if st == 4 %}active{% endif %}">
+          <div class="grab-circle">{{ ic('truck') }}</div>
+          <div class="grab-step-label">กำลังจัดส่ง</div>
+        </div>
+        <div class="grab-step-item {% if st >= 5 %}done{% endif %} {% if st == 5 %}active{% endif %}">
+          <div class="grab-circle">{{ ic('star') }}</div>
+          <div class="grab-step-label">จัดส่งสำเร็จ</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Card -->
+    <div class="next-action-card">
+      <h3 style="margin-top: 0; color: var(--red-spicy, #d32f2f);">{{ ic('send') }} ดำเนินการขั้นตอนถัดไป</h3>
+      
+{% if st == 1 %}
+        <p style="margin-bottom: 12px; color: var(--muted, #666);">{{ ic('clock') }} รอลูกค้าชำระเงินและส่งสลิป (ยังยืนยันไม่ได้)</p>
+
+      {% elif st == 2 %}
+        <p style="margin-bottom: 12px; color: var(--muted, #666);">ตรวจสอบสลิปแล้วถูกต้อง กดปุ่มเพื่อเริ่มทำอาหาร</p>
+        
+        <form action="{{ url_for('admin_order_action', order_id=order_id_val) }}" method="post" style="margin-bottom: 10px;">
+          <input type="hidden" name="action" value="approve">
+          <button type="submit" class="btn" style="margin: 0 auto; max-width: 380px; width: 100%;">
+            {{ ic('bowl') }} 1. ยืนยันสลิป & เริ่มปรุงอาหาร →
+          </button>
+        </form>
+
+        <!-- ปุ่มปฏิเสธสลิปกรณีสลิปไม่ผ่าน -->
+        <form action="{{ url_for('admin_order_action', order_id=order_id_val) }}" method="post" style="max-width: 380px; margin: 10px auto 0;" onsubmit="return confirm('ต้องการปฏิเสธสลิปนี้ใช่หรือไม่?');">
+          <input type="hidden" name="action" value="reject">
+          <div style="display: flex; gap: 8px;">
+            <input type="text" name="note" placeholder="ระบุเหตุผล (เช่น สลิปไม่ชัด/ยอดไม่ตรง)" style="flex: 1; padding: 6px 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 13px;" required>
+            <button type="submit" style="background: #f44336; color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold;">
+              {{ ic('cancel') }} ปฏิเสธสลิป
+            </button>
+          </div>
+        </form>
+
+      {% elif st == 3 %}
+        <p style="margin-bottom: 12px; color: var(--muted, #666);">อาหารทำเสร็จแล้ว กดปุ่มเพื่อส่งมอบให้ไรเดอร์ออกเดินทาง</p>
+        <form action="{{ url_for('admin_order_action', order_id=order_id_val) }}" method="post">
+          <input type="hidden" name="action" value="deliver">
+          <button type="submit" class="btn" style="margin: 0 auto; max-width: 380px; width: 100%;">
+            {{ ic('truck') }} 2. ปรุงเสร็จแล้ว -> ให้ไรเดอร์ออกส่ง →
+          </button>
+        </form>
+
+      {% elif st == 4 %}
+        <p style="margin-bottom: 12px; color: var(--muted, #666);">ไรเดอร์ส่งอาหารถึงมือลูกค้าเรียบร้อยแล้ว กดปิดงาน</p>
+        <form action="{{ url_for('admin_order_action', order_id=order_id_val) }}" method="post">
+          <input type="hidden" name="action" value="done">
+          <button type="submit" class="btn" style="margin: 0 auto; max-width: 380px; width: 100%; background: var(--green-success, #4caf50);">
+            {{ ic('star') }} 3. ลูกค้าได้รับแล้ว -> จัดส่งสำเร็จ ✔
+          </button>
+        </form>
+
+      {% elif st == 5 %}
+        <p style="color: var(--green-success, #4caf50); font-weight: 700; font-size: 18px; margin: 0;">
+          {{ ic('star') }} ออเดอร์นี้จัดส่งเสร็จสิ้นเรียบร้อยแล้ว
+        </p>
+
+      {% else %}
+        <p style="color: var(--red-spicy, #d32f2f); font-weight: 700; margin: 0;">{{ ic('cancel') }} ออเดอร์นี้ถูกยกเลิกแล้ว</p>
+      {% endif %}
+
+      {% if st in [1, 2, 3, 4] %}
+        <form action="{{ url_for('admin_order_action', order_id=order_id_val) }}" method="post" style="margin-top: 14px;" onsubmit="return confirm('ยืนยันยกเลิกออเดอร์นี้ใช่ไหม?');">
+          <input type="hidden" name="action" value="cancel">
+          <button type="submit" style="background: none; border: none; color: var(--muted, #666); cursor: pointer; text-decoration: underline; font-size: 13px;">
+            {{ ic('cancel') }} ยกเลิกออเดอร์นี้
+          </button>
+        </form>
+      {% endif %}
+    </div>
+
+    <div class="grid-2">
+      <div class="card" style="padding: 15px;">
+        <h3>{{ ic('pin') }} ข้อมูลผู้รับ & ที่อยู่จัดส่ง</h3>
+        <p style="margin: 6px 0;"><strong>ชื่อผู้รับ:</strong> {{ order.get('customer_name', order.get('name', '-')) }}</p>
+        <p style="margin: 6px 0;"><strong>เบอร์โทร:</strong> <a href="tel:{{ order.get('phone', '') }}">{{ order.get('phone', '-') }}</a></p>
+        <p style="margin: 6px 0; line-height: 1.5;"><strong>ที่อยู่:</strong> {{ order.get('address', '-') }}</p>
+        {% if order.get('note') %}
+          <p style="margin: 6px 0; color: var(--muted, #666);"><strong>หมายเหตุ:</strong> {{ order.get('note') }}</p>
+        {% endif %}
+        {% if order.get('lat') and order.get('lng') %}
+          <a href="https://www.google.com/maps?q={{ order.lat }},{{ order.lng }}" target="_blank" class="btn-link" style="font-size: 13px; padding: 6px 12px; margin-top: 8px; display: inline-block;">
+            {{ ic('location') }} แผนที่ Google Maps
+          </a>
+        {% endif %}
+      </div>
+
+      {% if order.status in (3, 4, 5) %}
+        <div class="card" style="padding: 15px;">
+          <h3>{{ ic('receipt') }} ใบเสร็จรับเงิน</h3>
+          <a href="{{ url_for('admin_order_receipt', order_id=order_id_val) }}" target="_blank" class="btn" style="display:inline-block; width:auto; margin:0; padding: 9px 22px;">{{ ic('receipt') }} เปิด / พิมพ์ใบเสร็จ</a>
+        </div>
+      {% endif %}
+
+      <div class="card" style="padding: 15px;">
+        <h3>{{ ic('credit') }} หลักฐานการโอนเงิน</h3>
+        {% if order.get('slip') %}
+          <p style="margin: 4px 0; color: var(--green-success, #4caf50); font-weight: 600;">✔ อัปโหลดสลิปแล้ว</p>
+          <a href="{{ url_for('view_slip', order_id=order_id_val) }}" target="_blank">
+            <img src="{{ url_for('view_slip', order_id=order_id_val) }}" class="slip-img" alt="สลิปโอนเงิน">
+          </a>
+        {% else %}
+          <p style="color: var(--muted, #666); margin-top: 10px;">{{ ic('clock') }} ยังไม่ได้อัปโหลดสลิป</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- แสดงรายการวัตถุดิบผ่าน item_list หรือ lines -->
+    <div class="card" style="margin-top: 16px; padding: 15px;">
+      {% from '_choices.html' import choices %}
+      <h3>{{ ic('bowl') }} รายการหม่าล่าที่สั่ง (วัตถุดิบ {{ order.ingredient_count }} รายการ)</h3>
+      <p style="margin-bottom: 12px;">
+        <strong>น้ำซุป:</strong> {% if order.get('soup') and order['soup'] is mapping %}{{ order['soup'].get('name', '-') }}{% else %}{{ order.get('soup', '-') }}{% endif %}
+        | <strong>ความเผ็ด:</strong> ระดับ {{ order.get('spicy_level', 1) }}
+      </p>
+      {{ choices(order.sauce_items, order.seed_items) }}
+
+      <div style="border-top: 1px dashed var(--line, #ccc); padding-top: 8px;">
+        {% set items = order.get('ingredient_items') or [] %}
+        {% if items %}
+          {% for item in items %}
+            <div class="item" style="padding: 6px 0; display: flex; justify-content: space-between;">
+              <span><strong>{{ item.name }}</strong> ({{ "%.2f"|format(item.price) }} บาท × {{ item.qty }})</span>
+              <strong>{{ "%.2f"|format(item.subtotal) }} บาท</strong>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p style="color: var(--muted, #666);">ไม่มีรายการวัตถุดิบ</p>
+        {% endif %}
+      </div>
+
+      <!-- รายละเอียดสรุปยอดเงิน -->
+      <div style="border-top: 2px solid var(--line, #ccc); margin-top: 12px; padding-top: 8px;">
+        <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 4px;">
+          <span>ค่าอาหาร:</span>
+          <span>{{ "%.2f"|format(order.get('food_total', 0)) }} บาท</span>
+        </div>
+        {% if order.get('member_discount') %}
+        <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 4px; color: #155724;">
+          <span>ใช้สิทธิ์สมาชิก ({{ order.get('member_code') }}) ลดแล้ว:</span>
+          <span>-{{ "%.2f"|format(order.get('member_discount', 0)) }} บาท</span>
+        </div>
+        {% endif %}
+        {% if order.get('vat_enabled') and order.get('vat_mode') == 'included' %}
+        <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 2px; color: var(--muted);">
+          <span>มูลค่าก่อน VAT (ในค่าอาหารข้างต้น):</span>
+          <span>{{ "%.2f"|format(order.get('subtotal_ex_vat', 0)) }} บาท</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; color: var(--muted);">
+          <span>VAT {{ '%g'|format(order.get('vat_rate', 0)) }}% รวมอยู่ในราคาแล้ว{% if order.get('vat_demo') %} (จำลอง){% endif %}:</span>
+          <span>{{ "%.2f"|format(order.get('vat_amount', 0)) }} บาท</span>
+        </div>
+        {% elif order.get('vat_enabled') %}
+        <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 4px;">
+          <span>VAT {{ '%g'|format(order.get('vat_rate', 0)) }}%{% if order.get('vat_demo') %} (จำลอง){% endif %}:</span>
+          <span>{{ "%.2f"|format(order.get('vat_amount', 0)) }} บาท</span>
+        </div>
+        {% endif %}
+        <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px;">
+          <span>ค่าจัดส่ง ({{ order.get('km', 0) }} กม.):</span>
+          <span>{{ "%.2f"|format(order.get('delivery_fee', order.get('fee', 0))) }} บาท</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 18px;" class="item">
+          <strong>ยอดรวมชำระสุทธิ:</strong>
+          <strong style="color: var(--red-spicy, #d32f2f);">{{ "%.2f"|format(order.get('grand_total', order.get('total', 0))) }} บาท</strong>
+        </div>
+        {% if order.get('vat_demo') %}{% set show_vat_notice = true %}{% include '_vat_notice.html' %}{% endif %}
+      </div>
+    </div>
+
+    {% if order.get('review') %}
+      <div class="card" style="margin-top: 16px;">
+        <h3>{{ ic('star') }} รีวิวจากลูกค้า</h3>
+        <div class="stars-static">{% for i in range(1, 6) %}<span class="{{ 'on' if i <= order.review.stars else '' }}">★</span>{% endfor %}
+          <small style="color:var(--muted);">{{ order.review.stars }}/5 · {{ order.review.at }}</small></div>
+        <p style="margin: 6px 0 0;">{{ order.review.comment or '(ไม่ได้เขียนคอมเมนต์)' }}</p>
+      </div>
+    {% endif %}
+  </main>
+</body>
+</html>

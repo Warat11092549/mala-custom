@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>สุ่มหม่าล่า - MALA CUSTOM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  {% include '_nav.html' %}
+
+  <header>
+    <h1><span class="dice">{{ ic('dice') }}</span> สุ่มหม่าล่าให้ฉัน</h1>
+    <p>{{ soup.name }} · {{ spicy_name }}</p>
+  </header>
+
+  <main>
+    <a href="{{ url_for('shop') }}">← กลับไปเลือกเอง</a>
+
+    <div class="card">
+      <h3>งบของคุณเท่าไร? (รวมน้ำซุปแล้ว)</h3>
+
+      <form action="{{ url_for('random_page') }}" method="post" class="chips">
+        <button class="chip" name="budget" value="100">100 บาท</button>
+        <button class="chip" name="budget" value="150">150 บาท</button>
+        <button class="chip" name="budget" value="200">200 บาท</button>
+      </form>
+
+      <form action="{{ url_for('random_page') }}" method="post" class="coupon-form">
+        <input type="text" name="budget" value="{{ amount }}" placeholder="หรือพิมพ์งบเอง">
+        <button class="btn-link">สุ่มเลย {{ ic('dice') }}</button>
+      </form>
+
+      {% if error %}
+        <p class="msg">{{ error }}</p>
+      {% endif %}
+    </div>
+
+    {% if result %}
+      {% if result.ok %}
+        <div class="card">
+          <h3>ชุดสุ่มงบ {{ amount }} บาท</h3>
+
+          <div class="card item">
+            <span>น้ำซุป {{ soup.name }}</span>
+            <span>{{ '%g'|format(soup.price) }} บาท</span>
+          </div>
+
+          {% for line in result.lines %}
+            <div class="card item">
+              <span>{{ line.name }} <small>{{ '%g'|format(line.price) }} × {{ line.qty }}</small></span>
+              <span>{{ '%g'|format(line.line_total) }} บาท</span>
+            </div>
+          {% endfor %}
+
+          <div class="total">
+            <h2>รวม {{ '%g'|format(result.total) }} บาท</h2>
+            <p>งบ {{ amount }} บาท · เหลืองบอีก {{ '%g'|format(result.left) }} บาท</p>
+            {% if result.pay_after_tier < result.total %}
+              <p>หลังส่วนลดตามยอด ≈ <strong>{{ '%g'|format(result.pay_after_tier) }} บาท</strong></p>
+            {% endif %}
+            <p><small>ยอดนี้รวมน้ำซุปแล้ว ยังไม่รวมค่าส่ง/คูปอง{% if vat_cfg.enabled %} · รวม VAT แล้ว{% endif %} · น้ำจิ้มและกรองเม็ดเลือกเพิ่มได้ในขั้นตอนถัดไป (น้ำจิ้มคิดเงินเพิ่ม)</small></p>
+          </div>
+
+          <p class="msg">{{ ic('shield') }} การกดใช้ชุดนี้จะแทนที่ของในตะกร้าเดิม</p>
+
+          <div class="btn-row">
+            <form action="{{ url_for('random_page') }}" method="post">
+              <input type="hidden" name="budget" value="{{ amount }}">
+              <button class="btn btn-ghost">{{ ic('dice') }} สุ่มใหม่</button>
+            </form>
+            <form action="{{ url_for('random_use') }}" method="post">
+              <button class="btn">ใช้ชุดนี้ →</button>
+            </form>
+          </div>
+        </div>
+      {% else %}
+        <div class="card">
+          <p class="msg">งบไม่พอ น้ำซุปที่เลือกราคา {{ '%g'|format(result.soup_price) }} บาท ต้องใส่งบมากกว่านี้</p>
+        </div>
+      {% endif %}
+    {% endif %}
+  </main>
+</body>
+</html>

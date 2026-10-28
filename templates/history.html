@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ประวัติการสั่งซื้อ - MALA CUSTOM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  {% from '_choices.html' import choices %}
+  {% include '_nav.html' %}
+
+  <header>
+    <h1>{{ ic('receipt') }} ประวัติการสั่งซื้อของคุณ</h1>
+    <p>กดสั่งซ้ำได้ในคลิกเดียว</p>
+  </header>
+
+  <main style="max-width: 750px;">
+    {% for message in get_flashed_messages() %}
+      <p class="msg">{{ message }}</p>
+    {% endfor %}
+
+    {% if member.enabled %}
+      <div class="card member-card" style="margin-bottom: 16px;">
+        <h3 style="margin-top:0;">{{ ic('tag') }} สิทธิ์สมาชิกของคุณ</h3>
+        <p style="margin: 4px 0; font-size: 14px;">ยอดสะสม (นับเฉพาะออเดอร์ที่จัดส่งสำเร็จ): <strong>{{ '%g'|format(member.spend) }} บาท</strong></p>
+        <div class="member-progress"><span style="width: {{ member.progress_pct }}%;"></span></div>
+        <small style="color: var(--muted);">อีก {{ '%g'|format(member.to_next) }} บาท รับโค้ดลด {{ '%g'|format(member.value) }} บาท (ทุกยอดสะสม {{ '%g'|format(member.every) }} บาท)</small>
+        {% if member.active %}
+          <div class="slip-pending-note" style="margin-top: 10px;">
+            {{ ic('check') }} คุณมีสิทธิ์ลด <strong>{{ '%g'|format(member.active.value) }} บาท</strong> (สั่งขั้นต่ำ {{ '%g'|format(member.active.min_order) }} บาท · ใช้ได้ครั้งเดียว · หมดอายุ {{ member.active_expires }}) — กดใช้ได้ที่หน้าตะกร้า
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if orders %}
+      {% for order in orders %}
+        {% set order_id_val = order.get('order_id', order.get('id', '')) %}
+        <div class="card" style="margin-bottom: 16px;">
+          <div class="item" style="border-bottom: 1px dashed var(--line); padding-bottom: 8px;">
+            <div>
+              <strong style="color: var(--red-spicy); font-size: 18px;">ออเดอร์ #{{ order_id_val }}</strong>
+              <div style="font-size: 12px; color: var(--muted); margin-top: 2px;">
+                {{ ic('clock') }} สั่งเมื่อ: {{ order.created_at }}
+              </div>
+            </div>
+            {% if order.status == 1 and order.slip_note %}
+              <span class="chip" style="margin: 0; background: #fdecea; color: #d93025; font-weight: 600;">
+                {{ ic('cancel') }} สลิปไม่ผ่าน — ส่งใหม่
+              </span>
+            {% else %}
+              <span class="chip" style="margin: 0; background: var(--blush); color: var(--red-spicy); font-weight: 600;">
+                {{ order.get('status_name', order.get('status')) }}
+              </span>
+            {% endif %}
+          </div>
+
+          {% if order.status == 1 and order.deadline_text %}
+            <div class="slip-pending-note" style="margin: 10px 0; font-size: 13px;">
+              {{ ic('clock') }} ชำระและแนบสลิปภายใน <strong>{{ order.deadline_text }} น.</strong> ไม่งั้นระบบจะยกเลิกออเดอร์อัตโนมัติ
+            </div>
+          {% endif %}
+
+          {% if order.status == 1 and order.slip_note %}
+            <div class="slip-rejected" style="margin: 10px 0;">
+              <strong>{{ ic('cancel') }} สลิปไม่ผ่านการตรวจสอบ</strong>
+              <p>เหตุผลจากร้าน: {{ order.slip_note }}</p>
+            </div>
+          {% endif %}
+
+          <div style="margin: 10px 0;">
+            <p style="margin: 4px 0; font-size: 14px;">
+              <strong>{{ ic('bowl') }} น้ำซุป:</strong> 
+              {% if order.get('soup') and order['soup'] is mapping %}
+                {{ order['soup'].get('name', '-') }}
+              {% else %}
+                {{ order.get('soup', '-') }}
+              {% endif %}
+              (ระดับ {{ order.get('spicy_level', 1) }})
+            </p>
+            <div style="font-size: 14px;">{{ choices(order.sauce_items, order.seed_items) }}</div>
+
+            <!-- แสดงรายการวัตถุดิบผ่าน item_list -->
+            <div style="background: var(--blush); padding: 10px 14px; border-radius: 12px; margin-top: 8px;">
+              <strong style="font-size: 13px; color: var(--red-spicy);">{{ ic('leaf') }} วัตถุดิบในชาม ({{ order.ingredient_count }} รายการ):</strong>
+              <div style="font-size: 13px; color: var(--text-main); margin-top: 4px; line-height: 1.5;">
+                {% if order.ingredient_items %}
+                  {% for item in order.ingredient_items %}
+                    • {{ item.name }} x{{ item.qty }}{% if not loop.last %}<br>{% endif %}
+                  {% endfor %}
+                {% else %}
+                  <span style="color: var(--muted);">- ไม่มีรายการวัตถุดิบ -</span>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+          <div class="item" style="border-top: 1px solid var(--line); padding-top: 10px; margin-top: 10px;">
+            <div>
+              <small style="color: var(--muted);">ยอดรวมสุทธิ{% if order.get('vat_enabled') %} (รวม VAT){% endif %}</small>
+              <div style="font-size: 18px; font-weight: 700; color: var(--red-spicy);">
+                {{ "%.2f"|format(order.get('grand_total', order.get('total', 0))) }} บาท
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 8px;">
+              {% if order.status == 1 %}
+                <a href="{{ url_for('order_pay', order_id=order_id_val) }}" class="btn-link" style="font-size: 13px; padding: 6px 12px;">
+                  {% if order.slip_note %}{{ ic('link') }} ส่งสลิปใหม่{% else %}{{ ic('credit') }} ชำระเงิน / แนบสลิป{% endif %}
+                </a>
+                <form action="{{ url_for('customer_cancel_order', order_id=order_id_val) }}" method="post" style="margin: 0;"
+                      onsubmit="return confirm('ยกเลิกออเดอร์ {{ order_id_val }} ใช่ไหม?');">
+                  <button type="submit" class="btn-cancel">{{ ic('trash') }} ยกเลิก</button>
+                </form>
+              {% else %}
+                <a href="{{ url_for('order_status', order_id=order_id_val) }}" class="btn-link" style="font-size: 13px; padding: 6px 12px;">
+                  {% if order.status == 5 and not order.get('review') %}{{ ic('star') }} ให้คะแนน{% else %}{{ ic('truck') }} ติดตามออเดอร์{% endif %}
+                </a>
+              {% endif %}
+              {% if order.status in (3, 4, 5) %}<a href="{{ url_for('order_receipt', order_id=order_id_val) }}" class="btn-link" style="font-size: 13px; padding: 6px 12px;">{{ ic('receipt') }} ใบเสร็จ</a>{% endif %}
+              <form action="{{ url_for('reorder', order_id=order_id_val) }}" method="post" style="margin: 0;">
+                <button type="submit" class="btn" style="font-size: 13px; padding: 6px 14px; margin: 0;">
+                  {{ ic('refresh') }} สั่งอีกครั้ง
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="card center" style="padding: 40px 16px;">
+        <p style="color: var(--muted);">คุณยังไม่มีประวัติการสั่งซื้อ</p>
+        <a href="{{ url_for('home') }}" class="btn-link" style="display: inline-block; margin-top: 10px;">สั่งซื้อหม่าล่าตอนนี้</a>
+      </div>
+    {% endif %}
+  </main>
+</body>
+</html>

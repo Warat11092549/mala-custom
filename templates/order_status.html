@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if order.status in (2, 3, 4) %}<meta http-equiv="refresh" content="15">{% endif %}   {# ออเดอร์จบแล้วไม่รีเฟรช ไม่งั้นช่องคอมเมนต์ที่กำลังพิมพ์จะหาย #}
+  <title>ติดตามสถานะออเดอร์ - MALA CUSTOM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .grab-tracker-card {
+      background: var(--paper);
+      border-radius: 24px;
+      padding: 24px 20px;
+      border: 1.5px solid var(--line);
+      box-shadow: var(--shadow-soft);
+      margin-top: 16px;
+    }
+    .grab-status-header {
+      text-align: center;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed var(--line);
+      margin-bottom: 20px;
+    }
+    .grab-status-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--red-spicy);
+      margin: 4px 0;
+    }
+    .grab-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      position: relative;
+      padding-left: 10px;
+    }
+    .grab-timeline-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      position: relative;
+    }
+    .grab-timeline-item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 42px;
+      bottom: -18px;
+      width: 3px;
+      background: var(--line);
+    }
+    .grab-timeline-item.done:not(:last-child)::after {
+      background: var(--red-spicy);
+    }
+    .grab-icon-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #f5ece8;
+      border: 2px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+    .grab-timeline-item.done .grab-icon-box {
+      background: var(--blush);
+      border-color: var(--red-spicy);
+    }
+    .grab-timeline-item.active .grab-icon-box {
+      background: var(--red-spicy);
+      border-color: var(--red-spicy);
+      color: #ffffff;
+      box-shadow: 0 0 0 6px rgba(231, 91, 30, 0.2);
+      animation: pulseGlow 1.8s infinite;
+    }
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 0 rgba(231, 91, 30, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(231, 91, 30, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(231, 91, 30, 0); }
+    }
+    .grab-content {
+      padding-top: 4px;
+    }
+    .grab-content h4 {
+      margin: 0;
+      font-size: 16px;
+      color: var(--muted);
+    }
+    .grab-timeline-item.active .grab-content h4 {
+      color: var(--red-spicy);
+      font-weight: 700;
+      font-size: 17px;
+    }
+    .grab-content p {
+      margin: 2px 0 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ขยับเฉพาะตอนสถานะเพิ่งเปลี่ยน (สคริปต์ท้ายหน้าเป็นคนเติมคลาส) — หน้านี้รีเฟรชทุก 15 วิ ถ้าขยับทุกรอบจะรำคาญ */
+    @keyframes stepPop { 0% { transform: scale(0.6); } 60% { transform: scale(1.18); } 100% { transform: scale(1); } }
+    @keyframes lineGrow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+    .grab-timeline-item.line-grow::after { transform-origin: top; animation: lineGrow 0.7s var(--ease) both; }
+    .grab-timeline-item.just-reached .grab-icon-box { animation: stepPop 0.5s var(--ease) 0.5s both; }
+    .grab-timeline-item.just-reached.active .grab-icon-box { animation: stepPop 0.5s var(--ease) 0.5s both, pulseGlow 1.8s 1s infinite; }
+  </style>
+</head>
+<body>
+  {% include '_nav.html' %}
+
+  <header>
+    <h1>{{ ic('truck') }} ติดตามสถานะออเดอร์</h1>
+  </header>
+
+  <main style="max-width: 650px;">
+    {% for message in get_flashed_messages() %}
+      <p class="msg">{{ message }}</p>
+    {% endfor %}
+    {% set st = order.get('status', 1) %}
+    {% set order_id_val = order.get('order_id', order.get('id', '')) %}
+
+    <div class="grab-tracker-card">
+      <div class="grab-status-header">
+        <small style="color: var(--muted);">รหัสออเดอร์ของคุณ</small>
+        <div class="grab-status-title">#{{ order_id_val }}</div>
+        
+        {% if st == 1 %}
+          <div class="alert alert-danger" style="margin-top: 10px; margin-bottom: 0;">
+            {{ ic('credit') }} ยังไม่ได้ชำระเงิน — <a href="{{ url_for('order_pay', order_id=order_id_val) }}">ไปหน้าชำระเงิน</a>
+          </div>
+        {% elif st == 2 %}
+          <div class="alert" style="margin-top: 10px; margin-bottom: 0;">
+            {{ ic('clock') }} ส่งสลิปเรียบร้อย รอร้านค้าตรวจสอบและรับออเดอร์นะ
+            <div style="margin-top: 6px; font-size: 13px;">
+              แนบผิด? <a href="{{ url_for('order_pay', order_id=order_id_val) }}">เปลี่ยนสลิป</a>
+            </div>
+          </div>
+        {% elif st == 3 %}
+          <div class="alert alert-success" style="margin-top: 10px; margin-bottom: 0;">
+            {{ ic('chili') }} ร้านค้ารับออเดอร์แล้ว กำลังจัดเตรียมหม่าล่าให้คุณ!
+          </div>
+        {% elif st == 4 %}
+          <div class="alert alert-success" style="margin-top: 10px; margin-bottom: 0;">
+            {{ ic('truck') }} ไรเดอร์นำหม่าล่าออกจากร้านแล้ว กำลังไปส่งที่บ้านคุณ!
+          </div>
+        {% elif st == 5 %}
+          <div class="alert alert-success" style="margin-top: 10px; margin-bottom: 0; background: #d4edda; color: #155724;">
+            {{ ic('star') }} จัดส่งสำเร็จเรียบร้อย ขอให้ทานหม่าล่าให้อร่อยนะ!
+          </div>
+        {% else %}
+          <div class="alert alert-danger" style="margin-top: 10px; margin-bottom: 0;">
+            {{ ic('cancel') }} ออเดอร์นี้ถูกยกเลิกแล้ว{% if order.cancel_note %} — {{ order.cancel_note }}{% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="grab-timeline">
+        <div class="grab-timeline-item {% if st > 2 %}done{% elif st == 1 or st == 2 %}active{% endif %}">
+          <div class="grab-icon-box">{{ ic('edit') }}</div>
+          <div class="grab-content">
+            <h4>1. ส่งออเดอร์ & ตรวจสอบการโอนเงิน</h4>
+            <p>{% if st >= 2 %}ร้านค้าได้รับออเดอร์และสลิปชำระเงินเรียบร้อยแล้ว{% else %}กำลังรอการอัปโหลด/ตรวจสอบสลิป{% endif %}</p>
+          </div>
+        </div>
+
+        <div class="grab-timeline-item {% if st > 3 %}done{% elif st == 3 %}active{% endif %}">
+          <div class="grab-icon-box">{{ ic('user') }}‍{{ ic('bowl') }}</div>
+          <div class="grab-content">
+            <h4>2. ร้านกำลังจัดเตรียมหม่าล่า</h4>
+            <p>พ่อครัวกำลังลวกวัตถุดิบและปรุงน้ำซุปสูตรเด็ดของคุณ</p>
+          </div>
+        </div>
+
+        <div class="grab-timeline-item {% if st > 4 %}done{% elif st == 4 %}active{% endif %}">
+          <div class="grab-icon-box">{{ ic('truck') }}</div>
+          <div class="grab-content">
+            <h4>3. ไรเดอร์กำลังนำไปจัดส่ง</h4>
+            <p>หม่าล่าร้อนๆ อยู่ระหว่างเดินทางไปยังที่อยู่ของคุณ</p>
+          </div>
+        </div>
+
+        <div class="grab-timeline-item {% if st == 5 %}done active{% endif %}">
+          <div class="grab-icon-box">{{ ic('star') }}</div>
+          <div class="grab-content">
+            <h4>4. จัดส่งสำเร็จ</h4>
+            <p>สินค้าถึงมือผู้รับเรียบร้อยแล้ว</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% if order.status == 5 %}
+      {% if new_member_code %}
+        <div class="card member-card" style="margin-top: 16px; text-align: center;">
+          {{ ic('tag') }} <strong>คุณได้รับสิทธิ์สมาชิก ลด {{ '%g'|format(new_member_code.value) }} บาท!</strong><br>
+          <small>สั่งขั้นต่ำ {{ '%g'|format(new_member_code.min_order) }} บาท · ใช้ได้ครั้งเดียว · หมดอายุ {{ new_member_code.expires_text }} · กดใช้ได้ที่หน้าตะกร้า</small>
+        </div>
+      {% endif %}
+
+      {% if order.get('review') %}
+        <div class="card review-card">
+          <h3>{{ ic('star') }} ขอบคุณสำหรับรีวิวนะ</h3>
+          <div class="stars-static">{% for i in range(1, 6) %}<span class="{{ 'on' if i <= order.review.stars else '' }}">★</span>{% endfor %}</div>
+          {% if order.review.comment %}<p style="margin: 6px 0 0; color: var(--muted);">{{ order.review.comment }}</p>{% endif %}
+        </div>
+      {% elif show_review_form %}
+        <div class="review-modal" id="review-modal" role="dialog" aria-modal="true" aria-labelledby="review-title">
+          <div class="review-modal-box">
+            <button type="button" class="review-close" id="review-close" aria-label="ปิด">×</button>
+            <h3 id="review-title">{{ ic('star') }} อาหารเป็นยังไงบ้าง?</h3>
+            <p class="review-hint">ร้านเห็นคนเดียว ไม่แสดงให้ลูกค้าคนอื่น</p>
+            <form action="{{ url_for('submit_review', order_id=order_id_val) }}" method="post">
+              <div class="star-input">
+                {% for i in (5, 4, 3, 2, 1) %}
+                  <input type="radio" id="star{{ i }}" name="stars" value="{{ i }}" required>
+                  <label for="star{{ i }}" title="{{ i }} ดาว">★</label>
+                {% endfor %}
+              </div>
+              <textarea name="comment" rows="3" maxlength="{{ review_comment_max }}" placeholder="เล่าให้ฟังหน่อย (ไม่บังคับ)" class="review-text"></textarea>
+              <div class="review-actions">
+                <button type="submit" class="btn" style="margin: 0;">ส่งรีวิว</button>
+              </div>
+            </form>
+            <form action="{{ url_for('skip_review', order_id=order_id_val) }}" method="post" style="margin: 10px 0 0; text-align: center;">
+              <button type="submit" class="btn-link">ไว้ทีหลัง</button>
+            </form>
+          </div>
+        </div>
+        <div class="center" style="margin-top: 12px;" id="review-reopen" hidden>
+          <button type="button" class="btn-link" id="review-open">{{ ic('star') }} ให้คะแนนออเดอร์นี้</button>
+        </div>
+        <script>
+          (function () {
+            var m = document.getElementById('review-modal'), r = document.getElementById('review-reopen');
+            function close() { m.hidden = true; r.hidden = false; document.body.classList.remove('modal-open'); }
+            function open() { m.hidden = false; r.hidden = true; document.body.classList.add('modal-open'); }
+            document.body.classList.add('modal-open');
+            document.getElementById('review-close').onclick = close;
+            document.getElementById('review-open').onclick = open;
+            m.addEventListener('click', function (e) { if (e.target === m) close(); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !m.hidden) close(); });
+          })();
+        </script>
+      {% elif can_review %}
+        <div class="center" style="margin-top: 12px;"><small>ข้ามการรีวิวแล้ว · <a href="{{ url_for('order_status', order_id=order_id_val, review=1) }}">ให้คะแนนตอนนี้</a></small></div>
+      {% endif %}
+
+      {% if true %}
+        <div class="center" style="margin-top: 12px;">
+          <form action="{{ url_for('reorder', order_id=order_id_val) }}" method="post" style="margin:0; display:inline;">
+            <button type="submit" class="btn" style="width:auto; padding: 10px 22px;">{{ ic('refresh') }} สั่งอีกครั้ง</button>
+          </form>
+        </div>
+      {% endif %}
+    {% endif %}
+
+    <!-- แสดงรายการวัตถุดิบผ่าน item_list -->
+    <div class="card" style="margin-top: 20px;">
+      {% from '_choices.html' import choices %}
+      <h3>{{ ic('receipt') }} สรุปรายการออเดอร์ (วัตถุดิบ {{ order.ingredient_count }} รายการ)</h3>
+      <p style="margin: 4px 0;"><strong>ผู้รับ:</strong> {{ order.get('customer_name', order.get('name', '-')) }} ({{ ic('message') }} {{ order.get('phone', '-') }})</p>
+      <p style="margin: 4px 0;"><strong>ที่อยู่จัดส่ง:</strong> {{ order.get('address', '-') }}</p>
+      <p style="margin: 4px 0;">
+        <strong>ซุป:</strong> {% if order.get('soup') and order['soup'] is mapping %}{{ order['soup'].get('name', '-') }}{% else %}{{ order.get('soup', '-') }}{% endif %}
+        (เผ็ดระดับ {{ order.get('spicy_level', 1) }})
+      </p>
+      {{ choices(order.sauce_items, order.seed_items) }}
+
+      <div style="border-top: 1px dashed var(--line); margin-top: 10px; padding-top: 8px;">
+        {% if order.ingredient_items %}
+          {% for item in order.ingredient_items %}
+            <div class="item" style="font-size: 14px; padding: 4px 0;">
+              <span>• {{ item.name }} × {{ item.qty }}</span>
+              <span>{{ '%g'|format(item.subtotal) }} บาท</span>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p style="color: var(--muted);">- ไม่มีรายการวัตถุดิบ -</p>
+        {% endif %}
+      </div>
+
+      {% if order.status in (3, 4, 5) %}<p style="margin: 10px 0 0;"><a href="{{ url_for('order_receipt', order_id=order_id_val) }}" class="btn-link">{{ ic('receipt') }} ดูใบเสร็จ</a></p>{% endif %}
+
+      {% if order.vat_enabled and order.vat_mode == 'included' %}
+        <div class="item" style="border-top: 2px solid var(--line); margin-top: 10px; padding-top: 8px; font-size: 14px;">
+          <span>ค่าอาหารหลังหักส่วนลด (รวม VAT แล้ว):</span><span>{{ "%.2f"|format(order.food_total) }} บาท</span>
+        </div>
+        <div class="item" style="font-size: 13px; color: var(--muted);"><span>มูลค่าก่อน VAT:</span><span>{{ "%.2f"|format(order.subtotal_ex_vat) }} บาท</span></div>
+        <div class="item" style="font-size: 13px; color: var(--muted);"><span>VAT {{ '%g'|format(order.vat_rate) }}% (รวมอยู่ในราคาแล้ว):</span><span>{{ "%.2f"|format(order.vat_amount) }} บาท</span></div>
+        <div class="item" style="font-size: 14px;"><span>ค่าจัดส่ง:</span><span>{{ "%.2f"|format(order.delivery_fee) }} บาท</span></div>
+      {% elif order.vat_enabled %}
+        <div class="item" style="border-top: 2px solid var(--line); margin-top: 10px; padding-top: 8px; font-size: 14px;">
+          <span>ค่าอาหารหลังหักส่วนลด:</span><span>{{ "%.2f"|format(order.food_total) }} บาท</span>
+        </div>
+        <div class="item" style="font-size: 14px;"><span>VAT {{ '%g'|format(order.vat_rate) }}%:</span><span>{{ "%.2f"|format(order.vat_amount) }} บาท</span></div>
+        <div class="item" style="font-size: 14px;"><span>ค่าจัดส่ง:</span><span>{{ "%.2f"|format(order.delivery_fee) }} บาท</span></div>
+      {% endif %}
+      <div class="item" style="border-top: 2px solid var(--line); margin-top: 10px; padding-top: 8px; font-size: 18px; color: var(--red-spicy);">
+        <strong>ยอดรวมสุทธิ:</strong>
+        <strong>{{ "%.2f"|format(order.get('grand_total', order.get('total', 0))) }} บาท</strong>
+      </div>
+      {% if order.vat_demo %}{% set show_vat_notice = true %}{% include '_vat_notice.html' %}{% endif %}
+    </div>
+
+    <div class="center" style="margin-top: 16px;">
+      <a href="{{ url_for('home') }}" class="btn-link">กลับไปหน้าหลัก</a>
+    </div>
+  </main>
+  <script>
+    // ขยับแถบสถานะเมื่อสถานะต่างจากที่เห็นครั้งก่อน (เก็บใน sessionStorage) · เปิดครั้งแรก/สถานะเดิม = ไม่ขยับ
+    (function () {
+      var key = "mala_status_" + {{ (order.get('order_id') or '')|tojson }};
+      var now = String({{ st }});
+      var prev = null;
+      try { prev = sessionStorage.getItem(key); sessionStorage.setItem(key, now); } catch (e) { return; }
+      if (prev === now) { return; }
+      var items = document.querySelectorAll(".grab-timeline-item");
+      var idx = -1;
+      items.forEach(function (el, i) { if (el.classList.contains("active")) { idx = i; } });
+      if (idx < 0) { return; }
+      items[idx].classList.add("just-reached");
+      if (idx > 0) { items[idx - 1].classList.add("line-grow"); }
+    })();
+  </script>
+</body>
+</html>
